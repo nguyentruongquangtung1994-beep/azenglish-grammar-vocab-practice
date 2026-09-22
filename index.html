@@ -173,52 +173,26 @@
 
   .hidden{ display:none !important; }
 
-  /* ---- Part 7 lesson flow ---- */
-  .p7-step-nav{ display:flex; gap:4px; margin-bottom:16px; }
-  .p7-step-dot{ flex:1; height:5px; border-radius:99px; background:var(--paper-2); }
-  .p7-step-dot.done{ background:var(--red); }
-  .p7-step-dot.current{ background:var(--gold); }
-  .p7-step-label{ font-size:11px; color:var(--ink-soft); font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px; }
-  .p7-passage{ white-space:pre-wrap; font-size:14px; line-height:1.75; background:var(--paper-2); border-radius:12px; padding:16px; }
-  .p7-analysis{ font-size:13px; line-height:1.8; margin-top:12px; }
-  .p7-analysis b{ color:var(--red-ink); }
-  .p7-chunk{ border-bottom:1px solid var(--line); padding:14px 0; }
-  .p7-chunk:last-child{ border-bottom:none; }
-  .p7-chunk-en{ font-size:14px; line-height:1.6; font-weight:600; }
-  .p7-chunk-vi{ font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin-top:6px; }
-  .p7-phrase-chip{ display:inline-block; font-size:11px; font-weight:700; background:var(--gold-bg); color:var(--gold); border-radius:99px; padding:3px 10px; margin:6px 6px 0 0; }
-  .p7-mcard{ border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:14px; background:var(--paper); }
-  .p7-mcard-head{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
-  .p7-mcard-word{ font-family:var(--font-display); font-size:17px; font-weight:700; }
-  .p7-mcard-ipa{ font-size:12px; color:var(--ink-soft); }
-  .p7-mcard-pos{ font-size:10.5px; font-weight:700; text-transform:uppercase; color:var(--gold); background:var(--gold-bg); border-radius:6px; padding:2px 7px; }
-  .p7-mcard-row{ font-size:13px; line-height:1.65; margin-top:8px; }
-  .p7-mcard-row b{ color:var(--red-ink); font-size:11.5px; text-transform:uppercase; letter-spacing:.03em; display:block; margin-bottom:2px; }
-  .p7-mcard-collo{ display:inline-block; font-size:12px; background:var(--paper-2); border-radius:8px; padding:4px 9px; margin:4px 6px 0 0; }
-  .p7-confuse-table{ width:100%; border-collapse:collapse; font-size:12.5px; margin-top:6px; }
-  .p7-confuse-table td{ border:1px solid var(--line); padding:7px 9px; vertical-align:top; }
-  .p7-confuse-table td:first-child{ font-weight:700; color:var(--red-ink); width:28%; }
-  .p7-para-item{ border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:10px; cursor:pointer; }
-  .p7-para-orig{ font-weight:700; font-size:14px; }
-  .p7-para-reveal{ margin-top:10px; font-size:13px; color:var(--ink-soft); display:none; }
-  .p7-para-item.open .p7-para-reveal{ display:block; }
-  .p7-para-arrow{ text-align:center; color:var(--ink-soft); font-size:12px; margin:2px 0; }
-  .p7-recall-block{ margin-bottom:20px; }
-  .p7-recall-block h4{ font-family:var(--font-display); font-size:14px; margin:0 0 10px; }
-  .p7-recall-item{ border:1px solid var(--line); border-radius:12px; padding:13px 15px; margin-bottom:10px; }
-  .p7-recall-q{ font-size:14px; font-weight:600; }
-  .p7-recall-answer{ margin-top:10px; font-size:13.5px; background:var(--paper-2); border-radius:9px; padding:9px 11px; display:none; }
-  .p7-recall-item.revealed .p7-recall-answer{ display:block; }
-  .p7-grade-row{ display:flex; gap:8px; margin-top:8px; }
-  .p7-grade-btn{ font-size:12px; font-weight:700; border-radius:8px; padding:6px 12px; border:1.5px solid var(--line); background:var(--paper); cursor:pointer; }
-  .p7-grade-btn.correct.active{ background:var(--green-bg); color:var(--green); border-color:var(--green); }
-  .p7-grade-btn.wrong.active{ background:var(--gold-bg); color:var(--red); border-color:var(--red); }
-  .p7-due-badge{ font-size:10.5px; font-weight:800; background:var(--red); color:#fff; border-radius:99px; padding:3px 9px; margin-left:8px; }
-  .p7-lesson-card{ border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin-bottom:12px; background:var(--paper); box-shadow:var(--card-shadow); }
-  .p7-lesson-top{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-  .p7-lesson-type{ font-size:10.5px; font-weight:700; text-transform:uppercase; color:var(--gold); }
-  .p7-lesson-title{ font-family:var(--font-display); font-size:15.5px; font-weight:700; margin:2px 0 0; }
-  .p7-method-formula{ font-size:12px; font-weight:700; color:var(--ink-soft); letter-spacing:.02em; margin-top:8px; }
+  /* ---- Part 7 — AZ Daily 15 ---- */
+  .p7-tag{ font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:var(--gold); }
+  .p7-formula{ font-size:12px; font-weight:700; color:var(--ink-soft); letter-spacing:.02em; margin-top:8px; }
+  .p7-passage-para{ font-size:14px; line-height:1.75; margin-bottom:12px; }
+  .p7-passage-vi{ font-size:13px; line-height:1.7; color:var(--ink-soft); margin-top:5px; padding-left:10px; border-left:2px solid var(--line); }
+  .p7-toggle-row{ display:flex; border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-bottom:14px; }
+  .p7-toggle-row button{ flex:1; padding:9px; font-size:12px; font-weight:700; border:none; background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--font-body); }
+  .p7-toggle-row button.active{ background:var(--red); color:#fff; }
+  .p7-chunk-list{ margin-top:16px; }
+  .p7-chunk-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:8px; border-bottom:1px solid var(--line); padding:11px 0; }
+  .p7-chunk-row:last-child{ border-bottom:none; }
+  .p7-chunk-en{ font-weight:700; font-size:13.5px; }
+  .p7-chunk-vi{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+  mark.p7-hl{ background:var(--gold-bg); color:var(--red-ink); font-weight:700; border-radius:3px; padding:1px 3px; }
+  mark.p7-hl-vi{ background:var(--gold-bg); color:var(--ink); font-weight:700; font-style:italic; border-radius:3px; padding:1px 4px; }
+  .p7-vi-num{ display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%; background:var(--red); color:#fff; font-size:9.5px; font-weight:800; font-style:normal; margin-right:4px; }
+  .p7-speak{ border:none; background:none; cursor:pointer; font-size:13px; padding:0 2px; vertical-align:middle; }
+  .p7-lesson-row{ border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin-bottom:10px; background:var(--paper); }
+  .p7-due-badge{ font-size:10px; font-weight:800; background:var(--red); color:#fff; border-radius:99px; padding:2px 8px; margin-left:8px; }
+  .p7-test-heading{ font-family:var(--font-display); font-size:15px; font-weight:700; margin:0 0 10px; }
 </style>
 </head>
 <body>
@@ -324,7 +298,9 @@
 <script src="data/topic-6-chia-dong-tu.js"></script>
 <script src="data/topic-7-tu-loai.js"></script>
 <script src="data/topic-8-part7-tu-vung.js"></script>
-<script src="data/part7-lessons.js"></script>
+<script src="data/part7-daily15-test1.js"></script>
+<script src="data/part7-daily15-test2.js"></script>
+<script src="data/part7-daily15-test3.js"></script>
 <script>
 (function(){
   "use strict";
@@ -415,8 +391,9 @@
     if(parts.length === 0){ renderDashboard(); }
     else if(parts[0] === 'topic' && parts[1]){ renderTopic(parts[1]); }
     else if(parts[0] === 'quiz' && parts[1] && parts[2]){ renderQuizIntro(parts[1], parts[2]); }
-    else if(parts[0] === 'p7' && !parts[1]){ renderPart7Dashboard(); }
-    else if(parts[0] === 'p7' && parts[1] && parts[2]){ renderPart7Lesson(parts[1], parseInt(parts[2],10) || 1); }
+    else if(parts[0] === 'p7' && !parts[1]){ renderP7Dashboard(); }
+    else if(parts[0] === 'p7' && parts[1] === 'review'){ renderP7Review(); }
+    else if(parts[0] === 'p7' && parts[1] && parts[2]){ renderP7Lesson(parts[1], parts[2]); }
     else { renderDashboard(); }
   }
   window.addEventListener('hashchange', route);
@@ -464,19 +441,19 @@
     if(bonusIds.length){
       html += '<div class="panel"><h2 style="font-size:16px;">Phần bổ trợ</h2><p class="desc">Luyện sau khi đã xong 7 chủ điểm — từ vựng lấy từ bài đọc thật ETS 2026.</p>';
       bonusIds.forEach(function(id){
-        if(id === 'part7-tu-vung' && window.AZ_PART7_LESSONS){
-          var lessons = window.AZ_PART7_LESSONS;
-          var p7p = getP7Progress();
-          var doneCount = lessons.filter(function(l){ return p7p[l.id]; }).length;
-          var duePart7 = lessons.filter(function(l){ return p7p[l.id] && p7p[l.id].dueDate && p7p[l.id].dueDate <= todayStr(); }).length;
+        if(id === 'part7-tu-vung' && window.AZ_P7_LESSONS){
+          var lessons = p7Lessons();
+          var ps = p7EnsureState();
+          var doneCount = lessons.filter(function(l){ return ps.lessons[l.id]; }).length;
+          var dueCount = Object.keys(ps.chunks).filter(function(cid){ var c = ps.chunks[cid]; return c.nextReviewDate && c.nextReviewDate <= p7Today() && c.status !== 'MASTERED'; }).length;
           html += '<div class="topic-card" onclick="location.hash=\'#/p7\'">';
           html += '  <div class="topic-card-top">';
           html += '    <div class="topic-num">★</div>';
-          html += '    <div><p class="topic-title">Part 7 — Bài Đọc Song Ngữ</p><p class="topic-sub">AZ Bilingual Memory Method · ' + lessons.length + ' bài học' + (duePart7 ? ' · <b style="color:var(--red);">' + duePart7 + ' bài cần ôn</b>' : '') + '</p></div>';
+          html += '    <div><p class="topic-title">Part 7 — AZ Daily 15</p><p class="topic-sub">' + lessons.length + ' bài học (Test 1-3)' + (dueCount ? ' · <b style="color:var(--red);">' + dueCount + ' chunk cần ôn</b>' : '') + '</p></div>';
           html += '    <div class="topic-arrow">›</div>';
           html += '  </div>';
-          html += '  <div class="progress-track"><div class="progress-fill" style="width:' + Math.round(doneCount/lessons.length*100) + '%"></div></div>';
-          html += '  <div class="progress-label">' + doneCount + '/' + lessons.length + ' bài đã học lần đầu</div>';
+          html += '  <div class="progress-track"><div class="progress-fill" style="width:' + (lessons.length ? Math.round(doneCount/lessons.length*100) : 0) + '%"></div></div>';
+          html += '  <div class="progress-label">' + doneCount + '/' + lessons.length + ' bài đã học</div>';
           html += '</div>';
         } else {
           html += topicCard(id, '★');
@@ -668,272 +645,405 @@
     }
   };
 
-  // ---------- PART 7: AZ BILINGUAL MEMORY METHOD ----------
-  var P7_INTERVALS = [1,3,7,14,30]; // days: Day1, Day3, Day7, Day14, Day30
-  var P7_KEY = 'az_toeicgrammar_p7progress';
-  function todayStr(){ return new Date().toISOString().slice(0,10); }
-  function addDaysStr(days){ var d = new Date(); d.setDate(d.getDate()+days); return d.toISOString().slice(0,10); }
-  function getP7Progress(){ try{ return JSON.parse(localStorage.getItem(P7_KEY) || '{}'); }catch(e){ return {}; } }
-  function saveP7Progress(p){ try{ localStorage.setItem(P7_KEY, JSON.stringify(p)); }catch(e){} }
-  function findP7Lesson(id){ var list = window.AZ_PART7_LESSONS || []; return list.filter(function(l){ return l.id === id; })[0]; }
-
-  var p7ui = null; // transient in-memory state for the lesson currently open
-
-  function p7InitUi(lesson){
-    p7ui = { lessonId: lesson.id, comp: new Array(lesson.comprehensionCheck.length).fill(null), recall: {}, app: new Array(lesson.part7Application.questions.length).fill(null), paraOpen: {} };
+  // ---------- PART 7: AZ DAILY 15 ----------
+  var P7_KEY = 'az_toeicgrammar_p7d15';
+  var P7_INTERVALS = [1,3,7,14,30];
+  function p7Today(){ return new Date().toISOString().slice(0,10); }
+  function p7AddDays(n){ var d = new Date(); d.setDate(d.getDate()+n); return d.toISOString().slice(0,10); }
+  function getP7State(){ try{ return JSON.parse(localStorage.getItem(P7_KEY) || '{}'); }catch(e){ return {}; } }
+  function saveP7State(s){ try{ localStorage.setItem(P7_KEY, JSON.stringify(s)); }catch(e){} }
+  function p7Lessons(){ return window.AZ_P7_LESSONS || []; }
+  function p7LessonById(id){ return p7Lessons().filter(function(l){ return l.id === id; })[0]; }
+  function p7ChunkById(id){
+    var lessons = p7Lessons();
+    for(var i=0;i<lessons.length;i++){
+      var found = lessons[i].chunks.filter(function(c){ return c.id === id; })[0];
+      if(found) return Object.assign({lessonId:lessons[i].id}, found);
+    }
+    return null;
+  }
+  function p7EnsureState(){
+    var s = getP7State();
+    if(!s.chunks) s.chunks = {};
+    if(!s.lessons) s.lessons = {};
+    p7Lessons().forEach(function(lesson){
+      lesson.chunks.forEach(function(c){
+        if(!s.chunks[c.id]){
+          s.chunks[c.id] = { lessonId:lesson.id, chunk:c.chunk, meaningVi:c.meaningVi, dateLearned:null, nextReviewDate:null, intervalIdx:-1, correctCount:0, incorrectCount:0, lastResult:null, status:'NEW' };
+        }
+      });
+    });
+    saveP7State(s);
+    return s;
+  }
+  function p7ApplySpaced(rec, correct){
+    if(correct){
+      var nextIdx = rec.intervalIdx + 1;
+      if(nextIdx >= P7_INTERVALS.length){ rec.status = 'MASTERED'; rec.nextReviewDate = null; rec.intervalIdx = P7_INTERVALS.length - 1; }
+      else { rec.intervalIdx = nextIdx; rec.nextReviewDate = p7AddDays(P7_INTERVALS[nextIdx]); rec.status = 'REVIEW'; }
+      rec.correctCount++; rec.lastResult = 'correct';
+    } else {
+      rec.intervalIdx = -1; rec.nextReviewDate = p7AddDays(1); rec.status = 'LEARNING';
+      rec.incorrectCount++; rec.lastResult = 'incorrect';
+    }
+  }
+  function p7Shuffle(arr){
+    var a = arr.slice();
+    for(var i=a.length-1;i>0;i--){ var j = Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+    return a;
+  }
+  function p7EscRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  // field = 'chunk' (English options) or 'meaningVi' (Vietnamese options)
+  function p7BuildOptions(lesson, correctChunk, field){
+    var pool = lesson.chunks.filter(function(c){ return c.id !== correctChunk.id; }).map(function(c){ return c[field]; });
+    var distractors = p7Shuffle(pool).slice(0,3);
+    if(distractors.length < 3){
+      var extra = [];
+      p7Lessons().forEach(function(ls){ if(ls.id !== lesson.id) ls.chunks.forEach(function(c){ extra.push(c[field]); }); });
+      distractors = p7Shuffle(distractors.concat(p7Shuffle(extra))).slice(0,3);
+    }
+    return p7Shuffle(distractors.concat([correctChunk[field]]));
+  }
+  function p7HighlightChunksInPassage(lesson, phraseList){
+    var sorted = phraseList.filter(Boolean).slice().sort(function(a,b){ return b.length-a.length; });
+    var pattern = sorted.length ? new RegExp('(' + sorted.map(p7EscRe).join('|') + ')', 'gi') : null;
+    return lesson.passage.paragraphs.map(function(p){ return pattern ? esc(p.en).replace(pattern, function(m){ return '<mark class="p7-hl">' + m + '</mark>'; }) : esc(p.en); });
+  }
+  // Substitutes the given chunk ids (English text) with a numbered Vietnamese-meaning marker,
+  // wherever they appear in the passage — used by Remember Layer 2 and Review Layer 2 so the
+  // student sees the vocabulary embedded in a real sentence, not as an isolated flashcard.
+  function p7ViSubstitutedHtml(lesson, chunkIds, numOffset){
+    var chunks = chunkIds.map(function(id){ return lesson.chunks.filter(function(c){ return c.id === id; })[0]; }).filter(Boolean);
+    var numByLower = {};
+    chunks.forEach(function(c, i){ numByLower[c.chunk.toLowerCase()] = { num: numOffset+i+1, vi: c.meaningVi }; });
+    var sorted = chunks.map(function(c){ return c.chunk; }).sort(function(a,b){ return b.length-a.length; });
+    var pattern = sorted.length ? new RegExp('(' + sorted.map(p7EscRe).join('|') + ')', 'gi') : null;
+    var html = '';
+    lesson.passage.paragraphs.forEach(function(p){
+      var escaped = esc(p.en);
+      var out = !pattern ? escaped : escaped.replace(pattern, function(m){
+        var info = numByLower[m.toLowerCase()];
+        return '<mark class="p7-hl-vi"><span class="p7-vi-num">' + info.num + '</span>' + esc(info.vi) + '</mark>';
+      });
+      html += '<div class="p7-passage-para">' + out.replace(/\n/g,'<br>') + '</div>';
+    });
+    return html;
   }
 
-  function renderPart7Dashboard(){
-    var lessons = window.AZ_PART7_LESSONS || [];
-    var p = getP7Progress();
+  // ---- Audio for vocabulary only (Web Speech API, prefers a Natural/Neural voice) ----
+  var p7Voice = null;
+  function p7PickVoice(){
+    if(p7Voice) return p7Voice;
+    if(!('speechSynthesis' in window)) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    var en = voices.filter(function(v){ return /^en/i.test(v.lang); });
+    p7Voice = en.find(function(v){ return /natural|neural/i.test(v.name); })
+      || en.find(function(v){ return /google/i.test(v.name) && /us/i.test(v.name); })
+      || en.find(function(v){ return /google/i.test(v.name); })
+      || en.find(function(v){ return v.lang === 'en-US'; })
+      || en[0] || null;
+    return p7Voice;
+  }
+  if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged = function(){ p7Voice = null; p7PickVoice(); }; }
+  function p7Speak(text){
+    try{
+      if(!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      var v = p7PickVoice(); if(v) u.voice = v;
+      u.lang = 'en-US'; u.rate = 0.92;
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+  }
+  window.AZ_p7SpeakChunk = function(lessonId, idx){ var lesson = p7LessonById(lessonId); if(!lesson) return; p7Speak(lesson.chunks[idx].chunk); };
+
+  // ---------------- DASHBOARD ----------------
+  function renderP7Dashboard(){
+    var lessons = p7Lessons();
+    var s = p7EnsureState();
+    var dueIds = Object.keys(s.chunks).filter(function(id){ var c = s.chunks[id]; return c.nextReviewDate && c.nextReviewDate <= p7Today() && c.status !== 'MASTERED'; });
+    var doneLessonCount = lessons.filter(function(l){ return s.lessons[l.id]; }).length;
+
     var html = '<a class="backlink" onclick="location.hash=\'#/\'">‹ Tất cả chủ điểm</a>';
-    html += '<div class="hero-card"><div class="hero-eyebrow">AZ BILINGUAL MEMORY METHOD</div>';
-    html += '<h2>Part 7 — Đọc hiểu song ngữ theo trí nhớ</h2>';
-    html += '<p class="desc">Học từ vựng ngay trong đoạn văn thật (ETS 2026): hiểu bài → ghi nhớ song ngữ → nhận diện paraphrase → nhớ lại chủ động → áp dụng vào câu hỏi Part 7.</p>';
-    html += '<div class="p7-method-formula">SEE → UNDERSTAND → CONNECT → RECALL → APPLY → REVIEW</div>';
+    html += '<div class="hero-card"><div class="hero-eyebrow">AZ DAILY 15</div>';
+    html += '<h2>Part 7 — Học đúng 15 chunk mỗi ngày, nhớ thật lâu</h2>';
+    html += '<p class="desc">Hiểu trong ngữ cảnh → tự nhớ lại (Active Recall, toàn bộ trắc nghiệm) → ôn đúng lúc (Spaced Repetition). Nguồn: các đoạn Part 7 thật từ ETS 2026.</p>';
+    html += '<div class="stat-row">';
+    html += '<div class="stat-chip"><b>' + doneLessonCount + '/' + lessons.length + '</b><span>Bài đã học</span></div>';
+    html += '<div class="stat-chip"><b>' + dueIds.length + '</b><span>Chunk cần ôn</span></div>';
+    html += '<div class="stat-chip"><b>' + (lessons.length * 15) + '</b><span>Tổng chunk mục tiêu</span></div>';
     html += '</div>';
-    html += '<div class="panel"><h2 style="font-size:16px;">' + lessons.length + ' bài đọc — TEST 1</h2>';
-    lessons.forEach(function(l, idx){
-      var rec = p[l.id];
-      var due = rec && rec.dueDate && rec.dueDate <= todayStr();
-      var mastered = rec && rec.reviewStage === 'mastered';
-      html += '<div class="p7-lesson-card">';
-      html += '<div class="p7-lesson-top"><div class="topic-num">' + (idx+1) + '</div><div style="flex:1;"><div class="p7-lesson-type">' + esc(l.docType) + (due ? '<span class="p7-due-badge">Cần ôn hôm nay</span>' : '') + '</div><p class="p7-lesson-title">' + esc(l.titleVi) + '</p></div></div>';
-      html += '<div class="progress-label" style="margin-top:10px;">' + (rec ? (mastered ? 'Đã thành thạo (đủ chu kỳ ôn tập)' : 'Đã học lần đầu · ' + (due ? 'đến hạn ôn tập' : 'ôn tiếp vào ' + rec.dueDate)) : 'Chưa học') + '</div>';
-      html += '<div class="btn-row"><button class="btn btn-primary btn-sm" onclick="location.hash=\'#/p7/' + l.id + '/1\'">' + (rec ? (due ? 'Ôn tập lại' : 'Học lại') : 'Bắt đầu học') + '</button></div>';
-      html += '</div>';
-    });
+    if(dueIds.length){
+      html += '<div class="btn-row"><button class="btn btn-primary" onclick="location.hash=\'#/p7/review\'">🔁 Ôn tập hôm nay (' + dueIds.length + ' chunk)</button></div>';
+    }
     html += '</div>';
-    root.innerHTML = html;
-  }
 
-  function p7StepNav(step){
-    var labels = ['Read','Bilingual','Memory','Collocation','Paraphrase','Recall','Apply','Re-read'];
-    var html = '<div class="p7-step-label">Bước ' + step + '/8 — ' + labels[step-1] + '</div><div class="p7-step-nav">';
-    for(var i=1;i<=8;i++){ html += '<div class="p7-step-dot ' + (i<step?'done':(i===step?'current':'')) + '"></div>'; }
-    html += '</div>';
-    return html;
-  }
+    if(!lessons.length){
+      html += '<div class="panel"><p class="desc">Đang cập nhật bài học Part 7 — quay lại sau nhé.</p></div>';
+      root.innerHTML = html;
+      return;
+    }
 
-  function p7NavButtons(lesson, step, canNext){
-    var html = '<div class="btn-row" style="margin-top:16px;">';
-    if(step > 1){ html += '<button class="btn btn-ghost" onclick="location.hash=\'#/p7/' + lesson.id + '/' + (step-1) + '\'">‹ Quay lại</button>'; }
-    if(step < 8){ html += '<button class="btn btn-primary" ' + (canNext ? '' : 'disabled') + ' onclick="location.hash=\'#/p7/' + lesson.id + '/' + (step+1) + '\'">Tiếp tục ›</button>'; }
-    html += '</div>';
-    return html;
-  }
-
-  function renderPart7Lesson(lessonId, step){
-    var lesson = findP7Lesson(lessonId);
-    if(!lesson){ location.hash = '#/p7'; return; }
-    if(!p7ui || p7ui.lessonId !== lessonId){ p7InitUi(lesson); }
-    step = Math.max(1, Math.min(8, step));
-
-    var html = '<a class="backlink" onclick="location.hash=\'#/p7\'">‹ Part 7 — Bài Đọc Song Ngữ</a>';
-    html += '<div class="panel">';
-    html += p7StepNav(step);
-    html += '<h2 style="font-size:17px;margin-top:4px;">' + esc(lesson.titleVi) + '</h2>';
-
-    if(step === 1){ html += p7RenderStep1(lesson); }
-    else if(step === 2){ html += p7RenderStep2(lesson); }
-    else if(step === 3){ html += p7RenderStep3(lesson); }
-    else if(step === 4){ html += p7RenderStep4(lesson); }
-    else if(step === 5){ html += p7RenderStep5(lesson); }
-    else if(step === 6){ html += p7RenderStep6(lesson); }
-    else if(step === 7){ html += p7RenderStep7(lesson); }
-    else if(step === 8){ html += p7RenderStep8(lesson); }
-
-    html += '</div>';
-    root.innerHTML = html;
-    if(step === 5){ p7BindParaphraseToggles(); }
-  }
-
-  // STEP 1 — READ
-  function p7RenderStep1(lesson){
-    var html = '<div class="p7-passage">' + esc(lesson.passageEnglish) + '</div>';
-    html += '<div class="p7-analysis"><b>Main idea:</b> ' + esc(lesson.analysis.mainIdea) + '<br>';
-    html += '<b>Who:</b> ' + esc(lesson.analysis.who) + '<br>';
-    html += '<b>What:</b> ' + esc(lesson.analysis.what) + '<br>';
-    html += '<b>When:</b> ' + esc(lesson.analysis.when || '—') + '<br>';
-    html += '<b>Where:</b> ' + esc(lesson.analysis.where || '—') + (lesson.analysis.why ? '<br><b>Why:</b> ' + esc(lesson.analysis.why) : '') + '</div>';
-    html += '<h3 style="font-family:var(--font-display);font-size:14.5px;margin-top:18px;">Trả lời nhanh</h3>';
-    lesson.comprehensionCheck.forEach(function(item, qi){
-      html += '<div class="q-block"><p class="q-text">' + esc(item.q) + '</p><div class="opt-row">';
-      item.choices.forEach(function(c, ci){
-        var picked = p7ui.comp[qi];
-        var cls = 'opt-btn';
-        if(picked !== null){ if(ci===item.correct) cls+=' correct'; else if(ci===picked) cls+=' wrong'; }
-        html += '<button class="' + cls + '" ' + (picked!==null?'disabled':'') + ' onclick="AZ_p7Comp(' + qi + ',' + ci + ')"><b>' + String.fromCharCode(65+ci) + '</b><span>' + esc(c) + '</span></button>';
-      });
-      html += '</div></div>';
-    });
-    var canNext = p7ui.comp.every(function(a){ return a !== null; });
-    html += p7NavButtons(lesson, 1, canNext);
-    return html;
-  }
-  window.AZ_p7Comp = function(qi, ci){ p7ui.comp[qi] = ci; renderPart7Lesson(p7ui.lessonId, 1); };
-
-  // STEP 2 — BILINGUAL UNDERSTANDING
-  function p7RenderStep2(lesson){
-    var html = '';
-    lesson.bilingualPassage.forEach(function(ch){
-      html += '<div class="p7-chunk"><div class="p7-chunk-en">' + esc(ch.en) + '</div><div class="p7-chunk-vi">' + esc(ch.vi) + '</div>';
-      if(ch.keyPhrases && ch.keyPhrases.length){ html += '<div>' + ch.keyPhrases.map(function(p){ return '<span class="p7-phrase-chip">' + esc(p) + '</span>'; }).join('') + '</div>'; }
-      html += '</div>';
-    });
-    html += p7NavButtons(lesson, 2, true);
-    return html;
-  }
-
-  // STEP 3 — MEMORY
-  function p7RenderStep3(lesson){
-    var html = '';
-    lesson.vocabulary.forEach(function(v){
-      html += '<div class="p7-mcard">';
-      html += '<div class="p7-mcard-head"><span class="p7-mcard-word">' + esc(v.word) + '</span><span class="p7-mcard-ipa">' + esc(v.ipa) + '</span><span class="p7-mcard-pos">' + esc(v.pos) + '</span></div>';
-      html += '<div class="p7-mcard-row"><b>English meaning</b>' + esc(v.meaningEn) + '</div>';
-      html += '<div class="p7-mcard-row"><b>Vietnamese meaning</b>' + esc(v.meaningVi) + '</div>';
-      html += '<div class="p7-mcard-row"><b>Memory hook</b>' + esc(v.memoryHook) + '</div>';
-      html += '<div class="p7-mcard-row"><b>Mental image</b>' + esc(v.mentalImage) + '</div>';
-      html += '<div class="p7-mcard-row"><b>TOEIC context</b>' + esc(v.context) + '<br><span style="color:var(--ink-soft);">' + esc(v.contextVi) + '</span></div>';
-      if(v.confusingWith){ html += '<div class="p7-mcard-row"><b>Confusing with</b>' + esc(v.word.toUpperCase()) + ' ≠ ' + esc(v.confusingWith.word.toUpperCase()) + ' — ' + esc(v.confusingWith.explain) + '</div>'; }
-      if(v.wordFamily && v.wordFamily.length){
-        html += '<div class="p7-mcard-row"><b>Word family</b>' + v.wordFamily.map(function(w){ return esc(w.word) + ' (' + esc(w.type) + ' — ' + esc(w.meaning) + ')'; }).join(' · ') + '</div>';
-      }
-      html += '</div>';
-    });
-    html += p7NavButtons(lesson, 3, true);
-    return html;
-  }
-
-  // STEP 4 — COLLOCATION
-  function p7RenderStep4(lesson){
-    var html = '';
-    lesson.vocabulary.forEach(function(v){
-      html += '<div class="p7-mcard"><div class="p7-mcard-head"><span class="p7-mcard-word">' + esc(v.word) + '</span></div><div>';
-      v.collocations.forEach(function(c){ html += '<span class="p7-mcard-collo">' + esc(c) + '</span>'; });
-      html += '</div></div>';
-    });
-    html += p7NavButtons(lesson, 4, true);
-    return html;
-  }
-
-  // STEP 5 — PARAPHRASE LAB
-  function p7RenderStep5(lesson){
-    var html = '<p class="desc" style="margin-bottom:12px;">Bấm vào từng cụm để xem paraphrase thường gặp trong câu hỏi TOEIC.</p>';
-    lesson.paraphraseLab.forEach(function(item, i){
-      html += '<div class="p7-para-item" id="p7para' + i + '" onclick="AZ_p7ToggleParaphrase(' + i + ')">';
-      html += '<div class="p7-para-orig">' + esc(item.original) + '</div>';
-      html += '<div class="p7-para-reveal">';
-      html += '<div class="p7-para-arrow">↓</div>';
-      html += item.paraphrases.map(function(p){ return '<div style="font-weight:700;">' + esc(p) + '</div>'; }).join('<div class="p7-para-arrow">↓</div>');
-      html += '<div class="p7-para-arrow">↓</div><div>' + esc(item.meaning) + '</div>';
-      html += '</div></div>';
-    });
-    html += p7NavButtons(lesson, 5, true);
-    return html;
-  }
-  window.AZ_p7ToggleParaphrase = function(i){
-    var el = document.getElementById('p7para' + i);
-    if(el) el.classList.toggle('open');
-  };
-  function p7BindParaphraseToggles(){}
-
-  // STEP 6 — ACTIVE RECALL
-  function p7RenderStep6(lesson){
-    var html = '';
-    function recallKey(kind, i){ return kind + i; }
-    function renderRecallItem(kind, i, promptHtml, answerText){
-      var key = recallKey(kind, i);
-      var st = p7ui.recall[key] || {};
-      html += '<div class="p7-recall-item ' + (st.revealed ? 'revealed' : '') + '" id="p7r_' + key + '">';
-      html += '<div class="p7-recall-q">' + promptHtml + '</div>';
-      html += '<div class="p7-recall-answer">' + esc(answerText) + '</div>';
-      if(!st.revealed){
-        html += '<div class="btn-row"><button class="btn btn-ghost btn-sm" onclick="AZ_p7Reveal(\'' + key + '\')">Xem đáp án</button></div>';
-      } else {
-        html += '<div class="p7-grade-row">';
-        html += '<button class="p7-grade-btn correct ' + (st.grade==='correct'?'active':'') + '" onclick="AZ_p7Grade(\'' + key + '\',\'correct\')">✓ Nhớ đúng</button>';
-        html += '<button class="p7-grade-btn wrong ' + (st.grade==='wrong'?'active':'') + '" onclick="AZ_p7Grade(\'' + key + '\',\'wrong\')">✗ Nhớ sai</button>';
+    var byTest = {};
+    lessons.forEach(function(l){ (byTest[l.test] = byTest[l.test] || []).push(l); });
+    Object.keys(byTest).sort(function(a,b){ return a-b; }).forEach(function(testNum){
+      html += '<div class="panel"><h2 class="p7-test-heading">TEST ' + testNum + ' — Part 7</h2>';
+      byTest[testNum].sort(function(a,b){ return a.order-b.order; }).forEach(function(l){
+        var rec = s.lessons[l.id];
+        var lessonDue = l.chunks.some(function(c){ var cs = s.chunks[c.id]; return cs && cs.nextReviewDate && cs.nextReviewDate <= p7Today() && cs.status !== 'MASTERED'; });
+        html += '<div class="p7-lesson-row">';
+        html += '<div style="display:flex;align-items:center;gap:10px;"><div class="topic-num">' + l.order + '</div><div style="flex:1;"><div class="p7-tag">' + esc(l.docType) + (lessonDue ? '<span class="p7-due-badge">Cần ôn</span>' : '') + '</div><div style="font-weight:700;font-size:14px;">' + esc(l.titleVi) + '</div></div></div>';
+        html += '<div class="btn-row"><button class="btn btn-ghost btn-sm" onclick="location.hash=\'#/p7/' + l.id + '/learn\'">' + (rec ? 'Học lại' : 'Bắt đầu học') + '</button></div>';
         html += '</div>';
-      }
+      });
       html += '</div>';
+    });
+    root.innerHTML = html;
+  }
+
+  // ---------------- LESSON FLOW ----------------
+  var p7s = null; // { lessonId, showVi, l1Options, l1Answers, l2Options, l2Answers, appAnswers, scores }
+
+  function renderP7Lesson(lessonId, stage){
+    var lesson = p7LessonById(lessonId);
+    if(!lesson){ location.hash = '#/p7'; return; }
+    if(!p7s || p7s.lessonId !== lessonId){
+      p7s = { lessonId:lessonId, showVi:true, l1Options:{}, l1Answers:{}, l2Options:{}, l2Answers:{}, appAnswers:new Array(lesson.questions.length).fill(null) };
     }
-    html += '<div class="p7-recall-block"><h4>A. English → Vietnamese</h4>';
-    lesson.activeRecall.e2v.forEach(function(word, i){ renderRecallItem('e2v', i, esc(word), (lesson.vocabulary.filter(function(v){return v.word===word;})[0]||{}).meaningVi || ''); });
+    var html = '<a class="backlink" onclick="location.hash=\'#/p7\'">‹ Part 7 — AZ Daily 15</a>';
+    html += '<div class="panel">';
+    html += '<div class="p7-tag">' + esc(lesson.docType) + ' · TEST ' + lesson.test + '</div><h2 style="font-size:17px;margin-top:2px;">' + esc(lesson.titleVi) + '</h2>';
+    if(stage === 'remember-l1'){ html += p7RenderRememberL1(lesson); }
+    else if(stage === 'remember-l2'){ html += p7RenderRememberL2(lesson); }
+    else if(stage === 'practice'){ html += p7RenderPractice(lesson); }
+    else if(stage === 'complete'){ html += p7RenderLessonComplete(lesson); }
+    else { html += p7RenderLearn(lesson); }
     html += '</div>';
-    html += '<div class="p7-recall-block"><h4>B. Vietnamese → English</h4>';
-    lesson.activeRecall.v2e.forEach(function(item, i){ renderRecallItem('v2e', i, esc(item.prompt), item.answer); });
+    root.innerHTML = html;
+  }
+
+  // ---- LEARN ----
+  function p7RenderLearn(lesson){
+    var html = '<div class="p7-toggle-row">';
+    html += '<button class="' + (!p7s.showVi?'active':'') + '" onclick="AZ_p7SetVi(false)">English Only</button>';
+    html += '<button class="' + (p7s.showVi?'active':'') + '" onclick="AZ_p7SetVi(true)">English + Vietnamese</button>';
     html += '</div>';
-    html += '<div class="p7-recall-block"><h4>C. Situation → English</h4>';
-    lesson.activeRecall.situation.forEach(function(item, i){ renderRecallItem('sit', i, esc(item.scenario), item.answer + '  (từ khóa: ' + item.hintWords.join(', ') + ')'); });
+    var chunkEn = lesson.chunks.map(function(c){ return c.chunk; });
+    var enParas = p7HighlightChunksInPassage(lesson, chunkEn);
+    lesson.passage.paragraphs.forEach(function(p, i){
+      html += '<div class="p7-passage-para">' + enParas[i].replace(/\n/g,'<br>');
+      if(p7s.showVi){ html += '<div class="p7-passage-vi">' + esc(p.vi).replace(/\n/g,'<br>') + '</div>'; }
+      html += '</div>';
+    });
+    html += '<h3 style="font-family:var(--font-display);font-size:15px;margin:16px 0 0;">' + lesson.chunks.length + ' Memory Chunks</h3>';
+    html += '<div class="p7-chunk-list">';
+    lesson.chunks.forEach(function(c, i){
+      html += '<div class="p7-chunk-row"><div><div class="p7-chunk-en">' + (i+1) + '. ' + esc(c.chunk) + '</div><div class="p7-chunk-vi">= ' + esc(c.meaningVi) + '</div></div><button class="p7-speak" onclick="AZ_p7SpeakChunk(\'' + lesson.id + '\',' + i + ')" title="Nghe từ vựng">🔊</button></div>';
+    });
     html += '</div>';
-    var totalItems = lesson.activeRecall.e2v.length + lesson.activeRecall.v2e.length + lesson.activeRecall.situation.length;
-    var revealedCount = Object.keys(p7ui.recall).length;
-    html += p7NavButtons(lesson, 6, revealedCount >= totalItems);
+    html += '<div class="btn-row"><button class="btn btn-primary" onclick="AZ_p7GoRememberL1()">Tiếp tục → Remember</button></div>';
     return html;
   }
-  window.AZ_p7Reveal = function(key){ p7ui.recall[key] = p7ui.recall[key] || {}; p7ui.recall[key].revealed = true; renderPart7Lesson(p7ui.lessonId, 6); };
-  window.AZ_p7Grade = function(key, grade){ p7ui.recall[key].grade = grade; renderPart7Lesson(p7ui.lessonId, 6); };
+  window.AZ_p7SetVi = function(v){ p7s.showVi = v; renderP7Lesson(p7s.lessonId, 'learn'); };
 
-  // STEP 7 — PART 7 APPLICATION
-  function p7RenderStep7(lesson){
-    var html = '<p class="desc" style="margin-bottom:12px;">Quay lại đoạn văn để trả lời câu hỏi kiểu Part 7 thật.</p>';
-    lesson.part7Application.questions.forEach(function(item, qi){
-      var picked = p7ui.app[qi];
+  // ---- REMEMBER Layer 1: English chunk → choose Vietnamese meaning ----
+  window.AZ_p7GoRememberL1 = function(){
+    var lesson = p7LessonById(p7s.lessonId);
+    lesson.chunks.forEach(function(c){ p7s.l1Options[c.id] = p7BuildOptions(lesson, c, 'meaningVi'); });
+    location.hash = '#/p7/' + p7s.lessonId + '/remember-l1';
+  };
+  function p7RenderRememberL1(lesson){
+    var html = '<p class="desc">Lớp 1/2 · Xem cụm tiếng Anh, chọn đúng nghĩa tiếng Việt.</p>';
+    lesson.chunks.forEach(function(c, qi){
+      var options = p7s.l1Options[c.id];
+      var picked = p7s.l1Answers[c.id];
+      var correctIdx = options.indexOf(c.meaningVi);
+      html += '<div class="q-block"><p class="q-text">' + (qi+1) + '. "' + esc(c.chunk) + '" <button class="p7-speak" onclick="AZ_p7SpeakChunk(\'' + lesson.id + '\',' + qi + ')">🔊</button></p><div class="opt-row">';
+      options.forEach(function(opt, ci){
+        var cls = 'opt-btn';
+        if(picked !== undefined){ if(ci===correctIdx) cls+=' correct'; else if(ci===picked) cls+=' wrong'; }
+        html += '<button class="' + cls + '" ' + (picked!==undefined?'disabled':'') + ' onclick="AZ_p7AnswerL1(\'' + c.id + '\',' + ci + ')"><b>' + String.fromCharCode(65+ci) + '</b><span>' + esc(opt) + '</span></button>';
+      });
+      html += '</div></div>';
+    });
+    var canNext = lesson.chunks.every(function(c){ return p7s.l1Answers[c.id] !== undefined; });
+    html += '<div class="btn-row"><button class="btn btn-primary" ' + (canNext?'':'disabled') + ' onclick="AZ_p7GoRememberL2()">Tiếp tục → Lớp 2</button></div>';
+    return html;
+  }
+  window.AZ_p7AnswerL1 = function(chunkId, ci){ p7s.l1Answers[chunkId] = ci; renderP7Lesson(p7s.lessonId, 'remember-l1'); };
+
+  // ---- REMEMBER Layer 2: Vietnamese-in-context → choose English chunk ----
+  window.AZ_p7GoRememberL2 = function(){
+    var lesson = p7LessonById(p7s.lessonId);
+    lesson.chunks.forEach(function(c){ p7s.l2Options[c.id] = p7BuildOptions(lesson, c, 'chunk'); });
+    location.hash = '#/p7/' + p7s.lessonId + '/remember-l2';
+  };
+  function p7RenderRememberL2(lesson){
+    var html = '<p class="desc">Lớp 2/2 · Đoạn văn dưới đây thay ' + lesson.chunks.length + ' cụm bằng nghĩa tiếng Việt — chọn đúng cụm tiếng Anh cho từng số.</p>';
+    html += p7ViSubstitutedHtml(lesson, lesson.chunks.map(function(c){ return c.id; }), 0);
+    lesson.chunks.forEach(function(c, qi){
+      var options = p7s.l2Options[c.id];
+      var picked = p7s.l2Answers[c.id];
+      var correctIdx = options.indexOf(c.chunk);
+      html += '<div class="q-block"><p class="q-text"><span class="p7-vi-num" style="background:var(--ink);">' + (qi+1) + '</span> "' + esc(c.meaningVi) + '" trong câu trên = ?</p><div class="opt-row">';
+      options.forEach(function(opt, ci){
+        var cls = 'opt-btn';
+        if(picked !== undefined){ if(ci===correctIdx) cls+=' correct'; else if(ci===picked) cls+=' wrong'; }
+        html += '<button class="' + cls + '" ' + (picked!==undefined?'disabled':'') + ' onclick="AZ_p7AnswerL2(\'' + c.id + '\',' + ci + ')"><b>' + String.fromCharCode(65+ci) + '</b><span>' + esc(opt) + '</span></button>';
+      });
+      html += '</div></div>';
+    });
+    var canNext = lesson.chunks.every(function(c){ return p7s.l2Answers[c.id] !== undefined; });
+    html += '<div class="btn-row"><button class="btn btn-primary" ' + (canNext?'':'disabled') + ' onclick="AZ_p7GoPractice()">Tiếp tục → TOEIC Practice</button></div>';
+    return html;
+  }
+  window.AZ_p7AnswerL2 = function(chunkId, ci){ p7s.l2Answers[chunkId] = ci; renderP7Lesson(p7s.lessonId, 'remember-l2'); };
+  window.AZ_p7GoPractice = function(){ location.hash = '#/p7/' + p7s.lessonId + '/practice'; };
+
+  // ---- TOEIC PRACTICE (real exam questions for this passage) ----
+  function p7RenderPractice(lesson){
+    var html = '<p class="desc">' + lesson.questions.length + ' câu hỏi thật từ đề — Câu ' + esc(lesson.questionRange || '') + '.</p>';
+    lesson.questions.forEach(function(item, qi){
+      var picked = p7s.appAnswers[qi];
       html += '<div class="q-block"><p class="q-text">' + esc(item.q) + '</p><div class="opt-row">';
       item.choices.forEach(function(c, ci){
         var cls = 'opt-btn';
         if(picked !== null){ if(ci===item.correct) cls+=' correct'; else if(ci===picked) cls+=' wrong'; }
-        html += '<button class="' + cls + '" ' + (picked!==null?'disabled':'') + ' onclick="AZ_p7App(' + qi + ',' + ci + ')"><b>' + String.fromCharCode(65+ci) + '</b><span>' + esc(c) + '</span></button>';
+        html += '<button class="' + cls + '" ' + (picked!==null?'disabled':'') + ' onclick="AZ_p7AnswerApp(' + qi + ',' + ci + ')"><b>' + String.fromCharCode(65+ci) + '</b><span>' + esc(c) + '</span></button>';
       });
       html += '</div>';
-      if(picked !== null){ html += '<div class="explain-box">' + esc(item.explain) + '</div>'; }
+      if(picked !== null){ html += '<div class="explain-box"><b>Evidence:</b> ' + esc(item.evidence || '') + '<br>' + esc(item.explain || '') + '</div>'; }
       html += '</div>';
     });
-    var canNext = p7ui.app.every(function(a){ return a !== null; });
-    html += p7NavButtons(lesson, 7, canNext);
+    var canFinish = p7s.appAnswers.every(function(a){ return a !== null; });
+    html += '<div class="btn-row"><button class="btn btn-primary" ' + (canFinish?'':'disabled') + ' onclick="AZ_p7FinishLesson()">Hoàn thành bài học ✓</button></div>';
     return html;
   }
-  window.AZ_p7App = function(qi, ci){ p7ui.app[qi] = ci; renderPart7Lesson(p7ui.lessonId, 7); };
+  window.AZ_p7AnswerApp = function(qi, ci){ p7s.appAnswers[qi] = ci; renderP7Lesson(p7s.lessonId, 'practice'); };
 
-  // STEP 8 — RE-READ + COMPLETE + SPACED REVIEW
-  function p7RenderStep8(lesson){
-    var html = '<p class="desc" style="margin-bottom:10px;">Đọc lại lần cuối — chỉ tiếng Anh, không tra nghĩa, không xem gợi ý.</p>';
-    html += '<div class="p7-passage">' + esc(lesson.passageEnglish) + '</div>';
-
-    var wrongWords = [];
-    Object.keys(p7ui.recall).forEach(function(k){ if(p7ui.recall[k].grade === 'wrong') wrongWords.push(k); });
-    if(wrongWords.length){
-      html += '<div class="quiz-note" style="margin-top:14px;">⚠️ Bạn đánh dấu ' + wrongWords.length + ' mục "nhớ sai" ở bước Active Recall — nên ôn lại Memory Card (bước 3) trước khi học bài tiếp theo.</div>';
-    }
-    if(lesson.bonusQuiz){
-      html += '<div class="btn-row" style="margin-top:10px;"><button class="btn btn-ghost btn-sm" onclick="location.hash=\'#/quiz/' + lesson.bonusQuiz.topicId + '/' + lesson.bonusQuiz.quizId + '\'">Luyện thêm: trắc nghiệm điền từ</button></div>';
-    }
-    html += '<div class="btn-row" style="margin-top:16px;">';
-    html += '<button class="btn btn-ghost" onclick="location.hash=\'#/p7/' + lesson.id + '/7\'">‹ Quay lại</button>';
-    html += '<button class="btn btn-primary" onclick="AZ_p7Complete(\'' + lesson.id + '\')">Hoàn thành bài học ✓</button>';
-    html += '</div>';
-    return html;
-  }
-  window.AZ_p7Complete = function(lessonId){
-    var p = getP7Progress();
-    var rec = p[lessonId];
+  window.AZ_p7FinishLesson = function(){
+    var lesson = p7LessonById(p7s.lessonId);
+    var s = p7EnsureState();
     var now = new Date().toISOString();
-    if(!rec){
-      p[lessonId] = { firstCompletedAt: now, completedAt: now, reviewStage: 0, dueDate: addDaysStr(P7_INTERVALS[0]) };
-    } else if(rec.reviewStage !== 'mastered' && rec.dueDate && rec.dueDate <= todayStr()){
-      var nextStage = rec.reviewStage + 1;
-      if(nextStage >= P7_INTERVALS.length){ rec.reviewStage = 'mastered'; rec.dueDate = null; }
-      else { rec.reviewStage = nextStage; rec.dueDate = addDaysStr(P7_INTERVALS[nextStage]); }
-      rec.completedAt = now;
-    } else if(!rec.dueDate && rec.reviewStage !== 'mastered'){
-      rec.completedAt = now;
-    }
-    saveP7Progress(p);
-    p7ui = null;
-    location.hash = '#/p7';
+    var recallCorrect = 0;
+    lesson.chunks.forEach(function(c){
+      var l1ok = p7s.l1Answers[c.id] !== undefined && p7s.l1Options[c.id][p7s.l1Answers[c.id]] === c.meaningVi;
+      var l2ok = p7s.l2Answers[c.id] !== undefined && p7s.l2Options[c.id][p7s.l2Answers[c.id]] === c.chunk;
+      var ok = l1ok && l2ok;
+      if(ok) recallCorrect++;
+      var rec = s.chunks[c.id];
+      if(!rec.dateLearned) rec.dateLearned = p7Today();
+      p7ApplySpaced(rec, ok);
+    });
+    var appCorrect = p7s.appAnswers.filter(function(a, i){ return a === lesson.questions[i].correct; }).length;
+    var recallScore = Math.round(recallCorrect / lesson.chunks.length * 100);
+    var appScore = Math.round(appCorrect / lesson.questions.length * 100);
+    s.lessons[lesson.id] = { completedAt: now, recallScore: recallScore, appScore: appScore };
+    saveP7State(s);
+    p7s.scores = { recallScore: recallScore, appScore: appScore, overall: Math.round((recallScore+appScore)/2) };
+    location.hash = '#/p7/' + lesson.id + '/complete';
   };
+  function p7RenderLessonComplete(lesson){
+    var sc = (p7s && p7s.scores) || {recallScore:0, appScore:0, overall:0};
+    var html = '<div class="result-panel"><div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;">Overall Memory</div>';
+    html += '<div class="score-num">' + sc.overall + '%</div>';
+    html += '<div class="score-msg">Remember (Lớp 1+2): ' + sc.recallScore + '% · TOEIC Practice: ' + sc.appScore + '%</div></div>';
+    html += '<div class="btn-row"><button class="btn btn-primary" onclick="location.hash=\'#/p7\'">Về Part 7 — AZ Daily 15</button></div>';
+    return html;
+  }
+
+  // ---------------- GLOBAL REVIEW (spaced repetition, pulls due chunks from ANY lesson) ----------------
+  var p7rv = null; // { phase:'l1'|'l2', dueIds, l1Options, l1Answers, l2Options, l2Answers }
+  function renderP7Review(){
+    var s = p7EnsureState();
+    if(!p7rv){
+      var dueIds = Object.keys(s.chunks).filter(function(id){ var c = s.chunks[id]; return c.nextReviewDate && c.nextReviewDate <= p7Today() && c.status !== 'MASTERED'; });
+      p7rv = { phase:'l1', dueIds:dueIds, l1Options:{}, l1Answers:{}, l2Options:{}, l2Answers:{} };
+      dueIds.forEach(function(id){
+        var c = p7ChunkById(id);
+        var lesson = p7LessonById(c.lessonId);
+        p7rv.l1Options[id] = p7BuildOptions(lesson, c, 'chunk');
+      });
+    }
+    var html = '<a class="backlink" onclick="location.hash=\'#/p7\'">‹ Part 7 — AZ Daily 15</a>';
+    html += '<div class="panel"><div class="p7-tag">REVIEW</div><h2 style="font-size:17px;margin-top:2px;">Ôn tập hôm nay</h2>';
+    if(p7rv.dueIds.length === 0){
+      html += '<p class="desc">Không có chunk nào đến hạn hôm nay. Học thêm bài mới hoặc quay lại sau nhé!</p>';
+      html += '<div class="btn-row"><button class="btn btn-primary" onclick="AZ_p7ReviewExit()">Về Part 7</button></div>';
+    } else if(p7rv.phase === 'l2'){
+      html += p7RenderReviewL2();
+    } else {
+      html += p7RenderReviewL1();
+    }
+    html += '</div>';
+    root.innerHTML = html;
+  }
+  function p7RenderReviewL1(){
+    var html = '<p class="desc">Lớp 1/2 · ' + p7rv.dueIds.length + ' chunk đến hạn — chọn cụm tiếng Anh đúng cho mỗi nghĩa.</p>';
+    p7rv.dueIds.forEach(function(id, qi){
+      var c = p7ChunkById(id);
+      var options = p7rv.l1Options[id];
+      var picked = p7rv.l1Answers[id];
+      var correctIdx = options.indexOf(c.chunk);
+      html += '<div class="q-block"><p class="q-text">' + (qi+1) + '. Cụm nào có nghĩa là: "' + esc(c.meaningVi) + '"?</p><div class="opt-row">';
+      options.forEach(function(opt, ci){
+        var cls = 'opt-btn';
+        if(picked !== undefined){ if(ci===correctIdx) cls+=' correct'; else if(ci===picked) cls+=' wrong'; }
+        html += '<button class="' + cls + '" ' + (picked!==undefined?'disabled':'') + ' onclick="AZ_p7ReviewAnswerL1(\'' + id + '\',' + ci + ')"><b>' + String.fromCharCode(65+ci) + '</b><span>' + esc(opt) + '</span></button>';
+      });
+      html += '</div></div>';
+    });
+    var canNext = p7rv.dueIds.every(function(id){ return p7rv.l1Answers[id] !== undefined; });
+    html += '<div class="btn-row"><button class="btn btn-primary" ' + (canNext?'':'disabled') + ' onclick="AZ_p7ReviewGoL2()">Tiếp tục → Lớp 2</button></div>';
+    return html;
+  }
+  window.AZ_p7ReviewAnswerL1 = function(chunkId, ci){ p7rv.l1Answers[chunkId] = ci; renderP7Review(); };
+  window.AZ_p7ReviewGoL2 = function(){
+    p7rv.phase = 'l2';
+    p7rv.dueIds.forEach(function(id){ var c = p7ChunkById(id); var lesson = p7LessonById(c.lessonId); p7rv.l2Options[id] = p7BuildOptions(lesson, c, 'chunk'); });
+    renderP7Review();
+  };
+  function p7RenderReviewL2(){
+    var html = '<p class="desc">Lớp 2/2 · Đoạn văn thay các cụm đến hạn bằng nghĩa tiếng Việt — chọn đúng cụm tiếng Anh.</p>';
+    var byLesson = {}; var order = [];
+    p7rv.dueIds.forEach(function(id){ var c = p7ChunkById(id); if(!byLesson[c.lessonId]){ byLesson[c.lessonId] = []; order.push(c.lessonId); } byLesson[c.lessonId].push(id); });
+    var numOffset = 0;
+    order.forEach(function(lessonId){
+      var lesson = p7LessonById(lessonId);
+      var idsInLesson = byLesson[lessonId];
+      html += '<p style="font-weight:700;font-size:13px;margin:14px 0 6px;">' + esc(lesson.titleVi) + '</p>';
+      html += p7ViSubstitutedHtml(lesson, idsInLesson, numOffset);
+      numOffset += idsInLesson.length;
+    });
+    p7rv.dueIds.forEach(function(id, qi){
+      var c = p7ChunkById(id);
+      var options = p7rv.l2Options[id];
+      var picked = p7rv.l2Answers[id];
+      var correctIdx = options.indexOf(c.chunk);
+      html += '<div class="q-block"><p class="q-text"><span class="p7-vi-num" style="background:var(--ink);">' + (qi+1) + '</span> "' + esc(c.meaningVi) + '" trong câu trên = ?</p><div class="opt-row">';
+      options.forEach(function(opt, ci){
+        var cls = 'opt-btn';
+        if(picked !== undefined){ if(ci===correctIdx) cls+=' correct'; else if(ci===picked) cls+=' wrong'; }
+        html += '<button class="' + cls + '" ' + (picked!==undefined?'disabled':'') + ' onclick="AZ_p7ReviewAnswerL2(\'' + id + '\',' + ci + ')"><b>' + String.fromCharCode(65+ci) + '</b><span>' + esc(opt) + '</span></button>';
+      });
+      html += '</div></div>';
+    });
+    var canFinish = p7rv.dueIds.every(function(id){ return p7rv.l2Answers[id] !== undefined; });
+    html += '<div class="btn-row"><button class="btn btn-primary" ' + (canFinish?'':'disabled') + ' onclick="AZ_p7ReviewFinish()">Hoàn thành ôn tập ✓</button></div>';
+    return html;
+  }
+  window.AZ_p7ReviewAnswerL2 = function(chunkId, ci){
+    p7rv.l2Answers[chunkId] = ci;
+    var c = p7ChunkById(chunkId);
+    var l1ok = p7rv.l1Options[chunkId][p7rv.l1Answers[chunkId]] === c.chunk;
+    var l2ok = p7rv.l2Options[chunkId][ci] === c.chunk;
+    var s = p7EnsureState();
+    p7ApplySpaced(s.chunks[chunkId], l1ok && l2ok);
+    saveP7State(s);
+    renderP7Review();
+  };
+  window.AZ_p7ReviewFinish = function(){ p7rv = null; location.hash = '#/p7'; };
+  window.AZ_p7ReviewExit = function(){ p7rv = null; location.hash = '#/p7'; };
 
   // ---------- INIT ----------
   window.AZ_APP_INIT = function(){ route(); };
