@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>AZEnglish TOEIC — Ngữ Pháp &amp; Từ Vựng</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#fdfcfa; --paper-2:#f2efe9; --ink:#181310; --ink-soft:#655c54; --line:#e4ded3;
+    --red:#b3122e; --red-deep:#7a0a1f; --red-ink:#7a0a1f;
+    --gold:#96650a; --gold-bg:#f6efdd;
+    --green:#1e7a4c; --green-bg:#e7f4ec;
+    --amber:#96650a; --amber-bg:#f6efdd;
+    --card-shadow: 0 1px 0 rgba(24,19,16,.05), 0 22px 44px -26px rgba(24,19,16,.4);
+    --focus: 0 0 0 3px rgba(179,18,46,.28);
+    --font-display:"Lora","Georgia",serif;
+    --font-body:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#15120f; --paper-2:#1e1a16; --ink:#f4efe9; --ink-soft:#b9ada2; --line:#332c25;
+      --red:#e6415c; --red-deep:#ff8a94; --red-ink:#ff8a94;
+      --gold:#dba746; --gold-bg:#2e2515;
+      --green:#5fd394; --green-bg:#173226;
+      --amber:#dba746; --amber-bg:#2e2515;
+      --card-shadow: 0 1px 0 rgba(0,0,0,.25), 0 24px 48px -24px rgba(0,0,0,.65);
+      --focus: 0 0 0 3px rgba(230,65,92,.35);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#15120f; --paper-2:#1e1a16; --ink:#f4efe9; --ink-soft:#b9ada2; --line:#332c25;
+    --red:#e6415c; --red-deep:#ff8a94; --red-ink:#ff8a94;
+    --gold:#dba746; --gold-bg:#2e2515;
+    --green:#5fd394; --green-bg:#173226;
+    --amber:#dba746; --amber-bg:#2e2515;
+    --card-shadow: 0 1px 0 rgba(0,0,0,.25), 0 24px 48px -24px rgba(0,0,0,.65);
+    --focus: 0 0 0 3px rgba(230,65,92,.35);
+    color-scheme: dark;
+  }
+  :root[data-theme="light"]{
+    --paper:#fdfcfa; --paper-2:#f2efe9; --ink:#181310; --ink-soft:#655c54; --line:#e4ded3;
+    --red:#b3122e; --red-deep:#7a0a1f; --red-ink:#7a0a1f;
+    --gold:#96650a; --gold-bg:#f6efdd;
+    --green:#1e7a4c; --green-bg:#e7f4ec;
+    --amber:#96650a; --amber-bg:#f6efdd;
+    --card-shadow: 0 1px 0 rgba(24,19,16,.05), 0 22px 44px -26px rgba(24,19,16,.4);
+    --focus: 0 0 0 3px rgba(179,18,46,.28);
+    color-scheme: light;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--font-body); }
+  .wrap{ max-width:760px; margin:0 auto; padding:20px 14px 70px; }
+  .banner{ display:flex; align-items:center; gap:14px; padding-bottom:16px; border-bottom:2px solid var(--ink); margin-bottom:20px; }
+  .logo{ width:46px; height:46px; border-radius:12px; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-family:var(--font-display); font-size:18px; flex:none; }
+  .brand small{ display:block; font-size:11px; font-weight:800; letter-spacing:.08em; color:var(--red); text-transform:uppercase; }
+  .brand h1{ margin:2px 0 0; font-family:var(--font-display); font-size:19px; font-weight:700; cursor:pointer; }
+  .themeBtn{ margin-left:auto; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--paper-2); cursor:pointer; font-size:16px; flex:none; }
+  .panel{ background:var(--paper); border:1px solid var(--line); border-radius:16px; box-shadow:var(--card-shadow); padding:22px; margin-bottom:16px; }
+  .panel h2{ margin:0 0 10px; font-family:var(--font-display); }
+  .desc{ color:var(--ink-soft); font-size:13.5px; line-height:1.6; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:12px; padding:12px 18px; font-weight:700; font-size:14px; border:1px solid transparent; cursor:pointer; text-decoration:none; }
+  .btn-primary{ background:var(--red); color:#fff; }
+  .btn-ghost{ background:var(--paper-2); color:var(--ink); border-color:var(--line); }
+  .btn-sm{ padding:8px 14px; font-size:12.5px; border-radius:10px; }
+  .btn:focus-visible{ outline:none; box-shadow:var(--focus); }
+  .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .btn[disabled]{ opacity:.45; cursor:not-allowed; }
+
+  /* ---- hero / stats ---- */
+  .hero-card{ position:relative; overflow:hidden; background:linear-gradient(165deg, var(--paper) 0%, var(--paper-2) 120%); border:1px solid var(--line); border-radius:20px; padding:26px 24px; box-shadow:var(--card-shadow); margin-bottom:18px; }
+  .hero-card::after{ content:""; position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(179,18,46,.14), transparent 70%); pointer-events:none; }
+  .hero-eyebrow{ font-size:11px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .hero-card h2{ font-family:var(--font-display); font-size:22px; line-height:1.32; margin:0 0 8px; max-width:32ch; }
+  .stat-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+  .stat-chip{ flex:1; min-width:100px; background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:12px 14px; text-align:center; }
+  .stat-chip b{ display:block; font-family:var(--font-display); font-size:20px; color:var(--red); }
+  .stat-chip span{ font-size:11px; color:var(--ink-soft); font-weight:600; }
+
+  /* ---- topic cards ---- */
+  .topic-card{ display:block; border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin-bottom:12px; background:var(--paper); box-shadow:var(--card-shadow); text-decoration:none; color:var(--ink); cursor:pointer; }
+  .topic-card-top{ display:flex; align-items:center; gap:12px; }
+  .topic-num{ flex:none; width:34px; height:34px; border-radius:10px; background:var(--paper-2); display:flex; align-items:center; justify-content:center; font-weight:800; font-family:var(--font-display); color:var(--red); font-size:15px; }
+  .topic-title{ font-family:var(--font-display); font-size:16px; font-weight:700; margin:0; }
+  .topic-sub{ font-size:12px; color:var(--ink-soft); margin-top:1px; }
+  .topic-arrow{ margin-left:auto; color:var(--ink-soft); font-size:16px; flex:none; }
+  .progress-track{ height:7px; border-radius:99px; background:var(--paper-2); margin-top:12px; overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--red); border-radius:99px; transition:width .3s; }
+  .progress-label{ font-size:11.5px; color:var(--ink-soft); margin-top:6px; font-weight:600; }
+
+  /* ---- topic detail ---- */
+  .backlink{ display:inline-flex; align-items:center; gap:6px; color:var(--ink-soft); font-size:13px; font-weight:700; text-decoration:none; margin-bottom:14px; cursor:pointer; }
+  .theory-group{ margin-bottom:18px; }
+  .theory-group h3{ font-family:var(--font-display); font-size:15px; margin:0 0 10px; color:var(--red-ink); }
+  .tense-card{ border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:10px; background:var(--paper-2); }
+  .tense-card h4{ margin:0 0 6px; font-size:14px; font-family:var(--font-display); }
+  .tense-form{ font-size:12.5px; font-weight:700; color:var(--gold); background:var(--gold-bg); display:inline-block; padding:3px 9px; border-radius:8px; margin-bottom:8px; }
+  .tense-card ul{ margin:6px 0; padding-left:18px; font-size:13px; line-height:1.6; }
+  .tense-signals{ font-size:12px; color:var(--ink-soft); margin-top:8px; padding-top:8px; border-top:1px dashed var(--line); }
+  .tip-list{ font-size:13.5px; line-height:1.7; padding-left:18px; }
+  .accordion-toggle{ display:flex; align-items:center; justify-content:space-between; width:100%; background:none; border:none; padding:0; cursor:pointer; color:var(--ink); font-family:var(--font-body); }
+  .accordion-toggle .chev{ transition:transform .2s; color:var(--ink-soft); }
+  .accordion-toggle.open .chev{ transform:rotate(180deg); }
+  .accordion-body{ display:none; margin-top:14px; }
+  .accordion-body.open{ display:block; }
+
+  .quiz-row{ display:flex; align-items:center; gap:12px; border:1px solid var(--line); border-radius:12px; padding:13px 15px; margin-bottom:9px; }
+  .quiz-row-title{ font-size:13.5px; font-weight:700; }
+  .quiz-row-meta{ font-size:11.5px; color:var(--ink-soft); margin-top:2px; }
+  .score-badge{ flex:none; font-size:11.5px; font-weight:800; padding:4px 10px; border-radius:99px; background:var(--paper-2); color:var(--ink-soft); }
+  .score-badge.good{ background:var(--green-bg); color:var(--green); }
+  .score-badge.mid{ background:var(--amber-bg); color:var(--amber); }
+  .quiz-row-cta{ margin-left:auto; flex:none; }
+
+  /* ---- vocab table ---- */
+  .vocab-item{ border-bottom:1px solid var(--line); padding:12px 0; }
+  .vocab-item:last-child{ border-bottom:none; }
+  .vocab-word{ font-weight:800; font-family:var(--font-display); font-size:14.5px; }
+  .vocab-ipa{ color:var(--ink-soft); font-size:12px; margin-left:6px; }
+  .vocab-meaning{ color:var(--red-ink); font-weight:700; font-size:13px; margin:3px 0; }
+  .vocab-example{ font-size:13px; font-style:italic; color:var(--ink-soft); }
+  .vocab-note{ font-size:11.5px; color:var(--ink-soft); margin-top:3px; }
+
+  /* ---- quiz-taking ---- */
+  .mode-select{ display:flex; gap:10px; flex-wrap:wrap; }
+  .mode-card{ flex:1; min-width:150px; border:1.5px solid var(--line); border-radius:14px; padding:16px; cursor:pointer; text-align:left; background:var(--paper); }
+  .mode-card:hover{ border-color:var(--red); }
+  .mode-card h4{ margin:0 0 4px; font-family:var(--font-display); font-size:14.5px; }
+  .mode-card p{ margin:0; font-size:12px; color:var(--ink-soft); line-height:1.5; }
+  .quiz-note{ background:var(--gold-bg); color:var(--gold); font-size:12px; border-radius:10px; padding:9px 12px; margin-bottom:14px; }
+  .q-block{ border-bottom:1px solid var(--line); padding:18px 0; }
+  .q-block:first-child{ padding-top:0; }
+  .q-block:last-child{ border-bottom:none; }
+  .q-num{ font-weight:800; color:var(--red); font-size:13px; margin-bottom:6px; }
+  .q-text{ font-size:14.5px; line-height:1.6; margin:0 0 10px; }
+  .opt-row{ display:flex; flex-direction:column; gap:8px; }
+  .opt-btn{ text-align:left; border:1.5px solid var(--line); background:var(--paper); border-radius:10px; padding:10px 14px; font-size:13.5px; cursor:pointer; display:flex; gap:10px; align-items:flex-start; font-family:var(--font-body); }
+  .opt-btn b{ flex:none; width:20px; height:20px; border-radius:50%; background:var(--paper-2); display:flex; align-items:center; justify-content:center; font-size:11.5px; }
+  .opt-btn.selected{ border-color:var(--red); background:var(--amber-bg); }
+  .opt-btn.selected b{ background:var(--red); color:#fff; }
+  .opt-btn.correct{ border-color:var(--green); background:var(--green-bg); color:var(--green); }
+  .opt-btn.correct b{ background:var(--green); color:#fff; }
+  .opt-btn.wrong{ border-color:var(--red); background:var(--gold-bg); }
+  .opt-btn.wrong b{ background:var(--red); color:#fff; }
+  .opt-btn[disabled]{ cursor:default; }
+  .explain-box{ margin-top:10px; font-size:12.5px; line-height:1.6; background:var(--paper-2); border-radius:10px; padding:10px 12px; color:var(--ink-soft); }
+  .explain-box b{ color:var(--ink); }
+  .quiz-toolbar{ position:sticky; bottom:0; background:var(--paper); border-top:1px solid var(--line); padding:12px 0; margin-top:6px; display:flex; align-items:center; gap:10px; }
+  .quiz-progress{ font-size:12.5px; color:var(--ink-soft); font-weight:700; }
+
+  .result-panel{ background:linear-gradient(155deg, var(--red) 0%, var(--red-deep) 100%); color:#fff; border-radius:20px; padding:26px; margin-bottom:18px; box-shadow:var(--card-shadow); text-align:center; }
+  .result-panel .score-num{ font-family:var(--font-display); font-size:40px; margin:6px 0; }
+  .result-panel .score-msg{ font-size:13.5px; color:rgba(255,255,255,.88); }
+  .result-panel .btn-primary{ background:#fff; color:var(--red-deep); }
+
+  /* ---- gate ---- */
+  #gateScreen{ position:fixed; inset:0; z-index:999; background:var(--paper); display:flex; align-items:center; justify-content:center; padding:20px; }
+  .gate-card{ max-width:400px; width:100%; background:var(--paper); border:1px solid var(--line); border-radius:20px; box-shadow:var(--card-shadow); padding:30px 26px; }
+  .gate-card .logo{ margin:0 auto 14px; }
+  .gate-card h2{ text-align:center; font-family:var(--font-display); margin:0 0 6px; font-size:20px; }
+  .gate-card .desc{ text-align:center; margin-bottom:20px; }
+  .gate-field{ margin-bottom:12px; }
+  .gate-field label{ display:block; font-size:12px; font-weight:700; margin-bottom:5px; color:var(--ink-soft); }
+  .gate-field input{ width:100%; padding:12px 13px; border-radius:10px; border:1.5px solid var(--line); background:var(--paper); color:var(--ink); font-size:14px; font-family:var(--font-body); }
+  .gate-field input:focus{ outline:none; border-color:var(--red); box-shadow:var(--focus); }
+  .gate-privacy{ font-size:11px; color:var(--ink-soft); text-align:center; margin-top:12px; line-height:1.5; }
+  .gate-error{ color:var(--red); font-size:12.5px; margin-top:8px; display:none; }
+
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+
+<!-- ============== GATE ============== -->
+<div id="gateScreen">
+  <div class="gate-card">
+    <div class="logo">AZ</div>
+    <h2>TOEIC Ngữ Pháp &amp; Từ Vựng</h2>
+    <p class="desc">Nhập thông tin để bắt đầu luyện tập. Điểm số và tiến độ của bạn sẽ được lưu lại theo email này.</p>
+    <form id="gateForm">
+      <div class="gate-field">
+        <label for="gateName">Họ và tên</label>
+        <input type="text" id="gateName" required placeholder="Nguyễn Văn A" />
+      </div>
+      <div class="gate-field">
+        <label for="gateEmail">Email</label>
+        <input type="email" id="gateEmail" required placeholder="ban@email.com" />
+      </div>
+      <div class="gate-field">
+        <label for="gatePhone">Số điện thoại</label>
+        <input type="tel" id="gatePhone" required placeholder="09xxxxxxxx" />
+      </div>
+      <div class="gate-error" id="gateError">Vui lòng nhập đầy đủ và đúng định dạng.</div>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:6px;">Bắt đầu học</button>
+    </form>
+    <p class="gate-privacy">Thông tin của bạn chỉ dùng để AZEnglish theo dõi tiến độ học tập, không chia sẻ cho bên thứ ba.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var LEAD_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzD1v2aekzEeyMBQ-2uD-2TRHBN9xX0__V6aAU5YZ4BFhlO4D9WEZtXr7CcwM4Gc2j1/exec";
+  var GATE_KEY = "az_toeicgrammar_gate_ok";
+  var LEADS_KEY = "az_toeicgrammar_leads";
+  var STUDENT_KEY = "az_toeicgrammar_student";
+  window.AZ_LEAD_WEBHOOK_URL = LEAD_WEBHOOK_URL;
+  window.AZ_STUDENT_KEY = STUDENT_KEY;
+
+  function hideGate(){ document.getElementById('gateScreen').style.display = 'none'; }
+
+  try{
+    if(localStorage.getItem(GATE_KEY) === "1"){ hideGate(); }
+  }catch(e){}
+
+  document.getElementById('gateForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var name = document.getElementById('gateName').value.trim();
+    var email = document.getElementById('gateEmail').value.trim();
+    var phone = document.getElementById('gatePhone').value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    var phoneOk = /^[0-9+()\-\s]{8,15}$/.test(phone);
+    if(!name || !emailOk || !phoneOk){
+      document.getElementById('gateError').style.display = 'block';
+      return;
+    }
+    document.getElementById('gateError').style.display = 'none';
+
+    var lead = {name:name, email:email, phone:phone, submittedAt:new Date().toISOString(), source:"AZTOEIC-Grammar-Vocab-Trainer"};
+    try{
+      var leads = JSON.parse(localStorage.getItem(LEADS_KEY) || "[]");
+      leads.push(lead);
+      localStorage.setItem(LEADS_KEY, JSON.stringify(leads));
+      localStorage.setItem(STUDENT_KEY, JSON.stringify({name:name, email:email, phone:phone}));
+    }catch(e){}
+
+    if(LEAD_WEBHOOK_URL){
+      try{
+        fetch(LEAD_WEBHOOK_URL, {
+          method:"POST", mode:"no-cors",
+          headers:{"Content-Type":"text/plain;charset=utf-8"},
+          body: JSON.stringify(Object.assign({type:"lead"}, lead))
+        });
+      }catch(e){}
+    }
+
+    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
+    hideGate();
+    if(window.AZ_APP_INIT) window.AZ_APP_INIT();
+  });
+})();
+</script>
+
+<!-- ============== APP ============== -->
+<div class="wrap">
+  <div class="banner">
+    <div class="logo">AZ</div>
+    <div class="brand">
+      <small>AZEnglish</small>
+      <h1 id="homeLink">TOEIC Ngữ Pháp &amp; Từ Vựng</h1>
+    </div>
+    <button class="themeBtn" id="themeBtn" title="Đổi giao diện sáng/tối">🌓</button>
+  </div>
+
+  <div id="viewRoot"></div>
+</div>
+
+<script src="data/topic-1-cac-thi.js"></script>
+<script src="data/topic-2-dieu-kien.js"></script>
+<script src="data/topic-3-menh-de-quan-he.js"></script>
+<script src="data/topic-4-dai-tu.js"></script>
+<script src="data/topic-5-gioi-tu-lien-tu.js"></script>
+<script src="data/topic-6-chia-dong-tu.js"></script>
+<script src="data/topic-7-tu-loai.js"></script>
+<script src="data/topic-8-part7-tu-vung.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  // ---------- THEME ----------
+  var themeBtn = document.getElementById('themeBtn');
+  function applyTheme(t){ document.documentElement.setAttribute('data-theme', t); try{localStorage.setItem('az_toeicgrammar_theme', t);}catch(e){} }
+  (function initTheme(){ try{ var t = localStorage.getItem('az_toeicgrammar_theme'); if(t) applyTheme(t); }catch(e){} })();
+  themeBtn.addEventListener('click', function(){
+    var cur = document.documentElement.getAttribute('data-theme');
+    var isDark = cur === 'dark' || (!cur && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    applyTheme(isDark ? 'light' : 'dark');
+  });
+
+  // ---------- PROGRESS STORE ----------
+  var PROGRESS_KEY = 'az_toeicgrammar_progress';
+  function getProgress(){ try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }catch(e){ return {}; } }
+  function saveProgress(p){ try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(p)); }catch(e){} }
+  function getStudent(){ try{ return JSON.parse(localStorage.getItem(window.AZ_STUDENT_KEY) || 'null'); }catch(e){ return null; } }
+
+  function recordQuizResult(topicId, quizId, score, total, mode){
+    var p = getProgress();
+    if(!p[topicId]) p[topicId] = {};
+    var prev = p[topicId][quizId];
+    var attempts = (prev && prev.attempts ? prev.attempts : 0) + 1;
+    var bestScore = prev && prev.bestScore !== undefined ? Math.max(prev.bestScore, score) : score;
+    p[topicId][quizId] = {bestScore:bestScore, lastScore:score, total:total, attempts:attempts, lastMode:mode, lastAt:new Date().toISOString()};
+    saveProgress(p);
+
+    var student = getStudent();
+    if(window.AZ_LEAD_WEBHOOK_URL && student){
+      try{
+        fetch(window.AZ_LEAD_WEBHOOK_URL, {
+          method:"POST", mode:"no-cors",
+          headers:{"Content-Type":"text/plain;charset=utf-8"},
+          body: JSON.stringify({
+            type:"score", source:"AZTOEIC-Grammar-Vocab-Trainer",
+            name:student.name, email:student.email, phone:student.phone,
+            topic:topicId, quiz:quizId, score:score, total:total, mode:mode,
+            submittedAt:new Date().toISOString()
+          })
+        });
+      }catch(e){}
+    }
+  }
+
+  function topicStats(topicId){
+    var topic = DATA[topicId];
+    var p = getProgress()[topicId] || {};
+    var totalQuizzes = topic.quizzes.length;
+    var doneQuizzes = 0, sumBest = 0, sumTotal = 0;
+    topic.quizzes.forEach(function(q){
+      var rec = p[q.id];
+      if(rec){ doneQuizzes++; sumBest += rec.bestScore; sumTotal += rec.total; }
+    });
+    return {totalQuizzes:totalQuizzes, doneQuizzes:doneQuizzes, pct: totalQuizzes ? Math.round(doneQuizzes/totalQuizzes*100) : 0, avgPct: sumTotal ? Math.round(sumBest/sumTotal*100) : null};
+  }
+
+  function overallStats(){
+    var ids = Object.keys(DATA);
+    var totalQuizzes = 0, doneQuizzes = 0, sumBest = 0, sumTotal = 0, topicsStarted = 0;
+    ids.forEach(function(id){
+      var s = topicStats(id);
+      totalQuizzes += s.totalQuizzes; doneQuizzes += s.doneQuizzes;
+      if(s.doneQuizzes > 0) topicsStarted++;
+      var p = getProgress()[id] || {};
+      DATA[id].quizzes.forEach(function(q){ var r = p[q.id]; if(r){ sumBest += r.bestScore; sumTotal += r.total; } });
+    });
+    return {
+      totalTopics: ids.length, topicsStarted: topicsStarted,
+      totalQuizzes: totalQuizzes, doneQuizzes: doneQuizzes,
+      avgPct: sumTotal ? Math.round(sumBest/sumTotal*100) : 0
+    };
+  }
+
+  // ---------- DATA ----------
+  var DATA = window.AZ_GRAMMAR_DATA;
+  var topicOrder = Object.keys(DATA).sort(function(a,b){ return DATA[a].order - DATA[b].order; });
+
+  // ---------- ROUTER ----------
+  var root = document.getElementById('viewRoot');
+  document.getElementById('homeLink').addEventListener('click', function(){ location.hash = '#/'; });
+
+  function route(){
+    var hash = location.hash || '#/';
+    var parts = hash.replace('#/','').split('/').filter(Boolean);
+    window.scrollTo(0,0);
+    if(parts.length === 0){ renderDashboard(); }
+    else if(parts[0] === 'topic' && parts[1]){ renderTopic(parts[1]); }
+    else if(parts[0] === 'quiz' && parts[1] && parts[2]){ renderQuizIntro(parts[1], parts[2]); }
+    else { renderDashboard(); }
+  }
+  window.addEventListener('hashchange', route);
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  // ---------- DASHBOARD ----------
+  function renderDashboard(){
+    var stat = overallStats();
+    var html = '';
+    html += '<div class="hero-card">';
+    html += '  <div class="hero-eyebrow">AZEnglish · Chương trình luyện thi TOEIC 250 → 450</div>';
+    html += '  <h2>Nắm chắc ngữ pháp — tăng điểm TOEIC bền vững</h2>';
+    html += '  <p class="desc">Học lý thuyết ngắn gọn, luyện trắc nghiệm đúng chuẩn TOEIC theo từng chủ điểm, và mở rộng vốn từ vựng đi kèm.</p>';
+    html += '  <div class="stat-row">';
+    html += '    <div class="stat-chip"><b>' + stat.topicsStarted + '/' + stat.totalTopics + '</b><span>Chủ điểm đã học</span></div>';
+    html += '    <div class="stat-chip"><b>' + stat.doneQuizzes + '/' + stat.totalQuizzes + '</b><span>Bài đã làm</span></div>';
+    html += '    <div class="stat-chip"><b>' + (stat.doneQuizzes ? stat.avgPct + '%' : '—') + '</b><span>Điểm trung bình</span></div>';
+    html += '  </div>';
+    html += '</div>';
+
+    function topicCard(id, idx){
+      var t = DATA[id];
+      var s = topicStats(id);
+      var out = '';
+      out += '<div class="topic-card" onclick="location.hash=\'#/topic/' + id + '\'">';
+      out += '  <div class="topic-card-top">';
+      out += '    <div class="topic-num">' + idx + '</div>';
+      out += '    <div><p class="topic-title">' + esc(t.title) + '</p><p class="topic-sub">' + esc(t.subtitle) + ' · ' + t.quizzes.length + ' bài luyện tập</p></div>';
+      out += '    <div class="topic-arrow">›</div>';
+      out += '  </div>';
+      out += '  <div class="progress-track"><div class="progress-fill" style="width:' + s.pct + '%"></div></div>';
+      out += '  <div class="progress-label">' + s.doneQuizzes + '/' + s.totalQuizzes + ' bài đã làm' + (s.avgPct !== null ? ' · điểm TB ' + s.avgPct + '%' : '') + '</div>';
+      out += '</div>';
+      return out;
+    }
+
+    var grammarIds = topicOrder.filter(function(id){ return DATA[id].order <= 7; });
+    var bonusIds = topicOrder.filter(function(id){ return DATA[id].order > 7; });
+
+    html += '<div class="panel"><h2 style="font-size:16px;">7 chủ điểm ngữ pháp TOEIC</h2>';
+    grammarIds.forEach(function(id, idx){ html += topicCard(id, idx+1); });
+    html += '</div>';
+
+    if(bonusIds.length){
+      html += '<div class="panel"><h2 style="font-size:16px;">Phần bổ trợ</h2><p class="desc">Luyện sau khi đã xong 7 chủ điểm — từ vựng lấy từ bài đọc thật ETS 2026.</p>';
+      bonusIds.forEach(function(id){ html += topicCard(id, '★'); });
+      html += '</div>';
+    }
+    root.innerHTML = html;
+  }
+
+  // ---------- TOPIC VIEW ----------
+  function renderTopic(topicId){
+    var t = DATA[topicId];
+    if(!t){ location.hash = '#/'; return; }
+    var p = getProgress()[topicId] || {};
+
+    var html = '<a class="backlink" onclick="location.hash=\'#/\'">‹ Tất cả chủ điểm</a>';
+    html += '<div class="panel"><h2>' + esc(t.title) + '</h2><p class="desc">' + esc(t.subtitle) + ' — lý thuyết trích từ AZGrammar, bài tập chuyển thể trắc nghiệm từ sách luyện đề TOEIC.</p>';
+
+    html += '<div class="accordion" style="margin-top:16px;">';
+    html += '<button class="accordion-toggle" id="theoryToggle"><h3 style="font-family:var(--font-display);font-size:15px;margin:0;">📘 Xem lý thuyết</h3><span class="chev">▾</span></button>';
+    html += '<div class="accordion-body" id="theoryBody">';
+    t.theory.forEach(function(group){
+      html += '<div class="theory-group"><h3>' + esc(group.group) + '</h3>';
+      if(group.tenses){
+        group.tenses.forEach(function(tn){
+          html += '<div class="tense-card"><h4>' + esc(tn.name) + '</h4>';
+          html += '<div class="tense-form">' + esc(tn.form) + '</div>';
+          html += '<ul>' + tn.usage.map(function(u){ return '<li>' + esc(u) + '</li>'; }).join('') + '</ul>';
+          html += '<div class="tense-signals"><b>Dấu hiệu nhận biết:</b> ' + esc(tn.signals) + '</div>';
+          html += '</div>';
+        });
+      }
+      if(group.tip){
+        html += '<ul class="tip-list">' + group.tip.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+      }
+      html += '</div>';
+    });
+    html += '</div></div></div>';
+
+    html += '<div class="panel"><h2 style="font-size:16px;">✏️ Bài luyện tập</h2>';
+    t.quizzes.forEach(function(q){
+      var rec = p[q.id];
+      var pct = rec ? Math.round(rec.bestScore/rec.total*100) : null;
+      var badgeClass = pct === null ? '' : (pct >= 80 ? 'good' : (pct >= 50 ? 'mid' : ''));
+      html += '<div class="quiz-row">';
+      html += '<div><div class="quiz-row-title">' + esc(q.title) + '</div><div class="quiz-row-meta">' + q.items.length + ' câu' + (rec ? ' · đã làm ' + rec.attempts + ' lần' : '') + '</div></div>';
+      html += '<div class="score-badge ' + badgeClass + '">' + (pct === null ? 'Chưa làm' : pct + '%') + '</div>';
+      html += '<div class="quiz-row-cta"><button class="btn btn-ghost btn-sm" onclick="location.hash=\'#/quiz/' + topicId + '/' + q.id + '\'">' + (rec ? 'Làm lại' : 'Bắt đầu') + '</button></div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    html += '<div class="panel"><h2 style="font-size:16px;">🗂 Từ vựng bổ trợ</h2><p class="desc">Từ vựng chọn lọc theo chủ điểm — ghi chú lại và ôn theo chu kỳ (Ngày 1 – Ngày 3 – Ngày 7) để nhớ lâu.</p>';
+    t.vocab.forEach(function(v){
+      html += '<div class="vocab-item">';
+      html += '<span class="vocab-word">' + esc(v.word) + '</span><span class="vocab-ipa">' + esc(v.ipa) + '</span>';
+      html += '<div class="vocab-meaning">' + esc(v.meaning) + '</div>';
+      html += '<div class="vocab-example">"' + esc(v.example) + '"</div>';
+      if(v.note) html += '<div class="vocab-note">Liên quan: ' + esc(v.note) + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    root.innerHTML = html;
+
+    document.getElementById('theoryToggle').addEventListener('click', function(){
+      this.classList.toggle('open');
+      document.getElementById('theoryBody').classList.toggle('open');
+    });
+  }
+
+  // ---------- QUIZ: MODE SELECT ----------
+  function findQuiz(topicId, quizId){
+    var t = DATA[topicId]; if(!t) return null;
+    var q = t.quizzes.filter(function(x){ return x.id === quizId; })[0];
+    return q ? {topic:t, quiz:q} : null;
+  }
+
+  function renderQuizIntro(topicId, quizId){
+    var found = findQuiz(topicId, quizId);
+    if(!found){ location.hash = '#/topic/' + topicId; return; }
+    var html = '<a class="backlink" onclick="location.hash=\'#/topic/' + topicId + '\'">‹ ' + esc(found.topic.title) + '</a>';
+    html += '<div class="panel"><h2>' + esc(found.quiz.title) + '</h2>';
+    html += '<p class="desc">' + found.quiz.items.length + ' câu trắc nghiệm. Chọn chế độ làm bài:</p>';
+    if(found.quiz.note) html += '<div class="quiz-note">ℹ️ ' + esc(found.quiz.note) + '</div>';
+    html += '<div class="mode-select">';
+    html += '  <button class="mode-card" onclick="AZ_startQuiz(\'' + topicId + '\',\'' + quizId + '\',\'practice\')"><h4>🎯 Luyện tập</h4><p>Biết đúng/sai ngay sau mỗi câu, có giải thích liền — phù hợp khi mới học chủ điểm này.</p></button>';
+    html += '  <button class="mode-card" onclick="AZ_startQuiz(\'' + topicId + '\',\'' + quizId + '\',\'test\')"><h4>📝 Kiểm tra</h4><p>Làm hết toàn bộ câu rồi mới xem điểm và đáp án — mô phỏng không khí thi thật.</p></button>';
+    html += '</div></div>';
+    root.innerHTML = html;
+  }
+
+  // ---------- QUIZ: TAKING ----------
+  var quizState = null; // {topicId, quizId, mode, answers:[], submitted:false}
+
+  window.AZ_startQuiz = function(topicId, quizId, mode){
+    quizState = {topicId:topicId, quizId:quizId, mode:mode, answers:new Array(findQuiz(topicId,quizId).quiz.items.length).fill(null), submitted:false};
+    renderQuizTaking();
+  };
+
+  function renderQuizTaking(){
+    var found = findQuiz(quizState.topicId, quizState.quizId);
+    var quiz = found.quiz;
+    var html = '<a class="backlink" onclick="location.hash=\'#/topic/' + quizState.topicId + '\'">‹ ' + esc(found.topic.title) + '</a>';
+
+    if(quizState.submitted){
+      var correctCount = quiz.items.filter(function(it,i){ return quizState.answers[i] === it.correct; }).length;
+      var pct = Math.round(correctCount/quiz.items.length*100);
+      html += '<div class="result-panel">';
+      html += '<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;">Kết quả</div>';
+      html += '<div class="score-num">' + correctCount + '/' + quiz.items.length + '</div>';
+      html += '<div class="score-msg">' + (pct >= 80 ? 'Xuất sắc! Bạn đã nắm rất vững chủ điểm này.' : pct >= 50 ? 'Khá ổn — xem lại phần giải thích để chắc hơn nhé.' : 'Cần ôn lại lý thuyết chủ điểm này trước khi làm lại.') + '</div>';
+      html += '<div class="btn-row" style="justify-content:center;"><button class="btn btn-primary" onclick="AZ_startQuiz(\'' + quizState.topicId + '\',\'' + quizState.quizId + '\',\'' + quizState.mode + '\')">Làm lại</button> <button class="btn btn-ghost" style="background:transparent;border-color:rgba(255,255,255,.5);color:#fff;" onclick="location.hash=\'#/topic/' + quizState.topicId + '\'">Về chủ điểm</button></div>';
+      html += '</div>';
+    }
+
+    html += '<div class="panel">';
+    html += '<h2 style="font-size:16px;">' + esc(quiz.title) + ' <span style="font-size:12px;font-weight:600;color:var(--ink-soft);">— ' + (quizState.mode === 'practice' ? 'Chế độ Luyện tập' : 'Chế độ Kiểm tra') + '</span></h2>';
+
+    quiz.items.forEach(function(item, i){
+      var picked = quizState.answers[i];
+      var showResult = quizState.mode === 'practice' ? (picked !== null) : quizState.submitted;
+      html += '<div class="q-block">';
+      html += '<div class="q-num">Câu ' + (i+1) + '/' + quiz.items.length + '</div>';
+      html += '<p class="q-text">' + esc(item.q) + '</p>';
+      html += '<div class="opt-row">';
+      item.choices.forEach(function(choice, ci){
+        var cls = 'opt-btn';
+        if(showResult){
+          if(ci === item.correct) cls += ' correct';
+          else if(ci === picked) cls += ' wrong';
+        } else if(ci === picked){
+          cls += ' selected';
+        }
+        var disabled = (quizState.mode === 'practice' && picked !== null) || quizState.submitted;
+        html += '<button class="' + cls + '" ' + (disabled ? 'disabled' : '') + ' onclick="AZ_pickAnswer(' + i + ',' + ci + ')"><b>' + String.fromCharCode(65+ci) + '</b><span>' + esc(choice) + '</span></button>';
+      });
+      html += '</div>';
+      if(showResult){
+        html += '<div class="explain-box">' + esc(item.explain) + '</div>';
+      }
+      html += '</div>';
+    });
+    html += '</div>';
+
+    if(!quizState.submitted){
+      var answeredCount = quizState.answers.filter(function(a){ return a !== null; }).length;
+      html += '<div class="quiz-toolbar">';
+      html += '<span class="quiz-progress">Đã trả lời ' + answeredCount + '/' + quiz.items.length + '</span>';
+      html += '<span style="flex:1;"></span>';
+      html += '<button class="btn btn-primary" id="submitBtn" ' + (answeredCount < quiz.items.length ? 'disabled' : '') + ' onclick="AZ_submitQuiz()">Nộp bài</button>';
+      html += '</div>';
+    }
+
+    root.innerHTML = html;
+  }
+
+  window.AZ_pickAnswer = function(qIndex, choiceIndex){
+    if(quizState.submitted) return;
+    var found = findQuiz(quizState.topicId, quizState.quizId);
+    if(quizState.mode === 'practice' && quizState.answers[qIndex] !== null) return; // đã chốt câu này
+    quizState.answers[qIndex] = choiceIndex;
+    renderQuizTaking();
+  };
+
+  window.AZ_submitQuiz = function(){
+    var found = findQuiz(quizState.topicId, quizState.quizId);
+    var correctCount = found.quiz.items.filter(function(it,i){ return quizState.answers[i] === it.correct; }).length;
+    quizState.submitted = true;
+    recordQuizResult(quizState.topicId, quizState.quizId, correctCount, found.quiz.items.length, quizState.mode);
+    renderQuizTaking();
+    window.scrollTo(0,0);
+  };
+
+  // also record result immediately when finishing in practice mode (all answered)
+  var origPick = window.AZ_pickAnswer;
+  window.AZ_pickAnswer = function(qIndex, choiceIndex){
+    origPick(qIndex, choiceIndex);
+    if(quizState && quizState.mode === 'practice' && !quizState.submitted){
+      var found = findQuiz(quizState.topicId, quizState.quizId);
+      var allAnswered = quizState.answers.every(function(a){ return a !== null; });
+      if(allAnswered){
+        var correctCount = found.quiz.items.filter(function(it,i){ return quizState.answers[i] === it.correct; }).length;
+        quizState.submitted = true;
+        recordQuizResult(quizState.topicId, quizState.quizId, correctCount, found.quiz.items.length, quizState.mode);
+        renderQuizTaking();
+      }
+    }
+  };
+
+  // ---------- INIT ----------
+  window.AZ_APP_INIT = function(){ route(); };
+  if(document.getElementById('gateScreen').style.display === 'none'){ route(); }
+  else {
+    // gate might already be hidden via localStorage check that ran before this script loaded
+    setTimeout(function(){
+      if(document.getElementById('gateScreen').style.display === 'none') route();
+    }, 0);
+  }
+})();
+</script>
+
+</body>
+</html>
