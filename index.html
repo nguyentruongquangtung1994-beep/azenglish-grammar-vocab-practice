@@ -63,7 +63,7 @@
   .themeBtn{ margin-left:auto; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--paper-2); cursor:pointer; font-size:16px; flex:none; }
   .panel{ background:var(--paper); border:1px solid var(--line); border-radius:16px; box-shadow:var(--card-shadow); padding:22px; margin-bottom:16px; }
   .panel h2{ margin:0 0 10px; font-family:var(--font-display); }
-  .desc{ color:var(--ink-soft); font-size:13.5px; line-height:1.6; }
+  .desc{ color:var(--ink-soft); font-size:14px; line-height:1.65; }
   .btn{ display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:12px; padding:12px 18px; font-weight:700; font-size:14px; border:1px solid transparent; cursor:pointer; text-decoration:none; }
   .btn-primary{ background:var(--red); color:#fff; }
   .btn-ghost{ background:var(--paper-2); color:var(--ink); border-color:var(--line); }
@@ -137,9 +137,9 @@
   .q-block:first-child{ padding-top:0; }
   .q-block:last-child{ border-bottom:none; }
   .q-num{ font-weight:800; color:var(--red); font-size:13px; margin-bottom:6px; }
-  .q-text{ font-size:14.5px; line-height:1.6; margin:0 0 10px; }
+  .q-text{ font-size:15.5px; line-height:1.65; margin:0 0 10px; }
   .opt-row{ display:flex; flex-direction:column; gap:8px; }
-  .opt-btn{ text-align:left; border:1.5px solid var(--line); background:var(--paper); border-radius:10px; padding:10px 14px; font-size:13.5px; cursor:pointer; display:flex; gap:10px; align-items:flex-start; font-family:var(--font-body); }
+  .opt-btn{ text-align:left; border:1.5px solid var(--line); background:var(--paper); border-radius:10px; padding:11px 14px; font-size:14.5px; line-height:1.5; cursor:pointer; display:flex; gap:10px; align-items:flex-start; font-family:var(--font-body); }
   .opt-btn b{ flex:none; width:20px; height:20px; border-radius:50%; background:var(--paper-2); display:flex; align-items:center; justify-content:center; font-size:11.5px; }
   .opt-btn.selected{ border-color:var(--red); background:var(--amber-bg); }
   .opt-btn.selected b{ background:var(--red); color:#fff; }
@@ -176,16 +176,16 @@
   /* ---- Part 7 — AZ Daily 15 ---- */
   .p7-tag{ font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:var(--gold); }
   .p7-formula{ font-size:12px; font-weight:700; color:var(--ink-soft); letter-spacing:.02em; margin-top:8px; }
-  .p7-passage-para{ font-size:14px; line-height:1.75; margin-bottom:12px; }
-  .p7-passage-vi{ font-size:13px; line-height:1.7; color:var(--ink-soft); margin-top:5px; padding-left:10px; border-left:2px solid var(--line); }
+  .p7-passage-para{ font-size:15.5px; line-height:1.8; margin-bottom:12px; }
+  .p7-passage-vi{ font-size:14px; line-height:1.75; color:var(--ink-soft); margin-top:6px; padding-left:10px; border-left:2px solid var(--line); }
   .p7-toggle-row{ display:flex; border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-bottom:14px; }
   .p7-toggle-row button{ flex:1; padding:9px; font-size:12px; font-weight:700; border:none; background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--font-body); }
   .p7-toggle-row button.active{ background:var(--red); color:#fff; }
   .p7-chunk-list{ margin-top:16px; }
   .p7-chunk-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:8px; border-bottom:1px solid var(--line); padding:11px 0; }
   .p7-chunk-row:last-child{ border-bottom:none; }
-  .p7-chunk-en{ font-weight:700; font-size:13.5px; }
-  .p7-chunk-vi{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+  .p7-chunk-en{ font-weight:700; font-size:14.5px; }
+  .p7-chunk-vi{ font-size:13.5px; color:var(--ink-soft); margin-top:3px; }
   mark.p7-hl{ background:var(--gold-bg); color:var(--red-ink); font-weight:700; border-radius:3px; padding:1px 3px; }
   mark.p7-hl-vi{ background:var(--gold-bg); color:var(--ink); font-weight:700; font-style:italic; border-radius:3px; padding:1px 4px; }
   .p7-vi-num{ display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%; background:var(--red); color:#fff; font-size:9.5px; font-weight:800; font-style:normal; margin-right:4px; }
@@ -279,7 +279,7 @@
 <!-- ============== APP ============== -->
 <div class="wrap">
   <div class="banner">
-    <div class="logo">AZ</div>
+    <div class="logo" id="homeLogo" style="cursor:pointer;">AZ</div>
     <div class="brand">
       <small>AZEnglish</small>
       <h1 id="homeLink">TOEIC Ngữ Pháp &amp; Từ Vựng</h1>
@@ -383,6 +383,7 @@
   // ---------- ROUTER ----------
   var root = document.getElementById('viewRoot');
   document.getElementById('homeLink').addEventListener('click', function(){ location.hash = '#/'; });
+  document.getElementById('homeLogo').addEventListener('click', function(){ location.hash = '#/'; });
 
   function route(){
     var hash = location.hash || '#/';
