@@ -17,6 +17,35 @@ window.AZ_GRAMMAR_DATA['hoa-hop-chu-vi'] = {
       ]
     },
     {
+      group: 'Bảng tổng hợp theo sách AZ Grammar: danh từ, chủ ngữ ghép, đại từ bất định và lượng từ (all of, some of, few…)',
+      tenses: [
+        {
+          name: '1. Nguyên tắc chung',
+          form: 'Danh từ không đếm được / danh từ số ít → V số ít · Danh từ số nhiều → V số nhiều',
+          usage: ['The dog barks. / The dogs bark.', 'Information is crucial. (không đếm được: water, information, advice, news, money, rice, love, happiness…)', 'The documents have been verified. (số nhiều: apples, clothes, documents; bất quy tắc: children, people, men, women…)'],
+          signals: 'Danh từ đếm được số ít thường đi sau a/an/the; danh từ số nhiều thường có -s (chú ý các từ bất quy tắc children, people, men, women).'
+        },
+        {
+          name: '2. Chủ ngữ ghép',
+          form: 'N1 and N2 → V số nhiều · N1 or/nor N2 (either…or, neither…nor) → V chia theo N2 (danh từ gần động từ nhất)',
+          usage: ['Tom and Harry have arrived. · The guitar and the piano need tuning.', 'The student or the committee members write. (theo N2 số nhiều)', 'Neither Tom nor Harry has arrived. · Either Eva or Joy has taken the coat.'],
+          signals: 'Ngoại lệ → SỐ ÍT: (1) N1 and N2 cùng chỉ MỘT chủ thể — Spaghetti and meatballs is delicious; (2) Each/Every N1 and each/every N2 — Every man and woman has the right.'
+        },
+        {
+          name: '3. Đại từ bất định',
+          form: '(each, every-, any-, some-) + (-one, -body, -thing) / either / neither → V số ít · (some, all, most, none, any, half) of + N → V chia theo N đứng sau "of"',
+          usage: ['Anybody who wants to join is welcome. · Someone has left their bag here.', 'Neither of the options is ideal.', 'All of the information has been reviewed. (N không đếm được → số ít)', 'Some of the students are playing outside. (N số nhiều → số nhiều)', 'None of the participants were late. · Most of the work is done.'],
+          signals: 'Gặp "all/some/most/none/half of + N": nhìn vào N SAU "of" để quyết định động từ, không nhìn vào "all/some".'
+        },
+        {
+          name: '4. Lượng từ (Quantifiers)',
+          form: 'much, little, a little, an amount of, a great deal of, a bit of + N không đếm được → V số ít · many, few, a few, several, a (great/large) number of + N số nhiều → V số nhiều · all of, some of, any of, a lot of, lots of, plenty of, most of, none of, half of + N → chia theo N',
+          usage: ['Much of the work has been done. · A little of the sugar remains.', 'Few of the options are viable. · A few of them have submitted. · Several cars were damaged.', 'All of the water is safe to drink. · Most of the people have left. · Half of the students have passed the exam.'],
+          signals: 'Nhóm "much/little" đi với danh từ KHÔNG ĐẾM ĐƯỢC; nhóm "many/few/several" đi với danh từ ĐẾM ĐƯỢC SỐ NHIỀU; nhóm "all of/some of/…" đi được với cả hai nên phải chia theo danh từ phía sau.'
+        }
+      ]
+    },
+    {
       group: 'Các cấu trúc dễ gây nhầm (bẫy TOEIC kinh điển)',
       tip: [
         '"Each/Every + N số ít" → luôn chia V số ít, kể cả "each of + N số nhiều" (chủ ngữ thật là "each").',
@@ -30,6 +59,7 @@ window.AZ_GRAMMAR_DATA['hoa-hop-chu-vi'] = {
         'Danh từ tập hợp (committee, team, staff, family, company) khi coi là MỘT khối thống nhất → chia V số ít.',
         'Cụm chủ ngữ dạng "V-ing + ..." hoặc "To V + ..." (danh động từ/động từ nguyên mẫu làm chủ ngữ) luôn chia V số ít.',
         'Danh từ có hình thức số nhiều nhưng luôn chia V số ít: news, means, series, species.',
+        '"The + tính từ" chỉ một nhóm người (the rich, the elderly, the unemployed) → V số nhiều: The rich are not always happy.',
         'Danh từ không đếm được (equipment, furniture, information, advice, luggage, machinery, news) luôn chia V số ít, không thêm "-s".',
         '"Phân số/phần trăm + of + N" và "All of/Most of/Some of/Half of + N" chia động từ theo danh từ đứng SAU "of".'
       ]
@@ -65,6 +95,25 @@ window.AZ_GRAMMAR_DATA['hoa-hop-chu-vi'] = {
         {q:'The news about the merger ------ surprised many employees.', choices:['has','have','were','are'], correct:0, explain:'Dịch: Tin tức về việc sáp nhập đã khiến nhiều nhân viên bất ngờ. — "News" có hình thức số nhiều (kết thúc bằng "-s") nhưng LUÔN là danh từ không đếm được/số ít về ngữ pháp. Mẹo thêm: các từ dễ nhầm dạng này: news, means, series, species — nhìn giống số nhiều nhưng chia động từ số ít.'},
         {q:'Everyone who attended the workshop ------ given a certificate of completion.', choices:['was','were','are','have been'], correct:0, explain:'Dịch: Mọi người tham dự buổi hội thảo đều được cấp chứng chỉ hoàn thành. — "Everyone" luôn số ít; mệnh đề quan hệ "who attended the workshop" chỉ bổ nghĩa, không ảnh hưởng số của động từ chính. Mẹo thêm: khi có mệnh đề quan hệ xen giữa chủ ngữ và động từ chính, hãy bỏ qua mệnh đề đó để xác định đúng số của chủ ngữ thật.'},
         {q:'The majority of shareholders ------ in favor of the new policy.', choices:['are','is','was','has been'], correct:0, explain:'Dịch: Đa số cổ đông ủng hộ chính sách mới. — "The majority of + N số nhiều" chia theo danh từ phía sau (shareholders, số nhiều) → "are". Mẹo thêm: nếu là "The majority of the staff IS..." (staff là danh từ tập hợp số ít) thì có thể chia số ít — cần dựa vào danh từ đi kèm "of" là số ít hay số nhiều.'}
+      ]
+    },
+    {
+      id: 'hh-3', title: '3. Luyện thêm — all of, some of, few, neither, the number of…',
+      note: 'Bài bổ sung do AZEnglish soạn thêm (không nằm trong sách luyện đề gốc) để luyện phần lý thuyết S & V Agreement.',
+      items: [
+        {q:'All of the information in the report ------ been verified by the audit team.', choices:['have','has','are','were'], correct:1, explain:'Dịch: Toàn bộ thông tin trong báo cáo đã được nhóm kiểm toán xác minh. — Giải thích: "all of + N" chia theo N sau "of"; "information" là danh từ không đếm được → V số ít "has". Mẹo thêm: đừng bị "all" đánh lừa thành số nhiều — luôn nhìn vào danh từ đứng sau "of".'},
+        {q:'Some of the applicants ------ already submitted their portfolios.', choices:['has','is','have','was'], correct:2, explain:'Dịch: Một số ứng viên đã nộp hồ sơ năng lực của mình. — Giải thích: "some of + N" chia theo N; "applicants" là số nhiều → "have". Mẹo thêm: cùng cấu trúc "Some of…" nhưng đổi danh từ thành "the money" thì phải dùng số ít ("has").'},
+        {q:'Neither of the two proposals ------ acceptable to the board.', choices:['are','were','is','have been'], correct:2, explain:'Dịch: Không đề xuất nào trong hai đề xuất được hội đồng chấp nhận. — Giải thích: "neither of + N" (cũng như either/each) đi với V số ít → "is". Mẹo thêm: trong văn nói có người dùng số nhiều, nhưng TOEIC luôn chấm theo quy tắc số ít.'},
+        {q:'Each of the new employees ------ required to attend the orientation session.', choices:['are','is','were','have'], correct:1, explain:'Dịch: Mỗi nhân viên mới đều được yêu cầu tham dự buổi định hướng. — Giải thích: "each of + N số nhiều" vẫn chia V số ít vì chủ ngữ thật là "each" → "is". Mẹo thêm: "each/every/one of + N số nhiều" → luôn V số ít.'},
+        {q:'A number of customers ------ complained about the delay in delivery.', choices:['has','is','have','was'], correct:2, explain:'Dịch: Một số khách hàng đã phàn nàn về việc giao hàng chậm. — Giải thích: "a number of + N số nhiều" mang nghĩa "một số" → V số nhiều "have". Mẹo thêm: so sánh với "the number of" ở câu sau — chỉ khác một mạo từ nhưng đổi hẳn cách chia động từ.'},
+        {q:'The number of complaints ------ dropped significantly since the new policy took effect.', choices:['have','are','has','were'], correct:2, explain:'Dịch: Số lượng khiếu nại đã giảm đáng kể kể từ khi chính sách mới có hiệu lực. — Giải thích: chủ ngữ thật là "the number" (một con số) → V số ít; "since" đòi hiện tại hoàn thành → "has dropped". Mẹo thêm: "the number of + N số nhiều" → số ít; "a number of + N số nhiều" → số nhiều.'},
+        {q:'Much of the equipment in the laboratory ------ outdated.', choices:['are','were','have been','is'], correct:3, explain:'Dịch: Phần lớn thiết bị trong phòng thí nghiệm đã lỗi thời. — Giải thích: "much of + N không đếm được" → V số ít; "equipment" là danh từ không đếm được → "is". Mẹo thêm: equipment, furniture, luggage, machinery, information là các danh từ không đếm được rất hay bị hỏi trong TOEIC.'},
+        {q:'Few of the candidates ------ qualified for the senior position.', choices:['is','was','are','has been'], correct:2, explain:'Dịch: Rất ít ứng viên đủ tiêu chuẩn cho vị trí cấp cao. — Giải thích: "few of + N số nhiều" → V số nhiều "are". Mẹo thêm: "few" (rất ít, mang nghĩa tiêu cực) khác "a few" (một vài, mang nghĩa tích cực) nhưng cả hai đều đi với danh từ đếm được số nhiều.'},
+        {q:'Half of the budget ------ been spent on marketing this quarter.', choices:['have','has','are','were'], correct:1, explain:'Dịch: Một nửa ngân sách đã được chi cho marketing trong quý này. — Giải thích: "half of + N" chia theo N; "budget" số ít → "has". Mẹo thêm: "budget" là danh từ đếm được nhưng ở đây là số ít, nên "half of the budget" đi với V số ít.'},
+        {q:'Half of the employees ------ working remotely this week.', choices:['is','are','has','was'], correct:1, explain:'Dịch: Một nửa số nhân viên đang làm việc từ xa trong tuần này. — Giải thích: cùng cấu trúc "half of + N" nhưng "employees" là số nhiều → "are". Mẹo thêm: hai câu "Half of the budget has…" và "Half of the employees are…" cho thấy động từ luôn chạy theo danh từ sau "of".'},
+        {q:'The manager and the assistant director ------ scheduled to visit the branch next week.', choices:['is','has','are','was'], correct:2, explain:'Dịch: Giám đốc và phó giám đốc dự kiến sẽ thăm chi nhánh vào tuần tới. — Giải thích: "N1 and N2" (hai người khác nhau, có mạo từ "the" lặp lại) → V số nhiều "are". Mẹo thêm: nếu chỉ có một "the" trước cả hai danh từ (the manager and director) thì có thể chỉ MỘT người giữ hai chức danh → số ít.'},
+        {q:'The elderly ------ more medical care than younger people.', choices:['needs','need','is needing','has needed'], correct:1, explain:'Dịch: Người cao tuổi cần được chăm sóc y tế nhiều hơn người trẻ. — Giải thích: "the + tính từ" (the elderly) chỉ một nhóm người → V số nhiều "need" (không thêm -s). Mẹo thêm: các cụm tương tự: the rich, the poor, the young, the unemployed.'},
+        {q:'Spaghetti and meatballs ------ the most popular dish at our cafeteria.', choices:['are','is','were','have been'], correct:1, explain:'Dịch: Mì Ý sốt viên là món phổ biến nhất ở căng tin của chúng tôi. — Giải thích: "spaghetti and meatballs" chỉ MỘT món ăn duy nhất → coi là số ít → "is". Mẹo thêm: các cặp như "bread and butter", "rock and roll", "fish and chips" cũng thường được xem là một thực thể → số ít.'}
       ]
     }
   ],

@@ -6,7 +6,7 @@ window.AZ_GRAMMAR_DATA['tu-loai'] = {
   subtitle: 'Word Forms',
   sourceExercises: 'toeic-practice-book-offset.pdf',
   sourceTheory: 'azgrammar-2nd-edition.pdf',
-  note: 'Đã bổ sung đầy đủ toàn bộ 104/104 câu trắc nghiệm gốc của chương — đây là dạng câu xuất hiện NHIỀU NHẤT trong TOEIC Part 5 (chiếm gần 1/3 số câu), rất đáng luyện phản xạ nhận diện đuôi từ và vị trí trong câu.',
+  note: 'Đã bổ sung đầy đủ toàn bộ 104/104 câu trắc nghiệm gốc của chương — đây là dạng câu xuất hiện NHIỀU NHẤT trong TOEIC Part 5 (chiếm gần 1/3 số câu), rất đáng luyện phản xạ nhận diện đuôi từ và vị trí trong câu. Đã bổ sung lý thuyết hậu tố danh từ/tính từ/động từ/trạng từ và bài 8 do AZEnglish soạn thêm.',
 
   theory: [
     {
@@ -29,6 +29,46 @@ window.AZ_GRAMMAR_DATA['tu-loai'] = {
           form: 'Bổ nghĩa cho ĐỘNG TỪ, TÍNH TỪ, hoặc TRẠNG TỪ khác — thường đứng trước động từ thường, sau trợ động từ, hoặc cuối câu',
           usage: ['She speaks fluently. (bổ nghĩa động từ, cuối câu)', 'You can easily rebuild your credit. (giữa trợ động từ "can" và động từ chính)', 'The weather is extremely hot. (bổ nghĩa tính từ "hot")'],
           signals: 'Nếu chỗ trống nằm giữa trợ động từ và động từ chính, ngay trước tính từ, hoặc bổ nghĩa cho cả câu → chọn TRẠNG TỪ (đuôi -ly)'
+        }
+      ]
+    },
+    {
+      group: 'Nhận biết từ loại bằng hậu tố (đuôi từ)',
+      tenses: [
+        {
+          name: 'DANH TỪ (Noun) — đuôi thường gặp',
+          form: '-tion / -ment · -ance / -ence · -ist / -ian · -ee · -ism · -ship / -dom / -age · -ity · -er / -or',
+          usage: ['-tion, -ment: information, environment, management', '-ance, -ence: compliance, silence, performance', '-ist, -ian: scientist, magician, specialist', '-ee: attendee, employee, trainee', '-ism: Buddhism, enthusiasm', '-ship, -dom, -age: friendship, freedom, usage', '-ity: community, necessity, availability', '-er, -or: teacher, runner, inspector'],
+          signals: 'Bổ sung: -ness (happiness, effectiveness), -sion (decision), -th (growth), -ure (failure), -cy (accuracy), -al (proposal, approval, arrival — danh từ dù đuôi giống tính từ!). Đuôi chỉ NGƯỜI: -er, -or, -ist, -ian, -ee, -ant (assistant, applicant).'
+        },
+        {
+          name: 'TÍNH TỪ (Adjective) — đuôi thường gặp',
+          form: '-y / -ly · -ous · -able · -al · -ic · -ful · -less · -ive',
+          usage: ['-y, -ly: easy, steady, costly', '-ous: mountainous, dangerous', '-able: capable, reliable, affordable', '-al: musical, financial, traditional', '-ic: athletic, authentic', '-ful: beautiful, useful, helpful', '-less: careless, stainless', '-ive: expensive, extensive, effective'],
+          signals: 'Bổ sung: -ent/-ant (different, important), -ary/-ory (necessary, mandatory), -ed/-ing (interested, interesting). Chú ý: -ly không phải lúc nào cũng là trạng từ (friendly, costly, likely, timely là TÍNH TỪ).'
+        },
+        {
+          name: 'ĐỘNG TỪ (Verb) — đuôi thường gặp',
+          form: '-ize · -ate · -en · -fy',
+          usage: ['-ize: memorize, organize, specialize', '-ate: manipulate, motivate, evaluate', '-en: strengthen, shorten, broaden', '-fy: clarify, specify, verify'],
+          signals: 'Nhóm đuôi động từ ít hơn nhiều so với danh từ/tính từ — nếu chỗ trống cần động từ (sau to, sau modal, sau chủ ngữ) mà một lựa chọn có đuôi -ize/-ate/-en/-fy thì rất có thể đó là đáp án.'
+        },
+        {
+          name: 'TRẠNG TỪ (Adverb)',
+          form: 'Hầu hết = tính từ + -ly',
+          usage: ['quick → quickly · careful → carefully · efficient → efficiently', 'Vị trí: trước động từ thường, giữa trợ động từ và động từ chính, trước tính từ, hoặc cuối câu.'],
+          signals: 'Bổ sung: trạng từ KHÔNG đuôi -ly cần nhớ — fast, hard, late, early, well, soon. Cẩn thận: hardly/lately/nearly có nghĩa KHÁC hẳn hard/late/near.'
+        }
+      ]
+    },
+    {
+      group: 'Động từ: nội động từ, ngoại động từ và câu mệnh lệnh',
+      tenses: [
+        {
+          name: 'Nội động từ vs. Ngoại động từ',
+          form: 'Nội động từ: S + V (không cần tân ngữ, không có dạng bị động) · Ngoại động từ: S + V + O (cần tân ngữ)',
+          usage: ['Nội động từ: sit, live, walk, come, go, sleep, increase — The company’s profits increased significantly.', 'Ngoại động từ: make, find, help, send, give, buy, raise — The company launched a new product last month.', 'Động từ nguyên mẫu đứng đầu câu → câu mệnh lệnh: Submit your report immediately.'],
+          signals: 'Chỗ trống có tân ngữ theo sau → chọn dạng CHỦ ĐỘNG của ngoại động từ; nội động từ (arrive, happen, occur, appear…) không bao giờ ở dạng bị động.'
         }
       ]
     },
@@ -182,6 +222,25 @@ window.AZ_GRAMMAR_DATA['tu-loai'] = {
         {q:'The city council ------ approved the highway extension project pending the results of an environmental review.', choices:['conditions','conditioned','conditional','conditionally'], correct:3, explain:'Dịch: Hội đồng thành phố đã phê duyệt có điều kiện dự án mở rộng đường cao tốc, chờ kết quả đánh giá môi trường. — Giải thích: bổ nghĩa cho động từ "approved" → cần TRẠNG TỪ "conditionally" (có điều kiện). Mẹo thêm: "pending something" (chờ, trong khi chờ điều gì) là giới từ trang trọng — "pending the results of" (chờ kết quả của) thường gặp trong văn bản hành chính/pháp lý.'},
         {q:'In order to be more ------ to its customers, the Jeness Department Store has added a customer feedback section to its Website.', choices:['response','responded','responsive','responder'], correct:2, explain:'Dịch: Để đáp ứng khách hàng tốt hơn, cửa hàng bách hóa Jeness đã thêm mục phản hồi khách hàng vào trang web của mình. — Giải thích: sau "be more" (linking verb + so sánh hơn) → cần TÍNH TỪ "responsive" (đáp ứng nhanh nhạy). Mẹo thêm: "responsive to something" (đáp ứng/phản hồi nhanh với điều gì) khác với "responsible for something" (chịu trách nhiệm về điều gì) — hai tính từ dễ nhầm do gần giống hình thức.'},
         {q:'Janning Footwear’s marketing campaign was ------ aimed at young adults in an attempt to broaden its customer base.', choices:['specify','specific','specifically','specifies'], correct:2, explain:'Dịch: Chiến dịch marketing của Janning Footwear được nhắm cụ thể đến người trẻ tuổi nhằm mở rộng tệp khách hàng. — Giải thích: bổ nghĩa cho động từ bị động "was aimed" → cần TRẠNG TỪ "specifically". Mẹo thêm: "be aimed at someone" (nhắm đến đối tượng nào) là cụm bị động cố định — "in an attempt to V0" (trong nỗ lực để làm gì) cũng là cụm trang trọng hay gặp trong văn phong marketing.'}
+      ]
+    },
+    {
+      id: 'tl-8', title: '8. Nhận biết từ loại qua hậu tố (bổ sung)',
+      note: 'Bài bổ sung do AZEnglish soạn thêm (không nằm trong sách luyện đề gốc) để luyện phần lý thuyết hậu tố danh từ / tính từ / động từ / trạng từ.',
+      items: [
+        {q:'The company announced its plan to ------ its product line next year.', choices:['diversity','diversify','diverse','diversely'], correct:1, explain:'Dịch: Công ty công bố kế hoạch đa dạng hóa dòng sản phẩm vào năm sau. — Giải thích: sau "to" cần ĐỘNG TỪ nguyên mẫu; đuôi -fy là đuôi động từ → "diversify". Mẹo thêm: diversity (danh từ, sự đa dạng) và diverse (tính từ, đa dạng) là hai từ cùng gốc dễ gây nhiễu.'},
+        {q:'Employees are encouraged to ------ their skills through online courses.', choices:['strength','strengthen','strong','strongly'], correct:1, explain:'Dịch: Nhân viên được khuyến khích nâng cao kỹ năng qua các khóa học trực tuyến. — Giải thích: sau "to" cần động từ; đuôi -en là đuôi động từ → "strengthen". Mẹo thêm: các động từ đuôi -en khác: shorten, broaden, widen, deepen.'},
+        {q:'The company hired a ------ to analyze its sales data.', choices:['specialize','specialist','special','specially'], correct:1, explain:'Dịch: Công ty đã thuê một chuyên gia để phân tích dữ liệu bán hàng. — Giải thích: sau mạo từ "a" cần DANH TỪ chỉ người; đuôi -ist → "specialist". Mẹo thêm: đuôi chỉ người phổ biến: -ist, -ian, -er, -or, -ee, -ant.'},
+        {q:'All ------ must present a valid ID at the entrance.', choices:['attend','attendees','attending','attendance'], correct:1, explain:'Dịch: Tất cả người tham dự phải xuất trình giấy tờ tùy thân hợp lệ ở cổng vào. — Giải thích: chủ ngữ số nhiều sau "All" cần DANH TỪ chỉ người số nhiều; đuôi -ee → "attendees". Mẹo thêm: "attendance" (sự tham dự) là danh từ trừu tượng không thêm -s, không hợp với "All … must present".'},
+        {q:'The new smartphone is both ------ and easy to use.', choices:['afford','affordable','affordably','affordability'], correct:1, explain:'Dịch: Chiếc điện thoại mới vừa có giá phải chăng vừa dễ sử dụng. — Giải thích: "both … and easy" nối hai TÍNH TỪ sau "is"; đuôi -able → "affordable". Mẹo thêm: cấu trúc song song — từ trước "and" phải cùng từ loại với "easy".'},
+        {q:'The company faced a ------ task after the merger.', choices:['danger','dangerous','dangerously','endanger'], correct:1, explain:'Dịch: Công ty phải đối mặt với một nhiệm vụ nguy hiểm sau vụ sáp nhập. — Giải thích: đứng giữa "a" và danh từ "task" → TÍNH TỪ; đuôi -ous → "dangerous". Mẹo thêm: nhiều tính từ đuôi -ous quen thuộc: various, serious, obvious, previous.'},
+        {q:'This restaurant is famous for its ------ dishes.', choices:['tradition','traditional','traditionally','traditions'], correct:1, explain:'Dịch: Nhà hàng này nổi tiếng với các món ăn truyền thống. — Giải thích: đứng trước danh từ "dishes" → TÍNH TỪ; đuôi -al → "traditional". Mẹo thêm: cẩn thận đuôi -al cũng xuất hiện ở danh từ (proposal, approval, arrival) — phải xét vị trí trong câu.'},
+        {q:'Thank you for your ------ advice on the project.', choices:['help','helpful','helpfully','helping'], correct:1, explain:'Dịch: Cảm ơn lời khuyên hữu ích của bạn về dự án. — Giải thích: đứng sau "your" và trước danh từ "advice" → TÍNH TỪ; đuôi -ful → "helpful". Mẹo thêm: -ful (đầy) và -less (không có) tạo cặp trái nghĩa: helpful/helpless, careful/careless.'},
+        {q:'The technician was ------ and forgot to lock the server room.', choices:['care','careless','carelessly','carelessness'], correct:1, explain:'Dịch: Kỹ thuật viên bất cẩn và quên khóa phòng máy chủ. — Giải thích: sau "was" cần TÍNH TỪ mô tả chủ ngữ; đuôi -less → "careless". Mẹo thêm: "carelessness" là danh từ (sự bất cẩn), sau "was" không dùng được.'},
+        {q:'Please note that the ------ of this offer is limited to members only.', choices:['available','availability','avail','availably'], correct:1, explain:'Dịch: Xin lưu ý rằng việc áp dụng ưu đãi này chỉ giới hạn cho hội viên. — Giải thích: sau "the" là chủ ngữ cần DANH TỪ; đuôi -ity → "availability". Mẹo thêm: "availability" (sự có sẵn, khả năng áp dụng) rất hay xuất hiện trong thông báo ưu đãi/đặt phòng.'},
+        {q:'The proposal was ------ approved by the board after a short discussion.', choices:['unanimous','unanimously','unanimity','unanimousness'], correct:1, explain:'Dịch: Đề xuất đã được hội đồng nhất trí thông qua sau một cuộc thảo luận ngắn. — Giải thích: giữa "was" và động từ "approved" cần TRẠNG TỪ; đuôi -ly → "unanimously". Mẹo thêm: trạng từ thường chen giữa trợ động từ và quá khứ phân từ trong câu bị động.'},
+        {q:'Customers can ------ their order status on our website at any time.', choices:['verification','verify','verified','verifying'], correct:1, explain:'Dịch: Khách hàng có thể xác minh tình trạng đơn hàng trên website bất cứ lúc nào. — Giải thích: sau modal "can" cần động từ nguyên mẫu; đuôi -fy → "verify". Mẹo thêm: modal (can, will, should, must…) luôn đi với V0 — đuôi -fy/-ize/-ate/-en giúp nhận diện động từ nhanh.'},
+        {q:'The ------ between the two companies lasted for over a decade.', choices:['partner','partnership','partnered','partnering'], correct:1, explain:'Dịch: Mối quan hệ đối tác giữa hai công ty kéo dài hơn một thập kỷ. — Giải thích: sau "the" là chủ ngữ cần danh từ trừu tượng chỉ mối quan hệ; đuôi -ship → "partnership". Mẹo thêm: "partner" là danh từ chỉ NGƯỜI/tổ chức (đối tác), còn "partnership" chỉ MỐI QUAN HỆ giữa các bên — cùng là danh từ nhưng nghĩa khác.'}
       ]
     }
   ],
