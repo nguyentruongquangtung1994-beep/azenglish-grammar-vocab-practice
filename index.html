@@ -297,6 +297,9 @@
 <script src="data/topic-5-gioi-tu-lien-tu.js"></script>
 <script src="data/topic-6-chia-dong-tu.js"></script>
 <script src="data/topic-7-tu-loai.js"></script>
+<script src="data/topic-8-hoa-hop-chu-vi.js"></script>
+<script src="data/topic-9-so-sanh.js"></script>
+<script src="data/topic-10-cau-truc-dong-tu.js"></script>
 <script src="data/topic-8-part7-tu-vung.js"></script>
 <script src="data/part7-daily15-test1.js"></script>
 <script src="data/part7-daily15-test2.js"></script>
@@ -434,10 +437,10 @@
       return out;
     }
 
-    var grammarIds = topicOrder.filter(function(id){ return DATA[id].order <= 7; });
-    var bonusIds = topicOrder.filter(function(id){ return DATA[id].order > 7; });
+    var grammarIds = topicOrder.filter(function(id){ return DATA[id].order <= 10; });
+    var bonusIds = topicOrder.filter(function(id){ return DATA[id].order > 10; });
 
-    html += '<div class="panel"><h2 style="font-size:16px;">7 chủ điểm ngữ pháp TOEIC</h2>';
+    html += '<div class="panel"><h2 style="font-size:16px;">10 chủ điểm ngữ pháp TOEIC</h2>';
     grammarIds.forEach(function(id, idx){ html += topicCard(id, idx+1); });
     html += '</div>';
 

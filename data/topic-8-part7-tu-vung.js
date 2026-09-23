@@ -1,7 +1,7 @@
 window.AZ_GRAMMAR_DATA = window.AZ_GRAMMAR_DATA || {};
 window.AZ_GRAMMAR_DATA['part7-tu-vung'] = {
   id: 'part7-tu-vung',
-  order: 8,
+  order: 11,
   title: 'Part 7 — Từ Vựng Trong Bài Đọc',
   subtitle: 'Reading Vocabulary in Context',
   sourceExercises: 'ETS 2026 (Reading, đã có sẵn trong TOEIC Trainer)',
