@@ -93,6 +93,44 @@
   .progress-fill{ height:100%; background:var(--red); border-radius:99px; transition:width .3s; }
   .progress-label{ font-size:11.5px; color:var(--ink-soft); margin-top:6px; font-weight:600; }
 
+  /* ---- dashboard v2: gọn, có nhóm gập, ảnh AZ ---- */
+  .hero-az{ position:relative; overflow:hidden; border-radius:20px; margin-bottom:14px; padding:22px 22px 20px; color:#fff; background:#b3122e url(assets/az-hero.jpg) center/cover no-repeat; box-shadow:var(--card-shadow); }
+  .hero-az::before{ content:""; position:absolute; inset:0; background:linear-gradient(100deg, rgba(20,8,10,.82) 0%, rgba(20,8,10,.55) 55%, rgba(20,8,10,.25) 100%); }
+  .hero-az > *{ position:relative; }
+  .hero-az .hero-eyebrow{ color:#ffd7dc; margin-bottom:6px; }
+  .hero-az h2{ font-family:var(--font-display); font-size:21px; line-height:1.3; margin:0 0 12px; max-width:26ch; color:#fff; }
+  .hero-meta{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .hero-nums{ display:flex; gap:16px; font-size:12px; color:#f3e3e5; }
+  .hero-nums b{ font-family:var(--font-display); font-size:17px; color:#fff; margin-right:4px; }
+  .btn-light{ background:#fff; color:#b3122e; }
+  .results{ margin-bottom:14px; }
+  .results-h{ font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin:0 2px 8px; }
+  .results-row{ display:flex; gap:10px; overflow-x:auto; padding-bottom:4px; scroll-snap-type:x mandatory; }
+  .result-card{ flex:none; width:132px; scroll-snap-align:start; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--paper); box-shadow:var(--card-shadow); }
+  .result-card img{ display:block; width:100%; height:128px; object-fit:cover; object-position:center 55%; }
+  .result-card div{ padding:6px 8px 8px; font-size:11px; color:var(--ink-soft); line-height:1.35; }
+  .result-card b{ display:block; font-family:var(--font-display); font-size:15px; color:var(--red); }
+  details.tgroup{ border:1px solid var(--line); border-radius:14px; background:var(--paper); margin-bottom:10px; box-shadow:var(--card-shadow); overflow:hidden; }
+  details.tgroup > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:14px 16px; font-family:var(--font-display); font-weight:700; font-size:15.5px; }
+  details.tgroup > summary::-webkit-details-marker{ display:none; }
+  details.tgroup > summary .g-count{ margin-left:auto; font-family:var(--font-body); font-size:11.5px; font-weight:700; color:var(--ink-soft); }
+  details.tgroup > summary::after{ content:"›"; color:var(--ink-soft); transition:transform .2s; font-size:18px; }
+  details.tgroup[open] > summary::after{ transform:rotate(90deg); }
+  .trow{ display:flex; align-items:center; gap:12px; padding:11px 16px; border-top:1px solid var(--line); cursor:pointer; }
+  .trow:hover{ background:var(--paper-2); }
+  .trow .topic-num{ width:28px; height:28px; font-size:13px; border-radius:8px; }
+  .trow-t{ flex:1; min-width:0; }
+  .trow-t b{ display:block; font-size:14px; font-weight:700; }
+  .trow-t span{ display:block; font-size:11.5px; color:var(--ink-soft); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .trow-t b{ line-height:1.3; }
+  .trow-p{ flex:none; width:54px; text-align:right; font-size:11.5px; font-weight:700; color:var(--ink-soft); }
+  .trow-p i{ display:block; height:4px; border-radius:99px; background:var(--paper-2); margin-top:4px; overflow:hidden; }
+  .trow-p i u{ display:block; height:100%; background:var(--red); text-decoration:none; }
+  .az-community{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:6px 0 4px; }
+  .az-community img{ width:100%; height:110px; object-fit:cover; border-radius:14px; border:1px solid var(--line); }
+  .az-tag{ text-align:center; font-size:12px; color:var(--ink-soft); margin:8px 0 0; }
+  @media (max-width:420px){ .hero-az h2{ font-size:19px; } }
+
   /* ---- topic detail ---- */
   .backlink{ display:inline-flex; align-items:center; gap:6px; color:var(--ink-soft); font-size:13px; font-weight:700; text-decoration:none; margin-bottom:14px; cursor:pointer; }
   .theory-group{ margin-bottom:18px; }
@@ -300,6 +338,11 @@
 <script src="data/topic-8-hoa-hop-chu-vi.js"></script>
 <script src="data/topic-9-so-sanh.js"></script>
 <script src="data/topic-10-cau-truc-dong-tu.js"></script>
+<script src="data/topic-11-khiem-khuyet.js"></script>
+<script src="data/topic-12-cum-dong-tu.js"></script>
+<script src="data/topic-13-lien-tu-part6.js"></script>
+<script src="data/topic-14-tu-han-dinh.js"></script>
+<script src="data/topic-15-trang-tu-danh-tu-ghep.js"></script>
 <script src="data/topic-8-part7-tu-vung.js"></script>
 <script src="data/part7-daily15-test1.js"></script>
 <script src="data/part7-daily15-test2.js"></script>
@@ -407,67 +450,84 @@
   function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 
   // ---------- DASHBOARD ----------
+  var TOPIC_GROUPS = [
+    {name:'Nền tảng câu', ids:['cac-thi','chia-dong-tu','hoa-hop-chu-vi','khiem-khuyet','cau-truc-dong-tu']},
+    {name:'Từ loại & bổ nghĩa', ids:['tu-loai','trang-tu-danh-tu-ghep','tu-han-dinh','dai-tu','so-sanh']},
+    {name:'Mệnh đề, liên kết & cụm từ', ids:['dieu-kien','menh-de-quan-he','gioi-tu-lien-tu','lien-tu-part6','cum-dong-tu']}
+  ];
+  var AZ_RESULTS = [
+    {img:'assets/toeic-950.jpg', score:'950', sub:'Listening 495 · Reading 455'},
+    {img:'assets/toeic-885.jpg', score:'885', sub:'Listening 465 · Reading 420'},
+    {img:'assets/toeic-765.jpg', score:'765', sub:'Listening 375 · Reading 390'}
+  ];
+
   function renderDashboard(){
     var stat = overallStats();
+    var grouped = {};
+    TOPIC_GROUPS.forEach(function(g){ g.ids = g.ids.filter(function(id){ return DATA[id]; }); g.ids.forEach(function(id){ grouped[id] = 1; }); });
+    var extra = topicOrder.filter(function(id){ return id !== 'part7-tu-vung' && !grouped[id]; });
+    if(extra.length) TOPIC_GROUPS.push({name:'Chủ điểm khác', ids:extra});
+
+    var numOf = {}, n = 0;
+    TOPIC_GROUPS.forEach(function(g){ g.ids.forEach(function(id){ numOf[id] = ++n; }); });
+
+    var nextId = null;
+    TOPIC_GROUPS.forEach(function(g){ g.ids.forEach(function(id){ if(!nextId){ var s = topicStats(id); if(s.doneQuizzes < s.totalQuizzes) nextId = id; } }); });
+    if(!nextId && TOPIC_GROUPS.length) nextId = TOPIC_GROUPS[0].ids[0];
+
     var html = '';
-    html += '<div class="hero-card">';
-    html += '  <div class="hero-eyebrow">AZEnglish · Chương trình luyện thi TOEIC 250 → 450</div>';
-    html += '  <h2>Nắm chắc ngữ pháp — tăng điểm TOEIC bền vững</h2>';
-    html += '  <p class="desc">Học lý thuyết ngắn gọn, luyện trắc nghiệm đúng chuẩn TOEIC theo từng chủ điểm, và mở rộng vốn từ vựng đi kèm.</p>';
-    html += '  <div class="stat-row">';
-    html += '    <div class="stat-chip"><b>' + stat.topicsStarted + '/' + stat.totalTopics + '</b><span>Chủ điểm đã học</span></div>';
-    html += '    <div class="stat-chip"><b>' + stat.doneQuizzes + '/' + stat.totalQuizzes + '</b><span>Bài đã làm</span></div>';
-    html += '    <div class="stat-chip"><b>' + (stat.doneQuizzes ? stat.avgPct + '%' : '—') + '</b><span>Điểm trung bình</span></div>';
+    html += '<div class="hero-az">';
+    html += '  <div class="hero-eyebrow">AZEnglish · TOEIC 250 → 450</div>';
+    html += '  <h2>Nắm chắc ngữ pháp, tăng điểm TOEIC bền vững</h2>';
+    html += '  <div class="hero-meta">';
+    html += '    <a class="btn btn-light btn-sm" href="#/topic/' + nextId + '">' + (stat.doneQuizzes ? 'Tiếp tục học ›' : 'Bắt đầu học ›') + '</a>';
+    html += '    <div class="hero-nums"><span><b>' + stat.doneQuizzes + '/' + stat.totalQuizzes + '</b>bài</span><span><b>' + (stat.doneQuizzes ? stat.avgPct + '%' : '—') + '</b>điểm TB</span></div>';
     html += '  </div>';
     html += '</div>';
 
-    function topicCard(id, idx){
-      var t = DATA[id];
-      var s = topicStats(id);
-      var out = '';
-      out += '<div class="topic-card" onclick="location.hash=\'#/topic/' + id + '\'">';
-      out += '  <div class="topic-card-top">';
-      out += '    <div class="topic-num">' + idx + '</div>';
-      out += '    <div><p class="topic-title">' + esc(t.title) + '</p><p class="topic-sub">' + esc(t.subtitle) + ' · ' + t.quizzes.length + ' bài luyện tập</p></div>';
-      out += '    <div class="topic-arrow">›</div>';
-      out += '  </div>';
-      out += '  <div class="progress-track"><div class="progress-fill" style="width:' + s.pct + '%"></div></div>';
-      out += '  <div class="progress-label">' + s.doneQuizzes + '/' + s.totalQuizzes + ' bài đã làm' + (s.avgPct !== null ? ' · điểm TB ' + s.avgPct + '%' : '') + '</div>';
-      out += '</div>';
-      return out;
+    html += '<div class="results"><p class="results-h">Học viên AZ đạt TOEIC</p><div class="results-row">';
+    AZ_RESULTS.forEach(function(r){
+      html += '<div class="result-card"><img loading="lazy" src="' + r.img + '" alt="Bảng điểm TOEIC ' + r.score + ' của học viên AZEnglish"><div><b>TOEIC ' + r.score + '</b>' + r.sub + '</div></div>';
+    });
+    html += '</div></div>';
+
+    html += '<div class="panel" style="padding:16px;"><h2 style="font-size:16px;margin-bottom:12px;">Chọn chủ điểm ngữ pháp</h2>';
+    TOPIC_GROUPS.forEach(function(g){
+      var done = 0, total = 0;
+      g.ids.forEach(function(id){ var s = topicStats(id); done += s.doneQuizzes; total += s.totalQuizzes; });
+      var open = g.ids.indexOf(nextId) >= 0;
+      html += '<details class="tgroup"' + (open ? ' open' : '') + '><summary>' + esc(g.name) + '<span class="g-count">' + done + '/' + total + ' bài</span></summary>';
+      g.ids.forEach(function(id){
+        var t = DATA[id], s = topicStats(id);
+        html += '<div class="trow" onclick="location.hash=\'#/topic/' + id + '\'">';
+        html += '<div class="topic-num">' + numOf[id] + '</div>';
+        html += '<div class="trow-t"><b>' + esc(t.title) + '</b><span>' + esc(t.subtitle) + ' · ' + t.quizzes.length + ' bài</span></div>';
+        html += '<div class="trow-p">' + s.doneQuizzes + '/' + s.totalQuizzes + '<i><u style="width:' + s.pct + '%"></u></i></div>';
+        html += '</div>';
+      });
+      html += '</details>';
+    });
+
+    var bonusIds = topicOrder.filter(function(id){ return id === 'part7-tu-vung'; });
+    if(bonusIds.length){
+      var lessons = window.AZ_P7_LESSONS ? p7Lessons() : [];
+      var ps = lessons.length ? p7EnsureState() : null;
+      var doneCount = ps ? lessons.filter(function(l){ return ps.lessons[l.id]; }).length : 0;
+      var dueCount = ps ? Object.keys(ps.chunks).filter(function(cid){ var c = ps.chunks[cid]; return c.nextReviewDate && c.nextReviewDate <= p7Today() && c.status !== 'MASTERED'; }).length : 0;
+      html += '<details class="tgroup"><summary>Luyện Part 7 & từ vựng<span class="g-count">' + (dueCount ? '<b style="color:var(--red);">' + dueCount + ' cần ôn</b>' : (lessons.length ? doneCount + '/' + lessons.length + ' bài' : '')) + '</span></summary>';
+      if(lessons.length){
+        html += '<div class="trow" onclick="location.hash=\'#/p7\'"><div class="topic-num">★</div><div class="trow-t"><b>Part 7 — AZ Daily 15</b><span>' + lessons.length + ' bài học (đọc hiểu + học chunk)</span></div><div class="trow-p">' + doneCount + '/' + lessons.length + '<i><u style="width:' + Math.round(doneCount/lessons.length*100) + '%"></u></i></div></div>';
+      }
+      bonusIds.forEach(function(id){
+        var t = DATA[id], s = topicStats(id);
+        html += '<div class="trow" onclick="location.hash=\'#/topic/' + id + '\'"><div class="topic-num">★</div><div class="trow-t"><b>' + esc(t.title) + '</b><span>' + esc(t.subtitle) + ' · ' + t.quizzes.length + ' bài</span></div><div class="trow-p">' + s.doneQuizzes + '/' + s.totalQuizzes + '<i><u style="width:' + s.pct + '%"></u></i></div></div>';
+      });
+      html += '</details>';
     }
-
-    var grammarIds = topicOrder.filter(function(id){ return DATA[id].order <= 10; });
-    var bonusIds = topicOrder.filter(function(id){ return DATA[id].order > 10; });
-
-    html += '<div class="panel"><h2 style="font-size:16px;">10 chủ điểm ngữ pháp TOEIC</h2>';
-    grammarIds.forEach(function(id, idx){ html += topicCard(id, idx+1); });
     html += '</div>';
 
-    if(bonusIds.length){
-      html += '<div class="panel"><h2 style="font-size:16px;">Phần bổ trợ</h2><p class="desc">Luyện sau khi đã xong 7 chủ điểm — từ vựng lấy từ bài đọc thật ETS 2026.</p>';
-      bonusIds.forEach(function(id){
-        if(id === 'part7-tu-vung' && window.AZ_P7_LESSONS){
-          var lessons = p7Lessons();
-          var ps = p7EnsureState();
-          var doneCount = lessons.filter(function(l){ return ps.lessons[l.id]; }).length;
-          var dueCount = Object.keys(ps.chunks).filter(function(cid){ var c = ps.chunks[cid]; return c.nextReviewDate && c.nextReviewDate <= p7Today() && c.status !== 'MASTERED'; }).length;
-          html += '<div class="topic-card" onclick="location.hash=\'#/p7\'">';
-          html += '  <div class="topic-card-top">';
-          html += '    <div class="topic-num">★</div>';
-          var testCountP7 = Object.keys(lessons.reduce(function(a,l){ a[l.test]=1; return a; },{})).length;
-          html += '    <div><p class="topic-title">Part 7 — AZ Daily 15</p><p class="topic-sub">' + lessons.length + ' bài học (Test 1-' + testCountP7 + ')' + (dueCount ? ' · <b style="color:var(--red);">' + dueCount + ' chunk cần ôn</b>' : '') + '</p></div>';
-          html += '    <div class="topic-arrow">›</div>';
-          html += '  </div>';
-          html += '  <div class="progress-track"><div class="progress-fill" style="width:' + (lessons.length ? Math.round(doneCount/lessons.length*100) : 0) + '%"></div></div>';
-          html += '  <div class="progress-label">' + doneCount + '/' + lessons.length + ' bài đã học</div>';
-          html += '</div>';
-        } else {
-          html += topicCard(id, '★');
-        }
-      });
-      html += '</div>';
-    }
+    html += '<div class="az-community"><img loading="lazy" src="assets/az-community-1.jpg" alt="Học viên AZEnglish"><img loading="lazy" src="assets/az-community-2.jpg" alt="Học viên AZEnglish nhận chứng nhận"></div>';
+    html += '<p class="az-tag">AZEnglish — English for everyone</p>';
     root.innerHTML = html;
   }
 
