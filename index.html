@@ -344,7 +344,6 @@
 <script src="data/topic-13-lien-tu-part6.js"></script>
 <script src="data/topic-14-tu-han-dinh.js"></script>
 <script src="data/topic-15-trang-tu-danh-tu-ghep.js"></script>
-<script src="data/topic-8-part7-tu-vung.js"></script>
 <script src="data/part7-daily15-test1.js"></script>
 <script src="data/part7-daily15-test2.js"></script>
 <script src="data/part7-daily15-test3.js"></script>
@@ -507,21 +506,12 @@
     });
 
     html += '</div></details>';
-    var bonusIds = topicOrder.filter(function(id){ return id === 'part7-tu-vung'; });
-    if(bonusIds.length){
-      var lessons = window.AZ_P7_LESSONS ? p7Lessons() : [];
-      var ps = lessons.length ? p7EnsureState() : null;
-      var doneCount = ps ? lessons.filter(function(l){ return ps.lessons[l.id]; }).length : 0;
-      var dueCount = ps ? Object.keys(ps.chunks).filter(function(cid){ var c = ps.chunks[cid]; return c.nextReviewDate && c.nextReviewDate <= p7Today() && c.status !== 'MASTERED'; }).length : 0;
-      html += '<details class="tgroup"><summary>Luyện Part 7 & từ vựng<span class="g-count">' + (dueCount ? '<b style="color:var(--red);">' + dueCount + ' cần ôn</b>' : (lessons.length ? doneCount + '/' + lessons.length + ' bài' : '')) + '</span></summary>';
-      if(lessons.length){
-        html += '<div class="trow" onclick="location.hash=\'#/p7\'"><div class="topic-num">★</div><div class="trow-t"><b>Part 7 — AZ Daily 15</b><span>' + lessons.length + ' bài học (đọc hiểu + học chunk)</span></div><div class="trow-p">' + doneCount + '/' + lessons.length + '<i><u style="width:' + Math.round(doneCount/lessons.length*100) + '%"></u></i></div></div>';
-      }
-      bonusIds.forEach(function(id){
-        var t = DATA[id], s = topicStats(id);
-        html += '<div class="trow" onclick="location.hash=\'#/topic/' + id + '\'"><div class="topic-num">★</div><div class="trow-t"><b>' + esc(t.title) + '</b><span>' + esc(t.subtitle) + ' · ' + t.quizzes.length + ' bài</span></div><div class="trow-p">' + s.doneQuizzes + '/' + s.totalQuizzes + '<i><u style="width:' + s.pct + '%"></u></i></div></div>';
-      });
-      html += '</details>';
+    var lessons = window.AZ_P7_LESSONS ? p7Lessons() : [];
+    if(lessons.length){
+      var ps = p7EnsureState();
+      var doneCount = lessons.filter(function(l){ return ps.lessons[l.id]; }).length;
+      var dueCount = Object.keys(ps.chunks).filter(function(cid){ var c = ps.chunks[cid]; return c.nextReviewDate && c.nextReviewDate <= p7Today() && c.status !== 'MASTERED'; }).length;
+      html += '<div class="trow" style="border:1px solid var(--line);border-radius:14px;box-shadow:var(--card-shadow);" onclick="location.hash=\'#/p7\'"><div class="topic-num">★</div><div class="trow-t"><b>Luyện Part 7 — AZ Daily 15</b><span>' + lessons.length + ' bài học' + (dueCount ? ' · ' + dueCount + ' chunk cần ôn' : '') + '</span></div><div class="trow-p">' + doneCount + '/' + lessons.length + '<i><u style="width:' + Math.round(doneCount/lessons.length*100) + '%"></u></i></div></div>';
     }
     html += '</div>';
 
@@ -573,17 +563,6 @@
       html += '<div><div class="quiz-row-title">' + esc(q.title) + '</div><div class="quiz-row-meta">' + q.items.length + ' câu' + (rec ? ' · đã làm ' + rec.attempts + ' lần' : '') + '</div></div>';
       html += '<div class="score-badge ' + badgeClass + '">' + (pct === null ? 'Chưa làm' : pct + '%') + '</div>';
       html += '<div class="quiz-row-cta"><button class="btn btn-ghost btn-sm" onclick="location.hash=\'#/quiz/' + topicId + '/' + q.id + '\'">' + (rec ? 'Làm lại' : 'Bắt đầu') + '</button></div>';
-      html += '</div>';
-    });
-    html += '</div>';
-
-    html += '<div class="panel"><h2 style="font-size:16px;">🗂 Từ vựng bổ trợ</h2><p class="desc">Từ vựng chọn lọc theo chủ điểm — ghi chú lại và ôn theo chu kỳ (Ngày 1 – Ngày 3 – Ngày 7) để nhớ lâu.</p>';
-    t.vocab.forEach(function(v){
-      html += '<div class="vocab-item">';
-      html += '<span class="vocab-word">' + esc(v.word) + '</span><span class="vocab-ipa">' + esc(v.ipa) + '</span>';
-      html += '<div class="vocab-meaning">' + esc(v.meaning) + '</div>';
-      html += '<div class="vocab-example">"' + esc(v.example) + '"</div>';
-      if(v.note) html += '<div class="vocab-note">Liên quan: ' + esc(v.note) + '</div>';
       html += '</div>';
     });
     html += '</div>';
