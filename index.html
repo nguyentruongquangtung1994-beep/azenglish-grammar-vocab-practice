@@ -116,6 +116,8 @@
   details.tgroup > summary .g-count{ margin-left:auto; font-family:var(--font-body); font-size:11.5px; font-weight:700; color:var(--ink-soft); }
   details.tgroup > summary::after{ content:"›"; color:var(--ink-soft); transition:transform .2s; font-size:18px; }
   details.tgroup[open] > summary::after{ transform:rotate(90deg); }
+  details.tmain{ margin-bottom:10px; } details.tmain > summary{ font-size:17px; } .tmain-in{ padding:2px 10px 10px; } .tmain-in details.tgroup{ box-shadow:none; }
+  .results{ margin-top:16px; }
   .trow{ display:flex; align-items:center; gap:12px; padding:11px 16px; border-top:1px solid var(--line); cursor:pointer; }
   .trow:hover{ background:var(--paper-2); }
   .trow .topic-num{ width:28px; height:28px; font-size:13px; border-radius:8px; }
@@ -485,17 +487,14 @@
     html += '  </div>';
     html += '</div>';
 
-    html += '<div class="results"><p class="results-h">Học viên AZ đạt TOEIC</p><div class="results-row">';
-    AZ_RESULTS.forEach(function(r){
-      html += '<div class="result-card"><img loading="lazy" src="' + r.img + '" alt="Bảng điểm TOEIC ' + r.score + ' của học viên AZEnglish"><div><b>TOEIC ' + r.score + '</b>' + r.sub + '</div></div>';
-    });
-    html += '</div></div>';
-
-    html += '<div class="panel" style="padding:16px;"><h2 style="font-size:16px;margin-bottom:12px;">Chọn chủ điểm ngữ pháp</h2>';
+    var gDone = 0, gTotal = 0;
+    TOPIC_GROUPS.forEach(function(g){ g.ids.forEach(function(id){ var s = topicStats(id); gDone += s.doneQuizzes; gTotal += s.totalQuizzes; }); });
+    html += '<div class="panel" style="padding:14px;">';
+    html += '<details class="tgroup tmain"><summary>Ngữ pháp TOEIC<span class="g-count">' + gDone + '/' + gTotal + ' bài</span></summary><div class="tmain-in">';
     TOPIC_GROUPS.forEach(function(g){
       var done = 0, total = 0;
       g.ids.forEach(function(id){ var s = topicStats(id); done += s.doneQuizzes; total += s.totalQuizzes; });
-      var open = g.ids.indexOf(nextId) >= 0;
+      var open = false;
       html += '<details class="tgroup"' + (open ? ' open' : '') + '><summary>' + esc(g.name) + '<span class="g-count">' + done + '/' + total + ' bài</span></summary>';
       g.ids.forEach(function(id){
         var t = DATA[id], s = topicStats(id);
@@ -508,6 +507,7 @@
       html += '</details>';
     });
 
+    html += '</div></details>';
     var bonusIds = topicOrder.filter(function(id){ return id === 'part7-tu-vung'; });
     if(bonusIds.length){
       var lessons = window.AZ_P7_LESSONS ? p7Lessons() : [];
@@ -525,6 +525,12 @@
       html += '</details>';
     }
     html += '</div>';
+
+    html += '<div class="results"><p class="results-h">Học viên AZ đạt TOEIC</p><div class="results-row">';
+    AZ_RESULTS.forEach(function(r){
+      html += '<div class="result-card"><img loading="lazy" src="' + r.img + '" alt="Bảng điểm TOEIC ' + r.score + ' của học viên AZEnglish"><div><b>TOEIC ' + r.score + '</b>' + r.sub + '</div></div>';
+    });
+    html += '</div></div>';
 
     html += '<div class="az-community"><img loading="lazy" src="assets/az-community-1.jpg" alt="Học viên AZEnglish"><img loading="lazy" src="assets/az-community-2.jpg" alt="Học viên AZEnglish nhận chứng nhận"></div>';
     html += '<p class="az-tag">AZEnglish — English for everyone</p>';
