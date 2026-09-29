@@ -226,19 +226,6 @@
   .p7-chunk-en{ font-weight:700; font-size:14.5px; }
   .p7-chunk-vi{ font-size:13.5px; color:var(--ink-soft); margin-top:3px; }
   mark.p7-hl{ background:var(--gold-bg); color:var(--red-ink); font-weight:700; border-radius:3px; padding:1px 3px; }
-  mark.p7-hl-click{ cursor:pointer; border-bottom:1.5px dashed var(--gold); transition:background .15s; }
-  mark.p7-hl-click:hover, mark.p7-hl-click:focus-visible, mark.p7-hl-click.p7-hl-active{ background:var(--gold); color:#fff; outline:none; }
-  .p7-pop{ position:absolute; z-index:500; max-width:min(360px, calc(100vw - 16px)); background:var(--paper); color:var(--ink); border:1px solid var(--line); border-left:3px solid var(--red); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.18); padding:10px 12px; }
-  .p7-pop-en{ font-weight:700; font-size:14px; }
-  .p7-pop-vi{ font-size:14px; color:var(--ink-soft); margin-top:4px; line-height:1.5; }
-  .p7-kw{ cursor:pointer; color:var(--red-ink); text-decoration:underline; text-decoration-style:dotted; text-decoration-color:var(--red); text-underline-offset:3px; text-decoration-thickness:2px; border-radius:3px; }
-  .p7-kw:hover, .p7-kw:focus-visible, .p7-kw.p7-hl-active{ background:var(--gold-bg); outline:none; }
-  .p7-pos{ display:inline-block; font-size:11px; font-weight:800; color:var(--gold); background:var(--gold-bg); border-radius:6px; padding:0 6px; margin-right:2px; font-style:italic; }
-  .p7-pop-ex{ margin-top:8px; padding-top:8px; border-top:1px solid var(--line); }
-  .p7-pop-ex-label{ font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:3px; }
-  .p7-pop-ex-en{ font-size:13.5px; line-height:1.55; }
-  .p7-pop-ex-vi{ font-size:13px; line-height:1.55; color:var(--ink-soft); font-style:italic; margin-top:3px; }
-  .p7-tap-hint{ font-size:12px; color:var(--ink-soft); margin:-6px 0 12px; }
   mark.p7-hl-vi{ background:var(--gold-bg); color:var(--ink); font-weight:700; font-style:italic; border-radius:3px; padding:1px 4px; }
   .p7-vi-num{ display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%; background:var(--red); color:#fff; font-size:9.5px; font-weight:800; font-style:normal; margin-right:4px; }
   .p7-speak{ border:none; background:none; cursor:pointer; font-size:13px; padding:0 2px; vertical-align:middle; }
@@ -362,7 +349,6 @@
 <script src="data/part7-daily15-test3.js"></script>
 <script src="data/part7-daily15-test4.js"></script>
 <script src="data/part7-daily15-test5.js"></script>
-<script src="data/part7-keywords.js"></script>
 <script>
 (function(){
   "use strict";
@@ -770,92 +756,8 @@
   function p7HighlightChunksInPassage(lesson, phraseList){
     var sorted = phraseList.filter(Boolean).slice().sort(function(a,b){ return b.length-a.length; });
     var pattern = sorted.length ? new RegExp('(' + sorted.map(p7EscRe).join('|') + ')', 'gi') : null;
-    var idxByLower = {};
-    lesson.chunks.forEach(function(c, i){ idxByLower[c.chunk.toLowerCase()] = i; });
-    return lesson.passage.paragraphs.map(function(p){ return pattern ? esc(p.en).replace(pattern, function(m){
-      var idx = idxByLower[m.toLowerCase()];
-      if(idx === undefined) return '<mark class="p7-hl">' + m + '</mark>';
-      return '<mark class="p7-hl p7-hl-click" role="button" tabindex="0" title="Bấm để xem nghĩa" onclick="AZ_p7ShowMeaning(event,\'' + lesson.id + '\',' + idx + ')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();AZ_p7ShowMeaning(event,\'' + lesson.id + '\',' + idx + ');}">' + m + '</mark>';
-    }) : esc(p.en); });
+    return lesson.passage.paragraphs.map(function(p){ return pattern ? esc(p.en).replace(pattern, function(m){ return '<mark class="p7-hl">' + m + '</mark>'; }) : esc(p.en); });
   }
-  // Tap a highlighted chunk in the passage → small popover with Vietnamese meaning + audio
-  function p7ClosePopover(){ var el = document.getElementById('p7Pop'); if(el) el.remove(); }
-  // Popover anchored under (or above) the tapped element; tapping the same element again closes it
-  function p7OpenPopover(target, key, innerHtml){
-    var wasOpen = document.getElementById('p7Pop');
-    var sameTarget = wasOpen && wasOpen.getAttribute('data-key') === key;
-    p7ClosePopover();
-    if(sameTarget) return;
-    var pop = document.createElement('div');
-    pop.id = 'p7Pop'; pop.className = 'p7-pop'; pop.setAttribute('data-key', key);
-    pop.innerHTML = innerHtml;
-    pop.addEventListener('click', function(e){ e.stopPropagation(); });
-    document.body.appendChild(pop);
-    var r = target.getBoundingClientRect();
-    var pw = pop.offsetWidth, ph = pop.offsetHeight, vw = document.documentElement.clientWidth;
-    var left = Math.max(8, Math.min(r.left + window.scrollX + r.width/2 - pw/2, window.scrollX + vw - pw - 8));
-    var top = r.bottom + window.scrollY + 6;
-    if(r.bottom + ph + 12 > window.innerHeight && r.top - ph - 6 > 0) top = r.top + window.scrollY - ph - 6;
-    pop.style.left = left + 'px'; pop.style.top = top + 'px';
-    target.classList.add('p7-hl-active');
-    var obs = new MutationObserver(function(){ if(!document.getElementById('p7Pop')){ target.classList.remove('p7-hl-active'); obs.disconnect(); } });
-    obs.observe(document.body, {childList:true});
-  }
-  window.AZ_p7ShowMeaning = function(ev, lessonId, idx){
-    ev.stopPropagation();
-    var lesson = p7LessonById(lessonId); if(!lesson) return;
-    var c = lesson.chunks[idx]; if(!c) return;
-    p7OpenPopover(ev.currentTarget, lessonId + ':' + idx, '<div class="p7-pop-en">' + (idx+1) + '. ' + esc(c.chunk) + ' <button class="p7-speak" onclick="AZ_p7SpeakChunk(\'' + lessonId + '\',' + idx + ')" title="Nghe từ vựng">🔊</button></div><div class="p7-pop-vi">= ' + esc(c.meaningVi) + '</div>');
-  };
-
-  // ---- Key words inside each memory chunk (1–2 per chunk, from window.AZ_P7_KEYWORDS) ----
-  function p7Keywords(chunkId){ return (window.AZ_P7_KEYWORDS || {})[chunkId] || []; }
-  // Chunk text with its key words wrapped in tappable spans (first occurrence of each)
-  function p7ChunkKeywordHtml(lesson, idx){
-    var c = lesson.chunks[idx], text = c.chunk;
-    // locate each key word on the raw text first (first whole-word occurrence), then build HTML once
-    var spans = [];
-    p7Keywords(c.id).forEach(function(kw, ki){
-      var re = new RegExp('(^|[^A-Za-z\'’])(' + p7EscRe(kw[0]) + ')(?![A-Za-z\'’-])', 'g'), m;
-      while((m = re.exec(text))){
-        var start = m.index + m[1].length, end = start + m[2].length;
-        if(!spans.some(function(sp){ return start < sp.end && end > sp.start; })){ spans.push({start:start, end:end, ki:ki}); break; }
-        re.lastIndex = m.index + 1;
-      }
-    });
-    spans.sort(function(x,y){ return x.start - y.start; });
-    var html = '', pos = 0;
-    spans.forEach(function(sp){
-      var call = 'AZ_p7ShowKeyword(event,\'' + lesson.id + '\',' + idx + ',' + sp.ki + ')';
-      html += esc(text.slice(pos, sp.start)) + '<span class="p7-kw" role="button" tabindex="0" title="Bấm để xem nghĩa từ" onclick="' + call + '" onkeydown="if(event.key===\'Enter\'){' + call + ';}">' + esc(text.slice(sp.start, sp.end)) + '</span>';
-      pos = sp.end;
-    });
-    return html + esc(text.slice(pos));
-  }
-  window.AZ_p7ShowKeyword = function(ev, lessonId, idx, ki){
-    ev.stopPropagation();
-    var lesson = p7LessonById(lessonId); if(!lesson) return;
-    var c = lesson.chunks[idx]; var kw = p7Keywords(c.id)[ki]; if(!kw) return;
-    var sentEn = esc(c.sentenceEn || '');
-    var wordRe = new RegExp('(^|[^A-Za-z])(' + p7EscRe(esc(kw[0])) + ')(?![A-Za-z])', 'i');
-    sentEn = sentEn.replace(wordRe, function(all, pre, w){ return pre + '<mark class="p7-hl">' + w + '</mark>'; });
-    var html = '<div class="p7-pop-en">' + esc(kw[0]) + ' <button class="p7-speak" onclick="AZ_p7SpeakKeyword(\'' + lessonId + '\',' + idx + ',' + ki + ')" title="Nghe phát âm">🔊</button></div>';
-    html += '<div class="p7-pop-vi">' + (kw[1] ? '<span class="p7-pos">' + esc(kw[1]) + '</span> ' : '') + esc(kw[2]) + '</div>';
-    if(c.sentenceEn){
-      html += '<div class="p7-pop-ex"><div class="p7-pop-ex-label">Trong bài</div><div class="p7-pop-ex-en">' + sentEn + '</div>';
-      if(c.sentenceVi) html += '<div class="p7-pop-ex-vi">' + esc(c.sentenceVi) + '</div>';
-      html += '</div>';
-    }
-    p7OpenPopover(ev.currentTarget, 'kw:' + lessonId + ':' + idx + ':' + ki, html);
-  };
-  window.AZ_p7SpeakKeyword = function(lessonId, idx, ki){
-    var lesson = p7LessonById(lessonId); if(!lesson) return;
-    var kw = p7Keywords(lesson.chunks[idx].id)[ki]; if(kw) p7Speak(kw[0]);
-  };
-  document.addEventListener('click', p7ClosePopover);
-  window.addEventListener('hashchange', p7ClosePopover);
-  window.addEventListener('resize', p7ClosePopover);
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') p7ClosePopover(); });
   // Substitutes the given chunk ids (English text) with a numbered Vietnamese-meaning marker,
   // wherever they appear in the passage — used by Remember Layer 2 and Review Layer 2 so the
   // student sees the vocabulary embedded in a real sentence, not as an isolated flashcard.
@@ -975,7 +877,6 @@
     html += '<button class="' + (!p7s.showVi?'active':'') + '" onclick="AZ_p7SetVi(false)">English Only</button>';
     html += '<button class="' + (p7s.showVi?'active':'') + '" onclick="AZ_p7SetVi(true)">English + Vietnamese</button>';
     html += '</div>';
-    html += '<p class="p7-tap-hint">💡 Bấm vào cụm từ được tô màu để xem nghĩa tiếng Việt.</p>';
     var chunkEn = lesson.chunks.map(function(c){ return c.chunk; });
     var enParas = p7HighlightChunksInPassage(lesson, chunkEn);
     lesson.passage.paragraphs.forEach(function(p, i){
@@ -984,10 +885,9 @@
       html += '</div>';
     });
     html += '<h3 style="font-family:var(--font-display);font-size:15px;margin:16px 0 0;">' + lesson.chunks.length + ' Memory Chunks</h3>';
-    html += '<p class="p7-tap-hint" style="margin:6px 0 0;">💡 Từ gạch chân là từ khóa khó — bấm vào để xem từ loại, phát âm và câu gốc.</p>';
     html += '<div class="p7-chunk-list">';
     lesson.chunks.forEach(function(c, i){
-      html += '<div class="p7-chunk-row"><div><div class="p7-chunk-en">' + (i+1) + '. ' + p7ChunkKeywordHtml(lesson, i) + '</div><div class="p7-chunk-vi">= ' + esc(c.meaningVi) + '</div></div><button class="p7-speak" onclick="AZ_p7SpeakChunk(\'' + lesson.id + '\',' + i + ')" title="Nghe từ vựng">🔊</button></div>';
+      html += '<div class="p7-chunk-row"><div><div class="p7-chunk-en">' + (i+1) + '. ' + esc(c.chunk) + '</div><div class="p7-chunk-vi">= ' + esc(c.meaningVi) + '</div></div><button class="p7-speak" onclick="AZ_p7SpeakChunk(\'' + lesson.id + '\',' + i + ')" title="Nghe từ vựng">🔊</button></div>';
     });
     html += '</div>';
     html += '<div class="btn-row"><button class="btn btn-primary" onclick="AZ_p7GoRememberL1()">Tiếp tục → Remember</button></div>';
