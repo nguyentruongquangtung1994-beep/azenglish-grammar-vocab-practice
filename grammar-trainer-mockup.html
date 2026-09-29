@@ -140,11 +140,10 @@ footer{margin-block:56px 40px;color:var(--muted);font-size:14px;max-width:60em}
       <p>15 chủ điểm ngữ pháp TOEIC quen thuộc, bài tập trắc nghiệm bám sát Part 5/6, có giải thích chi tiết từng câu và luyện Part 7 đi kèm.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a class="btn" href="#topics">Bắt đầu học →</a>
-        <a class="btn ghost" href="#demo">Thử một câu hỏi</a>
       </div>
     </div>
     <div class="hero-art">
-      <div class="bubble">Chọn đáp án rồi xem giải thích liền tay!</div>
+      <div class="bubble">15 chủ điểm ngữ pháp TOEIC, học theo tốc độ của bạn!</div>
       <svg viewBox="0 0 400 400" aria-hidden="true">
         <g class="burst"><polygon id="burstPoly" fill="#ffe3e1" stroke="#161012" stroke-width="5" stroke-linejoin="round"/></g>
         <g transform="translate(100 95)">
@@ -172,56 +171,21 @@ footer{margin-block:56px 40px;color:var(--muted);font-size:14px;max-width:60em}
   <p class="ex">Số liệu minh họa. Bản thật lấy từ tiến độ lưu trên trình duyệt.</p>
 
   <div class="sec-head" id="topics">
-    <div><h2>Chọn nội dung luyện</h2></div>
+    <div><h2>Chọn nội dung luyện</h2><p>Bấm vào thẻ <b>Ngữ Pháp</b> để mở danh sách 15 chủ điểm — học viên tự chọn chủ điểm nào cần luyện.</p></div>
   </div>
   <div class="cards" id="cards"></div>
 
-  <div class="sec-head">
-    <div><h2>15 chủ điểm ngữ pháp</h2><p>Màu viền theo nhóm: đỏ = Nền tảng câu, đen = Từ loại &amp; bổ nghĩa, đỏ đậm = Mệnh đề &amp; liên kết.</p></div>
-  </div>
-  <div class="legend">
-    <span><i style="background:var(--az)"></i> Nền tảng câu</span>
-    <span><i style="background:var(--ink)"></i> Từ loại &amp; bổ nghĩa</span>
-    <span><i style="background:var(--az-deep)"></i> Mệnh đề, liên kết &amp; cụm từ</span>
-  </div>
-  <div class="books" id="books"></div>
-
-  <div class="sec-head" id="demo">
-    <div><h2>Thử một câu hỏi thật</h2><p>Chọn một đáp án — đúng/sai và giải thích hiện ra ngay, giống hệt cách app hoạt động ở chế độ Luyện tập.</p></div>
-  </div>
-  <section class="kw">
-    <div class="pane">
-      <p class="eyebrow" style="color:var(--az);margin:0 0 8px">Chủ điểm 6 · Chia Động Từ</p>
-      <h3>Câu 3 / 15</h3>
-      <p class="q">The rental fee for the storage units --- calculated on a weekly basis unless otherwise stated in the agreement.</p>
-      <div class="opts" id="opts">
-        <button class="opt" data-correct="0"><span class="lt">A</span> being</button>
-        <button class="opt" data-correct="0"><span class="lt">B</span> is</button>
-        <button class="opt" data-correct="0"><span class="lt">C</span> will be</button>
-        <button class="opt" data-correct="0"><span class="lt">D</span> been</button>
-      </div>
-      <div class="explain" id="explain"><strong>Dịch:</strong> Phí thuê các đơn vị lưu trữ được tính theo tuần, trừ khi có quy định khác trong hợp đồng. — <strong>Giải thích:</strong> chủ ngữ số ít "the rental fee" (không phải "storage units") → hiện tại đơn bị động "is calculated".</div>
+  <div id="grammarPanel" hidden>
+    <div class="sec-head" style="margin-block:28px 16px">
+      <div><h2 style="font-size:24px">15 chủ điểm ngữ pháp</h2><p>Màu viền theo nhóm: đỏ = Nền tảng câu, đen = Từ loại &amp; bổ nghĩa, đỏ đậm = Mệnh đề &amp; liên kết.</p></div>
     </div>
-    <div class="pane">
-      <p class="eyebrow" style="color:var(--muted);margin:0 0 10px">Chế độ</p>
-      <div class="tools">
-        <span class="chip soft">🎯 Luyện tập</span>
-        <span class="chip">📝 Kiểm tra</span>
-      </div>
-      <p class="count" id="count">Chưa chọn đáp án.</p>
-      <div class="tip">
-        <svg viewBox="0 0 120 130" aria-hidden="true">
-          <rect x="14" y="14" width="96" height="100" rx="26" fill="#161012"/>
-          <rect x="8" y="6" width="96" height="100" rx="26" fill="#e0102b" stroke="#161012" stroke-width="5"/>
-          <g class="blink"><circle cx="40" cy="42" r="12" fill="#fff" stroke="#161012" stroke-width="4"/><circle cx="72" cy="42" r="12" fill="#fff" stroke="#161012" stroke-width="4"/>
-          <circle cx="43" cy="45" r="5" fill="#161012"/><circle cx="75" cy="45" r="5" fill="#161012"/></g>
-          <path d="M44 68 q12 8 24 0" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-          <text x="56" y="96" text-anchor="middle" font-family="Be Vietnam Pro,Arial,sans-serif" font-weight="800" font-size="20" fill="#fff">AZ</text>
-        </svg>
-        <div class="say" id="say"><strong>Mẹo</strong>Ở chế độ Luyện tập, đúng/sai và giải thích hiện ra ngay sau khi bạn chọn — không cần làm hết bài mới biết.</div>
-      </div>
+    <div class="legend">
+      <span><i style="background:var(--az)"></i> Nền tảng câu</span>
+      <span><i style="background:var(--ink)"></i> Từ loại &amp; bổ nghĩa</span>
+      <span><i style="background:var(--az-deep)"></i> Mệnh đề, liên kết &amp; cụm từ</span>
     </div>
-  </section>
+    <div class="books" id="books"></div>
+  </div>
 
   <div class="sec-head">
     <div><h2>Học viên AZ đạt TOEIC</h2></div>
@@ -255,18 +219,27 @@ function mascot(key,body,up){
   </svg>`;
 }
 const cardData=[
-  {k:"grammar",name:"Ngữ Pháp",c:"#e0102b",d:"15 chủ điểm TOEIC quen thuộc, mỗi câu có dịch, giải thích và mẹo thêm.",types:["Các Thì","Chia Động Từ","Mệnh Đề Quan Hệ","Từ Loại"],tag:"71 BÀI · 15 CHỦ ĐIỂM",up:true},
-  {k:"part7",name:"Part 7",c:"#9e0b21",d:"AZ Daily 15 — học từ vựng trong ngữ cảnh đoạn văn thật ETS, ôn theo chu kỳ ngắt quãng.",types:["Gap-fill","Ghi nhớ","Ôn tập"],tag:"75 BÀI · AZ DAILY 15",up:false}
+  {k:"grammar",name:"Ngữ Pháp",c:"#e0102b",d:"15 chủ điểm TOEIC quen thuộc, mỗi câu có dịch, giải thích và mẹo thêm.",types:["Các Thì","Chia Động Từ","Mệnh Đề Quan Hệ","Từ Loại"],tag:"71 BÀI · 15 CHỦ ĐIỂM",tagExtra:" · bấm để xem ▾",up:true},
+  {k:"part7",name:"Part 7",c:"#9e0b21",d:"AZ Daily 15 — học từ vựng trong ngữ cảnh đoạn văn thật ETS, ôn theo chu kỳ ngắt quãng.",types:["Gap-fill","Ghi nhớ","Ôn tập"],tag:"75 BÀI · AZ DAILY 15",tagExtra:"",up:false}
 ];
 document.getElementById("cards").innerHTML=cardData.map(s=>`
-  <a class="card" href="#" style="--c:${s.c}">
+  <a class="card" href="#" data-key="${s.k}" style="--c:${s.c}">
     <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${icons[s.k]}</svg></span>
     <h3>${s.name}</h3>
     <p>${s.d}</p>
     <ul>${s.types.map(t=>`<li>${t}</li>`).join("")}</ul>
-    <span class="tag">${s.tag}</span>
+    <span class="tag">${s.tag}<span class="chev">${s.tagExtra}</span></span>
     ${mascot(s.k,s.c,s.up)}
   </a>`).join("");
+
+document.querySelector('.card[data-key="grammar"]').addEventListener("click",function(e){
+  e.preventDefault();
+  const panel=document.getElementById("grammarPanel");
+  panel.hidden=!panel.hidden;
+  const chev=this.querySelector(".chev");
+  chev.textContent=panel.hidden?" · bấm để xem ▾":" · bấm để ẩn ▴";
+  if(!panel.hidden) panel.scrollIntoView({behavior:"smooth",block:"start"});
+});
 
 const GROUPS=[
   {c:"var(--az)",items:[["1","Các Thì","12 bài"],["2","Câu Điều Kiện","2 bài"],["6","Chia Động Từ","12 bài"],["8","Hòa Hợp Chủ-Vị","3 bài"],["11","Động Từ Khiếm Khuyết","2 bài"]]},
@@ -277,16 +250,6 @@ document.getElementById("books").innerHTML=GROUPS.flatMap(g=>g.items).map(([n,na
   const g=GROUPS.find(g=>g.items.some(i=>i[0]===n));
   return `<a class="book" href="#" style="--bc:${g.c}"><span class="spine"></span><span class="num">${n}</span><b>${name}</b><small>${sub}</small><div class="row"><i></i><i></i><i></i><i></i></div></a>`;
 }).join("");
-
-const opts=document.querySelectorAll("#opts .opt"),explain=document.getElementById("explain"),count=document.getElementById("count");
-let answered=false;
-opts.forEach((o,i)=>o.addEventListener("click",()=>{
-  if(answered)return; answered=true;
-  const correctIdx=1; // "is"
-  opts.forEach((oo,j)=>{ if(j===correctIdx) oo.classList.add("correct"); else if(j===i) oo.classList.add("wrong"); });
-  explain.classList.add("show");
-  count.textContent = i===correctIdx ? "Chính xác! Đáp án đúng là B — is." : "Chưa đúng. Đáp án đúng là B — is.";
-}));
 
 (function(){const n=18,cx=200,cy=200,R=190,r=160;let pts=[];for(let i=0;i<n*2;i++){const a=Math.PI*i/n,rad=i%2?r:R;pts.push((cx+rad*Math.cos(a)).toFixed(1)+","+(cy+rad*Math.sin(a)).toFixed(1))}document.getElementById("burstPoly").setAttribute("points",pts.join(" "))})();
 </script>
