@@ -231,17 +231,6 @@
   .p7-pop{ position:absolute; z-index:500; max-width:min(320px, calc(100vw - 16px)); background:var(--paper); color:var(--ink); border:1px solid var(--line); border-left:3px solid var(--red); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.18); padding:10px 12px; }
   .p7-pop-en{ font-weight:700; font-size:14px; }
   .p7-pop-vi{ font-size:14px; color:var(--ink-soft); margin-top:4px; line-height:1.5; }
-  .p7-w{ cursor:pointer; border-radius:3px; border-bottom:1px dotted var(--ink-soft); }
-  .p7-w:hover, .p7-w:focus-visible, .p7-w.p7-hl-active{ background:var(--gold-bg); color:var(--red-ink); outline:none; }
-  .p7-pos{ display:inline-block; font-size:11px; font-weight:800; color:var(--gold); background:var(--gold-bg); border-radius:6px; padding:0 5px; margin-right:2px; font-style:italic; }
-  .p7-pop-link{ display:inline-block; margin-top:6px; font-size:12px; font-weight:700; color:var(--red); text-decoration:none; }
-  .p7-search{ margin:0 0 4px; }
-  .p7-search input{ width:100%; padding:10px 12px; border-radius:10px; border:1.5px solid var(--line); background:var(--paper); color:var(--ink); font-size:14px; font-family:var(--font-body); }
-  .p7-search input:focus{ outline:none; border-color:var(--red); box-shadow:var(--focus); }
-  #p7SearchResult:not(:empty){ border:1px solid var(--line); border-radius:10px; margin-top:6px; padding:4px 12px; }
-  .p7-search-row{ padding:8px 0; border-bottom:1px solid var(--line); font-size:14px; }
-  .p7-search-row:last-child{ border-bottom:none; }
-  .p7-search-row div{ color:var(--ink-soft); margin-top:2px; }
   .p7-tap-hint{ font-size:12px; color:var(--ink-soft); margin:-6px 0 12px; }
   mark.p7-hl-vi{ background:var(--gold-bg); color:var(--ink); font-weight:700; font-style:italic; border-radius:3px; padding:1px 4px; }
   .p7-vi-num{ display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%; background:var(--red); color:#fff; font-size:9.5px; font-weight:800; font-style:normal; margin-right:4px; }
@@ -366,7 +355,6 @@
 <script src="data/part7-daily15-test3.js"></script>
 <script src="data/part7-daily15-test4.js"></script>
 <script src="data/part7-daily15-test5.js"></script>
-<script src="data/part7-dictionary.js"></script>
 <script>
 (function(){
   "use strict";
@@ -784,15 +772,18 @@
   }
   // Tap a highlighted chunk in the passage → small popover with Vietnamese meaning + audio
   function p7ClosePopover(){ var el = document.getElementById('p7Pop'); if(el) el.remove(); }
-  // Generic popover anchored under (or above) the tapped element; tapping the same element again closes it
-  function p7OpenPopover(target, key, innerHtml){
+  window.AZ_p7ShowMeaning = function(ev, lessonId, idx){
+    ev.stopPropagation();
+    var lesson = p7LessonById(lessonId); if(!lesson) return;
+    var c = lesson.chunks[idx]; if(!c) return;
+    var target = ev.currentTarget;
     var wasOpen = document.getElementById('p7Pop');
-    var sameTarget = wasOpen && wasOpen.getAttribute('data-key') === key;
+    var sameTarget = wasOpen && wasOpen.getAttribute('data-key') === lessonId + ':' + idx;
     p7ClosePopover();
     if(sameTarget) return;
     var pop = document.createElement('div');
-    pop.id = 'p7Pop'; pop.className = 'p7-pop'; pop.setAttribute('data-key', key);
-    pop.innerHTML = innerHtml;
+    pop.id = 'p7Pop'; pop.className = 'p7-pop'; pop.setAttribute('data-key', lessonId + ':' + idx);
+    pop.innerHTML = '<div class="p7-pop-en">' + (idx+1) + '. ' + esc(c.chunk) + ' <button class="p7-speak" onclick="AZ_p7SpeakChunk(\'' + lessonId + '\',' + idx + ')" title="Nghe từ vựng">🔊</button></div><div class="p7-pop-vi">= ' + esc(c.meaningVi) + '</div>';
     pop.addEventListener('click', function(e){ e.stopPropagation(); });
     document.body.appendChild(pop);
     var r = target.getBoundingClientRect();
@@ -802,84 +793,9 @@
     if(r.bottom + ph + 12 > window.innerHeight && r.top - ph - 6 > 0) top = r.top + window.scrollY - ph - 6;
     pop.style.left = left + 'px'; pop.style.top = top + 'px';
     target.classList.add('p7-hl-active');
-    var obs = new MutationObserver(function(){ if(!document.getElementById('p7Pop')){ target.classList.remove('p7-hl-active'); obs.disconnect(); } });
+    var clear = function(){ target.classList.remove('p7-hl-active'); };
+    var obs = new MutationObserver(function(){ if(!document.getElementById('p7Pop')){ clear(); obs.disconnect(); } });
     obs.observe(document.body, {childList:true});
-  }
-  window.AZ_p7ShowMeaning = function(ev, lessonId, idx){
-    ev.stopPropagation();
-    var lesson = p7LessonById(lessonId); if(!lesson) return;
-    var c = lesson.chunks[idx]; if(!c) return;
-    p7OpenPopover(ev.currentTarget, lessonId + ':' + idx, '<div class="p7-pop-en">' + (idx+1) + '. ' + esc(c.chunk) + ' <button class="p7-speak" onclick="AZ_p7SpeakChunk(\'' + lessonId + '\',' + idx + ')" title="Nghe từ vựng">🔊</button></div><div class="p7-pop-vi">= ' + esc(c.meaningVi) + '</div>');
-  };
-
-  // ---- Single-word lookup (chunk list words + search box), backed by window.AZ_P7_DICT ----
-  function p7NormWord(w){ return String(w).toLowerCase().replace(/[’‘]/g, "'").replace(/'s$/, '').replace(/s'$/, 's').replace(/^-+|-+$/g, ''); }
-  function p7LookupWord(w){
-    var dict = window.AZ_P7_DICT || {};
-    var k = p7NormWord(w);
-    if(dict[k]) return dict[k];
-    // hyphenated compounds not in the dictionary: gloss each part
-    if(k.indexOf('-') > 0){
-      var parts = k.split('-'), glosses = parts.map(function(p){ return dict[p] ? p + ': ' + dict[p].replace(/^\([^)]*\)\s*/, '') : null; });
-      if(glosses.every(Boolean)) return glosses.join(' · ');
-    }
-    return null;
-  }
-  function p7GoogleLink(w){ return 'https://translate.google.com/?sl=en&tl=vi&op=translate&text=' + encodeURIComponent(w); }
-  function p7WordCardHtml(w){
-    var g = p7LookupWord(w);
-    var html = '<div class="p7-pop-en">' + esc(w) + ' <button class="p7-speak" data-say="' + esc(w) + '" onclick="AZ_p7SpeakWord(this)" title="Nghe phát âm">🔊</button></div>';
-    if(g){
-      var m = g.match(/^\(([^)]*)\)\s*(.*)$/);
-      html += '<div class="p7-pop-vi">' + (m ? '<span class="p7-pos">' + esc(m[1]) + '</span> ' + esc(m[2]) : esc(g)) + '</div>';
-    } else {
-      html += '<div class="p7-pop-vi">' + (/^[A-Z]/.test(w) ? 'Tên riêng (người / công ty / địa danh).' : 'Chưa có trong từ điển.') + '</div>';
-    }
-    html += '<a class="p7-pop-link" href="' + p7GoogleLink(w) + '" target="_blank" rel="noopener">Tra Google Dịch ↗</a>';
-    return html;
-  }
-  window.AZ_p7SpeakWord = function(btn){ p7Speak(btn.getAttribute('data-say')); };
-  window.AZ_p7Word = function(ev){
-    ev.stopPropagation();
-    var el = ev.currentTarget, w = el.textContent;
-    p7OpenPopover(el, 'w:' + w + ':' + Array.prototype.indexOf.call(document.querySelectorAll('.p7-w'), el), p7WordCardHtml(w));
-  };
-  // Wraps every word of a chunk in a tappable span (punctuation/spaces stay plain text)
-  function p7WordsHtml(text){
-    return String(text).split(/([A-Za-z][A-Za-z'’\-]*)/).map(function(t, i){
-      if(i % 2 === 0) return esc(t);
-      return '<span class="p7-w" role="button" tabindex="0" onclick="AZ_p7Word(event)" onkeydown="if(event.key===\'Enter\'){AZ_p7Word(event);}">' + esc(t) + '</span>';
-    }).join('');
-  }
-  window.AZ_p7Search = function(input){
-    var box = document.getElementById('p7SearchResult'); if(!box) return;
-    var q = p7NormWord(input.value.trim());
-    if(!q){ box.innerHTML = ''; return; }
-    var dict = window.AZ_P7_DICT || {};
-    var keys = Object.keys(dict);
-    var exact = dict[q] ? [q] : [];
-    var starts = keys.filter(function(k){ return k !== q && k.indexOf(q) === 0; }).sort(function(a,b){ return a.length-b.length || (a<b?-1:1); });
-    var vi = q.length >= 2 ? keys.filter(function(k){ return exact.indexOf(k) < 0 && starts.indexOf(k) < 0 && dict[k].toLowerCase().indexOf(q) >= 0; }) : [];
-    var hits = exact.concat(starts, vi).slice(0, 8);
-    var raw = input.value.trim().toLowerCase();
-    var chunkHits = [];
-    if(raw.length >= 2){
-      p7Lessons().forEach(function(l){ l.chunks.forEach(function(c){
-        if(chunkHits.length < 6 && (c.chunk.toLowerCase().indexOf(raw) >= 0 || c.meaningVi.toLowerCase().indexOf(raw) >= 0)) chunkHits.push(c);
-      }); });
-    }
-    var html = '';
-    hits.forEach(function(k){
-      var m = dict[k].match(/^\(([^)]*)\)\s*(.*)$/);
-      html += '<div class="p7-search-row"><b>' + esc(k) + '</b> <button class="p7-speak" data-say="' + esc(k) + '" onclick="AZ_p7SpeakWord(this)">🔊</button><div>' + (m ? '<span class="p7-pos">' + esc(m[1]) + '</span> ' + esc(m[2]) : esc(dict[k])) + '</div></div>';
-    });
-    chunkHits.forEach(function(c){
-      html += '<div class="p7-search-row"><span class="p7-pos">cụm</span> <b>' + esc(c.chunk) + '</b> <button class="p7-speak" data-say="' + esc(c.chunk) + '" onclick="AZ_p7SpeakWord(this)">🔊</button><div>= ' + esc(c.meaningVi) + '</div></div>';
-    });
-    if(!hits.length && !chunkHits.length){
-      html = '<div class="p7-search-row">Không tìm thấy "' + esc(input.value.trim()) + '" trong từ điển bài học. <a class="p7-pop-link" href="' + p7GoogleLink(input.value.trim()) + '" target="_blank" rel="noopener">Tra Google Dịch ↗</a></div>';
-    }
-    box.innerHTML = html;
   };
   document.addEventListener('click', p7ClosePopover);
   window.addEventListener('hashchange', p7ClosePopover);
@@ -1013,11 +929,9 @@
       html += '</div>';
     });
     html += '<h3 style="font-family:var(--font-display);font-size:15px;margin:16px 0 0;">' + lesson.chunks.length + ' Memory Chunks</h3>';
-    html += '<p class="p7-tap-hint" style="margin:6px 0 8px;">💡 Bấm vào từng từ bên dưới để xem nghĩa của từ đơn, hoặc gõ từ cần tra vào ô tìm kiếm.</p>';
-    html += '<div class="p7-search"><input type="search" placeholder="🔎 Tra từ (VD: commence, trải nhựa…)" oninput="AZ_p7Search(this)" autocomplete="off" autocapitalize="off" spellcheck="false"><div id="p7SearchResult"></div></div>';
     html += '<div class="p7-chunk-list">';
     lesson.chunks.forEach(function(c, i){
-      html += '<div class="p7-chunk-row"><div><div class="p7-chunk-en">' + (i+1) + '. ' + p7WordsHtml(c.chunk) + '</div><div class="p7-chunk-vi">= ' + esc(c.meaningVi) + '</div></div><button class="p7-speak" onclick="AZ_p7SpeakChunk(\'' + lesson.id + '\',' + i + ')" title="Nghe từ vựng">🔊</button></div>';
+      html += '<div class="p7-chunk-row"><div><div class="p7-chunk-en">' + (i+1) + '. ' + esc(c.chunk) + '</div><div class="p7-chunk-vi">= ' + esc(c.meaningVi) + '</div></div><button class="p7-speak" onclick="AZ_p7SpeakChunk(\'' + lesson.id + '\',' + i + ')" title="Nghe từ vựng">🔊</button></div>';
     });
     html += '</div>';
     html += '<div class="btn-row"><button class="btn btn-primary" onclick="AZ_p7GoRememberL1()">Tiếp tục → Remember</button></div>';
