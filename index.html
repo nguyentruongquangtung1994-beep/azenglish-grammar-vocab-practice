@@ -284,6 +284,96 @@
   .p7-lesson-row{ border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin-bottom:10px; background:var(--paper); }
   .p7-due-badge{ font-size:10px; font-weight:800; background:var(--red); color:#fff; border-radius:99px; padding:2px 8px; margin-left:8px; }
   .p7-test-heading{ font-family:var(--font-display); font-size:15px; font-weight:700; margin:0 0 10px; }
+
+  /* ============================================================
+     GIAO DIỆN MỚI cho toàn bộ app (ngữ pháp + Part 7 từ vựng):
+     viền dày, bóng cứng, tông đỏ-đen-trắng AZ, luôn ở chế độ sáng.
+     Ghi đè biến màu ở cuối file nên các style cũ tự đổi theo.
+     ============================================================ */
+  html:root, html:root[data-theme="dark"], html:root[data-theme="light"]{
+    --paper:#fffaf7; --paper-2:#fbeae6; --ink:#161012; --ink-soft:#5e5153; --line:#e3cfca;
+    --red:#e0102b; --red-deep:#9e0b21; --red-ink:#9e0b21;
+    --gold:#8a5d00; --gold-bg:#fff1a8;
+    --green:#14683f; --green-bg:#d9f3e3;
+    --amber:#8a5d00; --amber-bg:#fff1a8;
+    --card-shadow:5px 5px 0 #161012;
+    --focus:0 0 0 3px rgba(224,16,43,.4);
+    --font-display:"Baloo 2","Be Vietnam Pro",ui-rounded,system-ui,sans-serif;
+    color-scheme:light;
+  }
+  .themeBtn{ display:none; }
+  .banner{ border-bottom:4px solid #161012; }
+  .logo{ border:3px solid #161012; box-shadow:3px 3px 0 #161012; }
+  .brand h1{ font-weight:800; }
+
+  .panel, .hero-card, .gate-card, .tense-card, .quiz-row, .mode-card, .p7-lesson-row{ border:3px solid #161012; box-shadow:5px 5px 0 #161012; }
+  .tense-card{ box-shadow:3px 3px 0 #161012; border-width:2.5px; }
+  .quiz-row{ box-shadow:3px 3px 0 #161012; border-width:2.5px; }
+  .p7-lesson-row{ box-shadow:3px 3px 0 #161012; border-width:2.5px; }
+  .mode-card{ transition:transform .15s, box-shadow .15s; }
+  .mode-card:hover{ border-color:#161012; transform:translate(-1px,-2px); box-shadow:7px 7px 0 #161012; background:#fff1a8; }
+  .stat-chip{ border:2.5px solid #161012; box-shadow:3px 3px 0 #161012; }
+  .hero-card{ background:#fff; }
+  .hero-card::after{ display:none; }
+
+  .btn{ border:3px solid #161012; box-shadow:4px 4px 0 #161012; font-weight:800; transition:transform .15s, box-shadow .15s; }
+  .btn:hover{ transform:translate(-1px,-2px); box-shadow:6px 6px 0 #161012; }
+  .btn:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 #161012; }
+  .btn-primary{ background:var(--red); color:#fff; }
+  .btn-ghost{ background:#fff; color:#161012; border-color:#161012; }
+  .btn[disabled]{ box-shadow:none; transform:none; }
+
+  .opt-btn{ border:2.5px solid #161012; box-shadow:3px 3px 0 #161012; background:#fff; transition:transform .12s, box-shadow .12s; }
+  .opt-btn:not([disabled]):hover{ transform:translate(-1px,-2px); box-shadow:5px 5px 0 #161012; }
+  .opt-btn b{ border:2px solid #161012; background:var(--paper-2); border-radius:7px; width:24px; height:24px; font-weight:800; }
+  .opt-btn.selected{ background:#fff1a8; border-color:#161012; }
+  .opt-btn.selected b{ background:#161012; color:#fff; border-color:#161012; }
+  .opt-btn.correct{ background:var(--green-bg); border-color:var(--green); box-shadow:3px 3px 0 var(--green); color:#0c4a2b; }
+  .opt-btn.correct b{ background:var(--green); border-color:var(--green); }
+  .opt-btn.wrong{ background:#ffe3e1; border-color:var(--red); box-shadow:3px 3px 0 var(--red); }
+  .opt-btn.wrong b{ background:var(--red); border-color:var(--red); }
+  .opt-btn[disabled]{ box-shadow:3px 3px 0 #161012; }
+  .opt-btn.correct[disabled]{ box-shadow:3px 3px 0 var(--green); }
+  .opt-btn.wrong[disabled]{ box-shadow:3px 3px 0 var(--red); }
+
+  .explain-box{ background:#fff1a8; border:2.5px solid #161012; border-radius:12px; color:#161012; }
+  .quiz-note{ background:#fff1a8; color:#161012; border:2px solid #161012; }
+  .quiz-toolbar{ background:var(--paper); border-top:4px solid #161012; }
+  .score-badge{ border:2px solid #161012; background:#fff; color:#161012; }
+  .score-badge.good{ background:var(--green-bg); color:var(--green); border-color:var(--green); }
+  .score-badge.mid{ background:#fff1a8; color:var(--amber); border-color:var(--amber); }
+
+  .result-panel{ background:var(--red); border:4px solid #161012; box-shadow:8px 8px 0 #161012; border-radius:20px; }
+  .result-panel .btn-primary{ background:#fff; color:#161012; }
+  .result-panel .btn-ghost{ background:#161012 !important; color:#fff !important; border-color:#161012 !important; }
+
+  .tense-form{ background:#fff1a8; color:#161012; border:2px solid #161012; }
+  .theory-group h3{ color:var(--red-ink); font-weight:800; }
+  .tense-signals{ border-top:2px dashed #161012; }
+  .backlink{ color:#161012; font-weight:800; }
+  .backlink:hover{ color:var(--red); }
+  .accordion-toggle{ font-weight:800; }
+
+  .p7-toggle-row{ border:3px solid #161012; box-shadow:3px 3px 0 #161012; border-radius:12px; }
+  .p7-toggle-row button.active{ background:#161012; color:#fff; }
+  .p7-pop{ border:3px solid #161012; box-shadow:5px 5px 0 #161012; background:#fff; }
+  .p7-due-badge{ border:2px solid #161012; }
+  mark.p7-hl{ background:#ffe45c; color:#161012; }
+  mark.p7-hl-click{ border-bottom:2px dashed #161012; }
+  mark.p7-hl-click:hover, mark.p7-hl-click:focus-visible, mark.p7-hl-click.p7-hl-active{ background:#161012; color:#fff; }
+  .p7-kw{ background:#ffe45c; color:#161012; border-bottom:2px dashed #161012; }
+  .p7-kw:hover, .p7-kw:focus-visible, .p7-kw.p7-hl-active{ background:#161012; color:#fff; }
+  .p7-pos{ background:#161012; color:#fff; }
+  .p7-test-heading{ font-weight:800; }
+
+  .gate-card{ box-shadow:8px 8px 0 #161012; border-width:4px; }
+  .gate-field input{ border:3px solid #161012; background:#fff; color:#161012; }
+  .gate-field input:focus{ border-color:var(--red); }
+  .progress-track{ border:2px solid #161012; background:#fff; height:10px; }
+  .results-h{ color:#161012; }
+  .result-card{ border:3px solid #161012; box-shadow:4px 4px 0 #161012; }
+  .result-card b{ color:var(--red); }
+  @media (prefers-reduced-motion:reduce){ .btn, .opt-btn, .mode-card{ transition:none !important; } }
 </style>
 </head>
 <body>
