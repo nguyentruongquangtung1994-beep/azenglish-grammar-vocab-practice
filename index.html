@@ -131,159 +131,88 @@
   .az-community img{ width:100%; height:110px; object-fit:cover; border-radius:14px; border:1px solid var(--line); }
   .az-tag{ text-align:center; font-size:12px; color:var(--ink-soft); margin:8px 0 0; }
 
-  /* ---- Trang chủ kiểu mới (viền dày, bóng cứng) — chỉ áp cho màn hình chủ, luôn sáng bất kể theme ---- */
-  .nb-hero{ position:relative; overflow:hidden; border:4px solid #161012; border-radius:20px; padding:24px 20px 20px; background:#e0102b; color:#fff; box-shadow:8px 8px 0 #161012; margin-bottom:14px; }
-  .nb-hero .eyebrow{ font-size:11px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:#ffd7dc; margin:0 0 10px; }
-  .nb-hero h2{ font-family:"Baloo 2","Be Vietnam Pro",sans-serif; font-size:22px; line-height:1.3; margin:0 0 14px; font-weight:800; }
-  .nb-hero h2 mark{ background:#ffe45c; color:#161012; padding:0 .12em; border-radius:4px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
-  .nb-hero-cta{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
-  .nb-btn{ display:inline-flex; align-items:center; gap:8px; font:700 14.5px/1 "Be Vietnam Pro",sans-serif; padding:12px 18px; border:3px solid #161012; border-radius:12px; background:#fff; color:#161012; box-shadow:4px 4px 0 #161012; cursor:pointer; text-decoration:none; transition:transform .15s,box-shadow .15s; }
-  .nb-btn:hover{ transform:translate(-1px,-2px); box-shadow:6px 6px 0 #161012; }
-  .nb-btn:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 #161012; }
-  .nb-hero-nums{ display:flex; gap:16px; font-size:12px; color:#ffe3e1; }
-  .nb-hero-nums b{ font-family:"Baloo 2",sans-serif; font-size:16px; color:#fff; margin-right:4px; }
+  /* ---- Đầu trang + trang chủ lấy nguyên từ grammar-trainer-mockup.html ---- */
+  .nb-top{ position:sticky; top:0; z-index:50; background:#fffaf7; border-bottom:4px solid #161012; }
+  .nb-top-in{ max-width:1120px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; gap:16px; }
+  .nb-logo{ display:flex; align-items:center; gap:10px; font:800 20px/1 "Baloo 2","Be Vietnam Pro",sans-serif; text-decoration:none; color:#161012; cursor:pointer; }
+  .nb-logo i{ display:grid; place-items:center; width:40px; height:40px; background:#e0102b; color:#fff; border-radius:10px; font:800 17px/1 "Be Vietnam Pro",sans-serif; font-style:normal; letter-spacing:-.02em; border:3px solid #161012; box-shadow:3px 3px 0 #161012; }
+  .nb-logo span{ color:#e0102b; }
+  .nb-nav{ margin-left:auto; display:flex; gap:10px; align-items:center; }
+  .nb-chip{ border:3px solid #161012; background:#fff; border-radius:999px; padding:6px 14px; font:600 14px/1 "Be Vietnam Pro",sans-serif; box-shadow:3px 3px 0 #161012; white-space:nowrap; color:#161012; }
+  .nb-chip.soft{ background:#ffe3e1; }
+  @media (max-width:640px){ .nb-hide-sm{ display:none; } .nb-top-in{ padding:10px 14px; } }
+  .wrap.nb-wide{ max-width:1120px; padding-inline:20px; }
+  .wrap{ padding-top:24px; }
 
-  .nb-cards{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
-  @media (max-width:520px){ .nb-cards{ grid-template-columns:1fr; } }
-  .nb-card{ position:relative; display:block; border:3px solid #161012; border-radius:14px; padding:16px 16px 14px; background:var(--c,#e0102b); color:#fff; box-shadow:5px 5px 0 #161012; cursor:pointer; text-decoration:none; transition:transform .15s,box-shadow .15s; }
-  .nb-card:hover{ transform:translate(-1px,-2px); box-shadow:7px 7px 0 #161012; }
-  .nb-card .ico{ width:36px; height:36px; display:flex; align-items:center; justify-content:center; background:#fff; border:2.5px solid #161012; border-radius:10px; color:#161012; margin-bottom:10px; }
-  .nb-card h3{ font-family:"Baloo 2",sans-serif; font-size:21px; margin:0 0 4px; font-weight:800; }
-  .nb-card p{ font-size:12px; line-height:1.5; margin:0 0 10px; opacity:.92; min-height:2.6em; }
-  .nb-card .tag{ display:inline-flex; align-items:center; font:700 11px/1 "Be Vietnam Pro",sans-serif; letter-spacing:.02em; background:#161012; color:#fff; border:2px solid #fff; border-radius:99px; padding:5px 11px; }
+  .nb-hero{ display:grid; grid-template-columns:1.15fr .85fr; gap:24px; align-items:center; padding-block:16px 24px; }
+  .nb-hero .eyebrow{ font:700 12px/1 "Be Vietnam Pro",sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#e0102b; margin:0 0 14px; }
+  .nb-hero h1{ font:800 clamp(36px,6.4vw,70px)/1.05 "Baloo 2","Be Vietnam Pro",sans-serif; margin:0; color:#161012; text-wrap:balance; }
+  .nb-hero h1 .hlw{ background:linear-gradient(transparent 52%,#ffe45c 52%,#ffe45c 92%,transparent 92%); padding:0 .08em; }
+  .nb-hero h1 em{ font-style:normal; color:#fff; background:#e0102b; padding:0 .18em; border:4px solid #161012; border-radius:10px; box-shadow:6px 6px 0 #161012; display:inline-block; transform:rotate(-2deg); margin-top:.12em; }
+  .nb-hero-p{ max-width:34em; color:#5e5153; margin:22px 0 26px; font-size:16px; line-height:1.55; }
+  .nb-btn{ display:inline-flex; align-items:center; gap:10px; font:700 16px/1 "Be Vietnam Pro",sans-serif; padding:16px 22px; border:4px solid #161012; border-radius:12px; background:#e0102b; color:#fff; box-shadow:6px 6px 0 #161012; cursor:pointer; transition:transform .2s ease-out,box-shadow .2s ease-out; text-decoration:none; }
+  .nb-btn:hover{ transform:translate(-2px,-3px); box-shadow:9px 9px 0 #161012; }
+  .nb-btn:active{ transform:translate(4px,4px); box-shadow:2px 2px 0 #161012; }
+  .nb-btn:focus-visible, .nb-card:focus-visible, .nb-book:focus-visible{ outline:3px dashed #e0102b; outline-offset:4px; }
+  .nb-hero-art{ position:relative; aspect-ratio:1; max-width:400px; width:100%; justify-self:center; }
+  .nb-hero-art svg{ width:100%; height:100%; overflow:visible; }
+  .nb-burst{ animation:nbspin 40s linear infinite; transform-origin:50% 50%; }
+  @keyframes nbspin{ to{ transform:rotate(360deg); } }
+  .nb-bubble{ position:absolute; top:4%; left:-4%; background:#fff; border:3px solid #161012; border-radius:16px; padding:8px 14px; font:700 15px/1.2 "Be Vietnam Pro",sans-serif; box-shadow:4px 4px 0 #161012; transform:rotate(-4deg); max-width:75%; color:#161012; }
+  .nb-blink{ animation:nbblink 5s infinite; transform-box:fill-box; transform-origin:center; }
+  @keyframes nbblink{ 0%,94%,100%{ transform:scaleY(1); } 96%{ transform:scaleY(.1); } }
+  @media (max-width:760px){ .nb-hero{ grid-template-columns:1fr; } .nb-hero-art{ max-width:280px; } }
 
-  .nb-panel{ border:3px solid #161012; border-radius:14px; background:#fffaf7; padding:14px; margin-bottom:14px; box-shadow:5px 5px 0 #161012; color:#161012; }
-  .nb-legend{ display:flex; gap:14px; flex-wrap:wrap; font-size:11px; color:#5e5153; margin:0 0 10px; }
-  .nb-legend span{ display:inline-flex; align-items:center; gap:5px; }
-  .nb-legend i{ width:11px; height:11px; border-radius:4px; border:2px solid #161012; display:inline-block; }
-  .nb-books{ display:grid; grid-template-columns:repeat(2,1fr); gap:9px; }
-  @media (min-width:480px){ .nb-books{ grid-template-columns:repeat(3,1fr); } }
-  .nb-book{ display:flex; flex-direction:column; gap:6px; border:2.5px solid #161012; border-radius:10px; background:#fff; padding:10px; text-decoration:none; color:#161012; cursor:pointer; box-shadow:3px 3px 0 #161012; transition:transform .15s,box-shadow .15s; }
-  .nb-book:hover{ transform:translate(-1px,-2px); box-shadow:5px 5px 0 #161012; }
-  .nb-book .spine{ height:6px; border-radius:3px; background:var(--bc,#e0102b); }
-  .nb-book .num{ font:800 15px/1 "Baloo 2",sans-serif; color:var(--bc,#e0102b); }
-  .nb-book b{ font:800 12px/1.25 "Be Vietnam Pro",sans-serif; min-height:2.3em; }
-  .nb-book small{ font-size:10px; color:#5e5153; }
-  .nb-book-p{ font-size:9.5px; font-weight:700; color:#5e5153; }
-  .nb-book-p i{ display:block; height:4px; border-radius:99px; background:#f6e1de; margin-top:3px; overflow:hidden; border:1px solid #161012; }
-  .nb-book-p i u{ display:block; height:100%; background:var(--bc,#e0102b); }
-  @media (max-width:420px){ .hero-az h2{ font-size:19px; } }
+  .nb-goal{ display:flex; flex-wrap:wrap; gap:12px 28px; align-items:center; border:4px solid #161012; border-radius:14px; background:#fff; padding:16px 20px; box-shadow:8px 8px 0 #161012; color:#161012; }
+  .nb-goal .k{ font-size:13px; color:#5e5153; }
+  .nb-goal .v{ font:800 26px/1 "Baloo 2","Be Vietnam Pro",sans-serif; font-variant-numeric:tabular-nums; }
+  .nb-goal .bar{ flex:1 1 220px; min-width:0; }
+  .nb-meter{ height:16px; border:3px solid #161012; border-radius:999px; background:#ffe3e1; overflow:hidden; margin-top:6px; }
+  .nb-meter i{ display:block; height:100%; background:#e0102b; border-right:3px solid #161012; }
+  .nb-sec{ display:flex; justify-content:space-between; align-items:end; gap:16px; flex-wrap:wrap; margin:46px 0 20px; scroll-margin-top:90px; }
+  .nb-sec h2{ font:800 clamp(28px,4vw,40px)/1.05 "Baloo 2","Be Vietnam Pro",sans-serif; margin:0; color:#161012; }
+  .nb-sec p{ margin:6px 0 0; color:#5e5153; max-width:40em; font-size:15px; }
 
-  /* ---- topic detail ---- */
-  .backlink{ display:inline-flex; align-items:center; gap:6px; color:var(--ink-soft); font-size:13px; font-weight:700; text-decoration:none; margin-bottom:14px; cursor:pointer; }
-  .theory-group{ margin-bottom:18px; }
-  .theory-group h3{ font-family:var(--font-display); font-size:15px; margin:0 0 10px; color:var(--red-ink); }
-  .tense-card{ border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:10px; background:var(--paper-2); }
-  .tense-card h4{ margin:0 0 6px; font-size:14px; font-family:var(--font-display); }
-  .tense-form{ font-size:12.5px; font-weight:700; color:var(--gold); background:var(--gold-bg); display:inline-block; padding:3px 9px; border-radius:8px; margin-bottom:8px; }
-  .tense-card ul{ margin:6px 0; padding-left:18px; font-size:13px; line-height:1.6; }
-  .tense-signals{ font-size:12px; color:var(--ink-soft); margin-top:8px; padding-top:8px; border-top:1px dashed var(--line); }
-  .tip-list{ font-size:13.5px; line-height:1.7; padding-left:18px; }
-  .accordion-toggle{ display:flex; align-items:center; justify-content:space-between; width:100%; background:none; border:none; padding:0; cursor:pointer; color:var(--ink); font-family:var(--font-body); }
-  .accordion-toggle .chev{ transition:transform .2s; color:var(--ink-soft); }
-  .accordion-toggle.open .chev{ transform:rotate(180deg); }
-  .accordion-body{ display:none; margin-top:14px; }
-  .accordion-body.open{ display:block; }
+  .nb-cards{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px; }
+  @media (max-width:700px){ .nb-cards{ grid-template-columns:1fr; } }
+  .nb-card{ position:relative; display:flex; flex-direction:column; min-height:300px; overflow:hidden; border:4px solid #161012; border-radius:10px; background:var(--c,#e0102b); color:#fff; box-shadow:8px 8px 0 #161012; text-decoration:none; padding:22px; cursor:pointer; transition:transform .3s cubic-bezier(0,0,.2,1),box-shadow .3s cubic-bezier(0,0,.2,1); }
+  .nb-card:hover{ transform:translateY(-6px); box-shadow:12px 12px 0 #161012; }
+  .nb-card .ico{ width:48px; height:48px; display:grid; place-items:center; background:#fff; border:3px solid #161012; border-radius:12px; color:#161012; }
+  .nb-card .ico svg{ width:26px; height:26px; }
+  .nb-card h3{ font:800 36px/1.05 "Baloo 2","Be Vietnam Pro",sans-serif; margin:16px 0 0; }
+  .nb-card p{ font-size:14.5px; line-height:1.5; margin:6px 0 0; max-width:22em; position:relative; z-index:1; }
+  .nb-card ul{ list-style:none; padding:0; margin:14px 0 0; display:flex; flex-wrap:wrap; gap:8px; max-width:60%; position:relative; z-index:1; }
+  .nb-card li{ border:2px solid #fff; border-radius:999px; padding:3px 10px; font-size:12.5px; font-weight:600; }
+  .nb-card .mascot{ position:absolute; right:-6px; bottom:-40px; width:46%; max-width:230px; transition:transform .35s cubic-bezier(.3,1.6,.5,1); }
+  .nb-card:hover .mascot{ transform:translateY(-14px) rotate(-3deg); }
+  .nb-card .tag{ align-self:flex-start; background:#161012; color:#fff; border:3px solid #fff; border-radius:999px; padding:6px 14px; font:700 12.5px/1 "Be Vietnam Pro",sans-serif; letter-spacing:.06em; position:relative; z-index:1; margin-top:auto; }
+  .nb-card .tag + .tag{ display:none; }
+  .nb-card ul + .tag{ margin-top:22px; }
 
-  .quiz-row{ display:flex; align-items:center; gap:12px; border:1px solid var(--line); border-radius:12px; padding:13px 15px; margin-bottom:9px; }
-  .quiz-row-title{ font-size:13.5px; font-weight:700; }
-  .quiz-row-meta{ font-size:11.5px; color:var(--ink-soft); margin-top:2px; }
-  .score-badge{ flex:none; font-size:11.5px; font-weight:800; padding:4px 10px; border-radius:99px; background:var(--paper-2); color:var(--ink-soft); }
-  .score-badge.good{ background:var(--green-bg); color:var(--green); }
-  .score-badge.mid{ background:var(--amber-bg); color:var(--amber); }
-  .quiz-row-cta{ margin-left:auto; flex:none; }
-
-  /* ---- vocab table ---- */
-  .vocab-item{ border-bottom:1px solid var(--line); padding:12px 0; }
-  .vocab-item:last-child{ border-bottom:none; }
-  .vocab-word{ font-weight:800; font-family:var(--font-display); font-size:14.5px; }
-  .vocab-ipa{ color:var(--ink-soft); font-size:12px; margin-left:6px; }
-  .vocab-meaning{ color:var(--red-ink); font-weight:700; font-size:13px; margin:3px 0; }
-  .vocab-example{ font-size:13px; font-style:italic; color:var(--ink-soft); }
-  .vocab-note{ font-size:11.5px; color:var(--ink-soft); margin-top:3px; }
-
-  /* ---- quiz-taking ---- */
-  .mode-select{ display:flex; gap:10px; flex-wrap:wrap; }
-  .mode-card{ flex:1; min-width:150px; border:1.5px solid var(--line); border-radius:14px; padding:16px; cursor:pointer; text-align:left; background:var(--paper); }
-  .mode-card:hover{ border-color:var(--red); }
-  .mode-card h4{ margin:0 0 4px; font-family:var(--font-display); font-size:14.5px; }
-  .mode-card p{ margin:0; font-size:12px; color:var(--ink-soft); line-height:1.5; }
-  .quiz-note{ background:var(--gold-bg); color:var(--gold); font-size:12px; border-radius:10px; padding:9px 12px; margin-bottom:14px; }
-  .q-block{ border-bottom:1px solid var(--line); padding:18px 0; }
-  .q-block:first-child{ padding-top:0; }
-  .q-block:last-child{ border-bottom:none; }
-  .q-num{ font-weight:800; color:var(--red); font-size:13px; margin-bottom:6px; }
-  .q-text{ font-size:15.5px; line-height:1.65; margin:0 0 10px; }
-  .opt-row{ display:flex; flex-direction:column; gap:8px; }
-  .opt-btn{ text-align:left; border:1.5px solid var(--line); background:var(--paper); border-radius:10px; padding:11px 14px; font-size:14.5px; line-height:1.5; cursor:pointer; display:flex; gap:10px; align-items:flex-start; font-family:var(--font-body); }
-  .opt-btn b{ flex:none; width:20px; height:20px; border-radius:50%; background:var(--paper-2); display:flex; align-items:center; justify-content:center; font-size:11.5px; }
-  .opt-btn.selected{ border-color:var(--red); background:var(--amber-bg); }
-  .opt-btn.selected b{ background:var(--red); color:#fff; }
-  .opt-btn.correct{ border-color:var(--green); background:var(--green-bg); color:var(--green); }
-  .opt-btn.correct b{ background:var(--green); color:#fff; }
-  .opt-btn.wrong{ border-color:var(--red); background:var(--gold-bg); }
-  .opt-btn.wrong b{ background:var(--red); color:#fff; }
-  .opt-btn[disabled]{ cursor:default; }
-  .explain-box{ margin-top:10px; font-size:12.5px; line-height:1.6; background:var(--paper-2); border-radius:10px; padding:10px 12px; color:var(--ink-soft); }
-  .explain-box b{ color:var(--ink); }
-  .quiz-toolbar{ position:sticky; bottom:0; background:var(--paper); border-top:1px solid var(--line); padding:12px 0; margin-top:6px; display:flex; align-items:center; gap:10px; }
-  .quiz-progress{ font-size:12.5px; color:var(--ink-soft); font-weight:700; }
-
-  .result-panel{ background:linear-gradient(155deg, var(--red) 0%, var(--red-deep) 100%); color:#fff; border-radius:20px; padding:26px; margin-bottom:18px; box-shadow:var(--card-shadow); text-align:center; }
-  .result-panel .score-num{ font-family:var(--font-display); font-size:40px; margin:6px 0; }
-  .result-panel .score-msg{ font-size:13.5px; color:rgba(255,255,255,.88); }
-  .result-panel .btn-primary{ background:#fff; color:var(--red-deep); }
-
-  /* ---- gate ---- */
-  #gateScreen{ position:fixed; inset:0; z-index:999; background:var(--paper); display:flex; align-items:center; justify-content:center; padding:20px; }
-  .gate-card{ max-width:400px; width:100%; background:var(--paper); border:1px solid var(--line); border-radius:20px; box-shadow:var(--card-shadow); padding:30px 26px; }
-  .gate-card .logo{ margin:0 auto 14px; }
-  .gate-card h2{ text-align:center; font-family:var(--font-display); margin:0 0 6px; font-size:20px; }
-  .gate-card .desc{ text-align:center; margin-bottom:20px; }
-  .gate-field{ margin-bottom:12px; }
-  .gate-field label{ display:block; font-size:12px; font-weight:700; margin-bottom:5px; color:var(--ink-soft); }
-  .gate-field input{ width:100%; padding:12px 13px; border-radius:10px; border:1.5px solid var(--line); background:var(--paper); color:var(--ink); font-size:14px; font-family:var(--font-body); }
-  .gate-field input:focus{ outline:none; border-color:var(--red); box-shadow:var(--focus); }
-  .gate-privacy{ font-size:11px; color:var(--ink-soft); text-align:center; margin-top:12px; line-height:1.5; }
-  .gate-error{ color:var(--red); font-size:12.5px; margin-top:8px; display:none; }
-
-  .hidden{ display:none !important; }
-
-  /* ---- Part 7 — AZ Daily 15 ---- */
-  .p7-tag{ font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:var(--gold); }
-  .p7-formula{ font-size:12px; font-weight:700; color:var(--ink-soft); letter-spacing:.02em; margin-top:8px; }
-  .p7-passage-para{ font-size:15.5px; line-height:1.8; margin-bottom:12px; }
-  .p7-passage-vi{ font-size:14px; line-height:1.75; color:var(--ink-soft); margin-top:6px; padding-left:10px; border-left:2px solid var(--line); }
-  .p7-toggle-row{ display:flex; border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-bottom:14px; }
-  .p7-toggle-row button{ flex:1; padding:9px; font-size:12px; font-weight:700; border:none; background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--font-body); }
-  .p7-toggle-row button.active{ background:var(--red); color:#fff; }
-  .p7-chunk-list{ margin-top:16px; }
-  .p7-chunk-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:8px; border-bottom:1px solid var(--line); padding:11px 0; }
-  .p7-chunk-row:last-child{ border-bottom:none; }
-  .p7-chunk-en{ font-weight:700; font-size:14.5px; }
-  .p7-chunk-vi{ font-size:13.5px; color:var(--ink-soft); margin-top:3px; }
-  mark.p7-hl{ background:var(--gold-bg); color:var(--red-ink); font-weight:700; border-radius:3px; padding:1px 3px; }
-  mark.p7-hl-click{ cursor:pointer; border-bottom:1.5px dashed var(--gold); transition:background .15s; }
-  mark.p7-hl-click:hover, mark.p7-hl-click:focus-visible, mark.p7-hl-click.p7-hl-active{ background:var(--gold); color:#fff; outline:none; }
-  .p7-pop{ position:absolute; z-index:500; max-width:min(360px, calc(100vw - 16px)); background:var(--paper); color:var(--ink); border:1px solid var(--line); border-left:3px solid var(--red); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.18); padding:10px 12px; }
-  .p7-pop-en{ font-weight:700; font-size:14px; }
-  .p7-pop-vi{ font-size:14px; color:var(--ink-soft); margin-top:4px; line-height:1.5; }
-  .p7-kw{ cursor:pointer; background:var(--gold-bg); color:var(--red-ink); border-bottom:1.5px dashed var(--gold); border-radius:3px; padding:0 3px; transition:background .15s; }
-  .p7-kw:hover, .p7-kw:focus-visible, .p7-kw.p7-hl-active{ background:var(--gold); color:#fff; outline:none; }
-  .p7-kw-item{ font-size:13.5px; line-height:1.5; padding:3px 0; }
-  .p7-kw-vi{ color:var(--ink-soft); }
-  .p7-pos{ display:inline-block; font-size:11px; font-weight:800; color:var(--gold); background:var(--gold-bg); border-radius:6px; padding:0 6px; margin-right:2px; font-style:italic; }
-  .p7-pop-ex{ margin-top:8px; padding-top:8px; border-top:1px solid var(--line); }
-  .p7-pop-ex-label{ font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:3px; }
-  .p7-pop-ex-en{ font-size:13.5px; line-height:1.55; }
-  .p7-pop-ex-vi{ font-size:13px; line-height:1.55; color:var(--ink-soft); font-style:italic; margin-top:3px; }
-  .p7-tap-hint{ font-size:12px; color:var(--ink-soft); margin:-6px 0 12px; }
-  mark.p7-hl-vi{ background:var(--gold-bg); color:var(--ink); font-weight:700; font-style:italic; border-radius:3px; padding:1px 4px; }
-  .p7-vi-num{ display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%; background:var(--red); color:#fff; font-size:9.5px; font-weight:800; font-style:normal; margin-right:4px; }
-  .p7-speak{ border:none; background:none; cursor:pointer; font-size:13px; padding:0 2px; vertical-align:middle; }
-  .p7-lesson-row{ border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin-bottom:10px; background:var(--paper); }
-  .p7-due-badge{ font-size:10px; font-weight:800; background:var(--red); color:#fff; border-radius:99px; padding:2px 8px; margin-left:8px; }
-  .p7-test-heading{ font-family:var(--font-display); font-size:15px; font-weight:700; margin:0 0 10px; }
+  .nb-panel{ margin:28px 0 0; color:#161012; }
+  .nb-panel .nb-sec{ margin:0 0 14px; }
+  .nb-panel .nb-sec h2{ font-size:24px; }
+  .nb-legend{ display:flex; gap:16px; flex-wrap:wrap; margin:0 0 16px; font-size:12.5px; color:#5e5153; }
+  .nb-legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .nb-legend i{ width:14px; height:14px; border-radius:4px; border:2px solid #161012; display:inline-block; }
+  .nb-books{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px; }
+  @media (max-width:900px){ .nb-books{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  @media (max-width:520px){ .nb-books{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  .nb-book{ display:flex; flex-direction:column; gap:8px; border:3px solid #161012; border-radius:10px; background:#fff; box-shadow:5px 5px 0 #161012; padding:12px; text-decoration:none; color:#161012; cursor:pointer; transition:transform .2s,box-shadow .2s; }
+  .nb-book:hover{ transform:translate(-2px,-4px); box-shadow:8px 9px 0 #161012; }
+  .nb-book .spine{ height:9px; border-radius:4px; background:var(--bc,#e0102b); border:2px solid #161012; }
+  .nb-book .num{ font:800 20px/1 "Baloo 2","Be Vietnam Pro",sans-serif; color:var(--bc,#e0102b); }
+  .nb-book b{ font:800 13.5px/1.25 "Baloo 2","Be Vietnam Pro",sans-serif; min-height:2.5em; }
+  .nb-book small{ color:#5e5153; font-size:11px; }
+  .nb-book .row{ display:flex; gap:5px; }
+  .nb-book .row i{ flex:1; height:8px; border:2px solid #161012; border-radius:3px; background:#fff; }
+  .nb-book .row i.on{ background:var(--bc,#e0102b); }
+  .nb-scores{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+  @media (max-width:520px){ .nb-scores{ gap:10px; } }
+  .nb-scores .nb-book img{ width:100%; border-radius:6px; border:2px solid #161012; aspect-ratio:1/1; object-fit:cover; }
+  .nb-scores .nb-book b{ font-size:20px; min-height:0; margin-top:4px; }
+  .nb-foot{ margin:48px 0 20px; color:#5e5153; font-size:14px; text-align:center; }
+  @media (prefers-reduced-motion:reduce){ .nb-burst, .nb-blink{ animation:none !important; } .nb-card, .nb-book, .nb-btn, .nb-card .mascot{ transition:none !important; } }
 
   /* ============================================================
      GIAO DIỆN MỚI cho toàn bộ app (ngữ pháp + Part 7 từ vựng):
@@ -458,16 +387,17 @@
 </script>
 
 <!-- ============== APP ============== -->
-<div class="wrap">
-  <div class="banner">
-    <div class="logo" id="homeLogo" style="cursor:pointer;">AZ</div>
-    <div class="brand">
-      <small>AZEnglish</small>
-      <h1 id="homeLink">TOEIC Ngữ Pháp &amp; Từ Vựng</h1>
-    </div>
-    <button class="themeBtn" id="themeBtn" title="Đổi giao diện sáng/tối">🌓</button>
+<header class="nb-top">
+  <div class="nb-top-in">
+    <a class="nb-logo" id="homeLink" href="#/"><i id="homeLogo">AZ</i> Grammar <span>Trainer</span></a>
+    <nav class="nb-nav">
+      <span class="nb-chip soft nb-hide-sm">TOEIC 250 → 450</span>
+      <span class="nb-chip" id="nbTopCount">Ngữ pháp &amp; từ vựng</span>
+    </nav>
+    <button id="themeBtn" hidden aria-hidden="true" tabindex="-1"></button>
   </div>
-
+</header>
+<div class="wrap" id="appWrap">
   <div id="viewRoot"></div>
 </div>
 
@@ -580,6 +510,8 @@
     var hash = location.hash || '#/';
     var parts = hash.replace('#/','').split('/').filter(Boolean);
     window.scrollTo(0,0);
+    nbUpdateTop();
+    document.getElementById('appWrap').classList.toggle('nb-wide', !(parts[0] === 'topic' || parts[0] === 'quiz' || parts[0] === 'p7'));
     if(parts.length === 0){ renderDashboard(); }
     else if(parts[0] === 'topic' && parts[1]){ renderTopic(parts[1]); }
     else if(parts[0] === 'quiz' && parts[1] && parts[2]){ renderQuizIntro(parts[1], parts[2]); }
@@ -606,6 +538,45 @@
 
   var NB_GROUP_COLORS = ['#e0102b', '#161012', '#9e0b21'];
   var NB_GROUP_NAMES = ['Nền tảng câu', 'Từ loại & bổ nghĩa', 'Mệnh đề, liên kết & cụm từ'];
+  var NB_INK = '#161012';
+  var NB_PROPS = {
+    grammar: '<rect x="30" y="70" width="140" height="100" rx="10" fill="#fff" stroke="' + NB_INK + '" stroke-width="5"/><path d="M30 92h140M30 114h140M30 136h100" stroke="' + NB_INK + '" stroke-width="4" stroke-linecap="round" opacity=".35"/>',
+    part7: '<g transform="translate(58 112)"><path d="M0 6 q21 -10 42 0 v40 q-21 -10 -42 0z" fill="#fff" stroke="' + NB_INK + '" stroke-width="5" stroke-linejoin="round"/><path d="M42 6 q21 -10 42 0 v40 q-21 -10 -42 0z" fill="#fff" stroke="' + NB_INK + '" stroke-width="5" stroke-linejoin="round"/></g>'
+  };
+  function nbMascot(key, body, up){
+    return '<svg class="mascot" viewBox="0 0 200 200" aria-hidden="true">' +
+      '<rect x="40" y="20" width="120" height="200" rx="36" fill="' + body + '" stroke="' + NB_INK + '" stroke-width="6" style="filter:brightness(1.12)"/>' +
+      '<g class="nb-blink"><ellipse cx="78" cy="68" rx="15" ry="17" fill="#fff" stroke="' + NB_INK + '" stroke-width="5"/><ellipse cx="122" cy="68" rx="15" ry="17" fill="#fff" stroke="' + NB_INK + '" stroke-width="5"/><circle cx="80" cy="' + (up ? 62 : 72) + '" r="7" fill="' + NB_INK + '"/><circle cx="124" cy="' + (up ? 62 : 72) + '" r="7" fill="' + NB_INK + '"/></g>' +
+      '<path d="M88 98 q12 9 24 0" fill="none" stroke="' + NB_INK + '" stroke-width="5" stroke-linecap="round"/>' +
+      '<text x="100" y="152" text-anchor="middle" font-family="Be Vietnam Pro,Arial,sans-serif" font-weight="800" font-size="30" fill="#fff" opacity=".9" letter-spacing="-1">AZ</text>' +
+      NB_PROPS[key] + '</svg>';
+  }
+  function nbBurstPoints(){
+    var n = 18, cx = 200, cy = 200, R = 190, r = 160, pts = [];
+    for(var i = 0; i < n * 2; i++){ var a = Math.PI * i / n, rad = i % 2 ? r : R; pts.push((cx + rad * Math.cos(a)).toFixed(1) + ',' + (cy + rad * Math.sin(a)).toFixed(1)); }
+    return pts.join(' ');
+  }
+  function nbHeroArt(bubbleText){
+    return '<div class="nb-hero-art"><div class="nb-bubble">' + esc(bubbleText) + '</div>' +
+      '<svg viewBox="0 0 400 400" aria-hidden="true"><g class="nb-burst"><polygon points="' + nbBurstPoints() + '" fill="#ffe3e1" stroke="#161012" stroke-width="5" stroke-linejoin="round"/></g>' +
+      '<g transform="translate(100 95)">' +
+      '<rect x="6" y="14" width="200" height="200" rx="46" fill="#161012"/>' +
+      '<rect x="0" y="0" width="200" height="200" rx="46" fill="#e0102b" stroke="#161012" stroke-width="6"/>' +
+      '<g class="nb-blink"><ellipse cx="66" cy="62" rx="20" ry="22" fill="#fff" stroke="#161012" stroke-width="5"/><ellipse cx="134" cy="62" rx="20" ry="22" fill="#fff" stroke="#161012" stroke-width="5"/><circle cx="72" cy="66" r="9" fill="#161012"/><circle cx="140" cy="66" r="9" fill="#161012"/></g>' +
+      '<text x="100" y="164" text-anchor="middle" font-family="Be Vietnam Pro,Arial,sans-serif" font-weight="800" font-size="82" fill="#fff" letter-spacing="-3">AZ</text>' +
+      '<ellipse cx="34" cy="100" rx="12" ry="7" fill="#ff8f98"/><ellipse cx="166" cy="100" rx="12" ry="7" fill="#ff8f98"/>' +
+      '<path d="M-8 120 q-34 -10 -40 -44" fill="none" stroke="#161012" stroke-width="7" stroke-linecap="round"/>' +
+      '<path d="M208 120 q30 4 40 -24" fill="none" stroke="#161012" stroke-width="7" stroke-linecap="round"/>' +
+      '<g transform="translate(236 40) rotate(28)"><rect x="0" y="0" width="22" height="70" rx="5" fill="#ffe45c" stroke="#161012" stroke-width="5"/><rect x="0" y="0" width="22" height="18" rx="4" fill="#161012"/><path d="M3 70 l8 16 l8 -16z" fill="#ffe45c" stroke="#161012" stroke-width="5" stroke-linejoin="round"/></g>' +
+      '<path d="M60 206 v26 M140 206 v26" stroke="#161012" stroke-width="7" stroke-linecap="round"/>' +
+      '</g></svg></div>';
+  }
+
+  function nbUpdateTop(){
+    var st = overallStats();
+    var el = document.getElementById('nbTopCount');
+    if(el) el.textContent = st.totalTopics + ' chủ điểm · ' + st.totalQuizzes + ' bài';
+  }
 
   function renderDashboard(){
     var stat = overallStats();
@@ -625,38 +596,50 @@
     TOPIC_GROUPS.forEach(function(g){ g.ids.forEach(function(id){ var s = topicStats(id); gDone += s.doneQuizzes; gTotal += s.totalQuizzes; }); });
 
     var lessons = window.AZ_P7_LESSONS ? p7Lessons() : [];
-    var p7Done = 0, ps = null;
+    var p7Done = 0;
     if(lessons.length){
-      ps = p7EnsureState();
+      var ps = p7EnsureState();
       p7Done = lessons.filter(function(l){ return ps.lessons[l.id]; }).length;
     }
+    var pct = gTotal ? Math.round(gDone / gTotal * 100) : 0;
 
     var html = '';
-    html += '<div class="nb-hero">';
-    html += '  <div class="eyebrow">AZEnglish · TOEIC 250 → 450</div>';
-    html += '  <h2>Nắm chắc <mark>ngữ pháp &amp; từ vựng</mark><br>tăng điểm bền vững</h2>';
-    html += '  <div class="nb-hero-cta">';
-    html += '    <a class="nb-btn" href="#/topic/' + nextId + '">' + (stat.doneQuizzes ? 'Tiếp tục học →' : 'Bắt đầu học →') + '</a>';
-    html += '    <div class="nb-hero-nums"><span><b>' + stat.doneQuizzes + '/' + stat.totalQuizzes + '</b>bài</span><span><b>' + (stat.doneQuizzes ? stat.avgPct + '%' : '—') + '</b>điểm TB</span></div>';
-    html += '  </div>';
+    html += '<section class="nb-hero"><div>';
+    html += '  <p class="eyebrow">AZEnglish · Ngữ Pháp &amp; Từ Vựng TOEIC</p>';
+    html += '  <h1>Nắm chắc <span class="hlw">ngữ pháp &amp; từ vựng</span><br><em>tăng điểm bền vững</em></h1>';
+    html += '  <p class="nb-hero-p">' + n + ' chủ điểm ngữ pháp TOEIC quen thuộc, bài tập trắc nghiệm bám sát Part 5/6, có giải thích chi tiết từng câu, kèm từ vựng và luyện Part 7 đi kèm.</p>';
+    html += '  <a class="nb-btn" href="#/topic/' + nextId + '">' + (stat.doneQuizzes ? 'Tiếp tục học →' : 'Bắt đầu học →') + '</a>';
+    html += '</div>' + nbHeroArt(n + ' chủ điểm ngữ pháp TOEIC, học theo tốc độ của bạn!') + '</section>';
+
+    html += '<div class="nb-goal" role="group" aria-label="Tiến độ">';
+    html += '  <div><div class="k">Bài đã làm</div><div class="v">' + gDone + ' / ' + gTotal + '</div></div>';
+    html += '  <div><div class="k">Chủ điểm đã học</div><div class="v">' + stat.topicsStarted + ' / ' + stat.totalTopics + '</div></div>';
+    html += '  <div><div class="k">Điểm trung bình</div><div class="v">' + (stat.doneQuizzes ? stat.avgPct + '%' : '—') + '</div></div>';
+    html += '  <div class="bar"><div class="k">Hoàn thành bộ ngữ pháp TOEIC</div><div class="nb-meter"><i style="width:' + pct + '%"></i></div></div>';
     html += '</div>';
 
+    html += '<div class="nb-sec" id="nbTopics"><div><h2>Chọn nội dung luyện</h2><p>Bấm vào thẻ <b>Ngữ Pháp</b> để mở danh sách ' + n + ' chủ điểm — tự chọn chủ điểm nào cần luyện.</p></div></div>';
     html += '<div class="nb-cards">';
     html += '  <a class="nb-card" href="#" id="nbGrammarCard" style="--c:#e0102b">';
-    html += '    <span class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>';
-    html += '    <h3>Ngữ Pháp</h3><p>' + gTotal + ' bài trắc nghiệm, mỗi câu có dịch, giải thích và mẹo thêm.</p>';
-    html += '    <span class="tag">' + gDone + '/' + gTotal + ' bài · ' + n + ' chủ điểm <span id="nbGrammarChev">&nbsp;▾</span></span>';
+    html += '    <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>';
+    html += '    <h3>Ngữ Pháp</h3><p>' + n + ' chủ điểm TOEIC quen thuộc, mỗi câu có dịch, giải thích và mẹo thêm.</p>';
+    html += '    <ul><li>Các Thì</li><li>Chia Động Từ</li><li>Mệnh Đề Quan Hệ</li><li>Từ Loại</li></ul>';
+    html += '    <span class="tag">' + gDone + '/' + gTotal + ' BÀI · ' + n + ' CHỦ ĐIỂM<span id="nbGrammarChev"> · BẤM ĐỂ XEM ▾</span></span>';
+    html += '    ' + nbMascot('grammar', '#e0102b', true);
     html += '  </a>';
     if(lessons.length){
       html += '  <a class="nb-card" href="#/p7" style="--c:#9e0b21">';
-      html += '    <span class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg></span>';
+      html += '    <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg></span>';
       html += '    <h3>Part 7</h3><p>AZ Daily 15 — từ vựng trong ngữ cảnh đoạn văn thật ETS, ôn theo chu kỳ ngắt quãng.</p>';
-      html += '    <span class="tag">' + p7Done + '/' + lessons.length + ' bài · AZ Daily 15</span>';
+      html += '    <ul><li>Đọc chunk</li><li>Ghi nhớ</li><li>Luyện tập</li><li>Ôn tập</li></ul>';
+      html += '    <span class="tag">' + p7Done + '/' + lessons.length + ' BÀI · AZ DAILY 15</span>';
+      html += '    ' + nbMascot('part7', '#9e0b21', false);
       html += '  </a>';
     }
     html += '</div>';
 
     html += '<div class="nb-panel" id="nbGrammarPanel" hidden>';
+    html += '  <div class="nb-sec"><div><h2>' + n + ' chủ điểm ngữ pháp</h2><p>Màu viền theo nhóm: đỏ = Nền tảng câu, đen = Từ loại &amp; bổ nghĩa, đỏ đậm = Mệnh đề &amp; liên kết.</p></div></div>';
     html += '  <div class="nb-legend">';
     NB_GROUP_NAMES.forEach(function(name, i){ html += '<span><i style="background:' + NB_GROUP_COLORS[i] + '"></i>' + esc(name) + '</span>'; });
     html += '  </div>';
@@ -665,20 +648,25 @@
       var color = NB_GROUP_COLORS[gi] || '#e0102b';
       g.ids.forEach(function(id){
         var t = DATA[id], s = topicStats(id);
-        html += '<a class="nb-book" style="--bc:' + color + '" onclick="location.hash=\'#/topic/' + id + '\'">';
-        html += '  <span class="spine"></span><span class="num">' + numOf[id] + '</span><b>' + esc(t.title) + '</b><small>' + t.quizzes.length + ' bài</small>';
-        html += '  <div class="nb-book-p">' + s.doneQuizzes + '/' + s.totalQuizzes + '<i><u style="width:' + s.pct + '%"></u></i></div>';
-        html += '</a>';
+        var on = s.totalQuizzes ? Math.round(s.doneQuizzes / s.totalQuizzes * 4) : 0;
+        html += '<a class="nb-book" href="#/topic/' + id + '" style="--bc:' + color + '">';
+        html += '<span class="spine"></span><span class="num">' + numOf[id] + '</span><b>' + esc(t.title) + '</b>';
+        html += '<small>' + (s.doneQuizzes ? 'Xong ' + s.doneQuizzes + '/' + s.totalQuizzes : s.totalQuizzes + ' bài') + '</small>';
+        html += '<div class="row">';
+        for(var k = 0; k < 4; k++) html += '<i' + (k < on ? ' class="on"' : '') + '></i>';
+        html += '</div></a>';
       });
     });
     html += '  </div>';
     html += '</div>';
 
-    html += '<div class="results"><p class="results-h">Học viên AZ đạt TOEIC</p><div class="results-row">';
+    html += '<div class="nb-sec"><div><h2>Học viên AZ đạt TOEIC</h2></div></div>';
+    html += '<div class="nb-scores">';
     AZ_RESULTS.forEach(function(r){
-      html += '<div class="result-card"><img loading="lazy" src="' + r.img + '" alt="Bảng điểm TOEIC ' + r.score + ' của học viên AZEnglish"><div><b>TOEIC ' + r.score + '</b>' + r.sub + '</div></div>';
+      html += '<div class="nb-book" style="--bc:#e0102b"><img loading="lazy" src="' + r.img + '" alt="Bảng điểm TOEIC ' + r.score + ' của học viên AZEnglish"><b>TOEIC ' + r.score + '</b><small>' + r.sub + '</small></div>';
     });
-    html += '</div></div>';
+    html += '</div>';
+    html += '<p class="nb-foot">AZEnglish — English for everyone</p>';
 
     root.innerHTML = html;
 
@@ -686,7 +674,7 @@
       e.preventDefault();
       var panel = document.getElementById('nbGrammarPanel');
       panel.hidden = !panel.hidden;
-      document.getElementById('nbGrammarChev').innerHTML = panel.hidden ? '&nbsp;▾' : '&nbsp;▴';
+      document.getElementById('nbGrammarChev').textContent = panel.hidden ? ' · BẤM ĐỂ XEM ▾' : ' · BẤM ĐỂ ẨN ▴';
       if(!panel.hidden) panel.scrollIntoView({behavior:'smooth', block:'start'});
     });
   }
